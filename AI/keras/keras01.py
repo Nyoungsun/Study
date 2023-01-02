@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+print(tf.__version__) 
 
 #1. 데이터
 x = np.array([1, 2, 3])
