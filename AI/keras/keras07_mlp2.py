@@ -24,7 +24,12 @@ model.add(Dense(1)) # output layer
 model.compile(loss = 'mae', optimizer = 'adam')
 model.fit(x, y, epochs = 100, batch_size = 1) # 가중치와 바이어스가 생성됨
 
+
+print('\n')
 loss = model.evaluate(x, y) # loss 값 (실제값과 예측값의 오차) 반환 → 모델의 평가 기준 = loss(loss가 작을 수록 좋은 모델)
 print('loss: ', loss)
+
+
+print('\n')
 result = model.predict([[10, 1.4, 0]]) 
 print('예측값: ', result)

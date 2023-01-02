@@ -17,7 +17,10 @@ model.compile(loss = 'mae', optimizer = 'adam')
 model.fit(x, y, epochs = 100, batch_size = 6) # 가중치와 바이어스가 생성됨
 
 #평가, 예측
+print('\n')
 loss = model.evaluate(x, y) # loss 값 (실제값과 예측값의 오차) 반환 → 모델의 평가 기준 = loss
 print('loss: ', loss)
+
+print('\n')
 result = model.predict([6]) 
 print('예측값: ', result)
