@@ -30,6 +30,6 @@ print('\n')
 y_predict = model.predict(x)
 print(y_predict)
 
-plt.scatter(x, y)
-plt.plot(x, y_predict, color = 'red')
+plt.scatter(x, y, color = 'red')
+plt.plot(x, y_predict, color = 'green')
 plt.show()
