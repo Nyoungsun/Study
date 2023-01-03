@@ -17,10 +17,10 @@ y = y.T
 
 #2. 모델구성
 model = Sequential()
-model.add(Dense(15, input_dim = 1)) # input_dim = 열(column, feature)의 개수, input layer를 제외하고는 input을 입력하지 않아도 됨
+model.add(Dense(30, input_dim = 1)) # input_dim = 열(column, feature)의 개수, input layer를 제외하고는 input을 입력하지 않아도 됨
 model.add(Dense(25))
 model.add(Dense(20))
-model.add(Dense(30))
+model.add(Dense(10))
 model.add(Dense(7)) # hidden layer  
 model.add(Dense(3)) # output layer
 
