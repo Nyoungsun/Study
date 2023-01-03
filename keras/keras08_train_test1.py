@@ -10,9 +10,9 @@ y_test = np.array(range(7, 10))
 
 model = Sequential()
 model.add(Dense(10, input_dim = 1))
-model.add(Dense(25))
+model.add(Dense(30))
+model.add(Dense(20))
 model.add(Dense(10))
-model.add(Dense(5))
 model.add(Dense(1))
 
 model.compile(loss='mae', optimizer = 'adam')
