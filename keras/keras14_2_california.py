@@ -52,4 +52,4 @@ print("RMSE: ", RMSE(y_test, y_predict))
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
-#0.55
+#R2 = 0.55
