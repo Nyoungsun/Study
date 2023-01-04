@@ -16,6 +16,8 @@ x_train ,x_test, y_train, y_test = train_test_split(
 model = Sequential()
 model.add(Dense(30, input_dim = 1))
 model.add(Dense(20))
+model.add(Dense(30))
+model.add(Dense(30))
 model.add(Dense(10))
 model.add(Dense(1))
 
@@ -23,7 +25,7 @@ model.compile(loss='mae', optimizer = 'adam')
 model.fit(x_train, y_train, epochs = 500, batch_size=1)
 
 print('\n')
-loss = model.evaluate(x_test, y_test)
+loss = model.evaluate(x_test, y_test) # 랜덤으로 test와 train을 여러 회 분할하여 전체 데이터를 train과 test 데이터로 사용하게한다.
 print('loss:', loss)
 
 print('\n')
