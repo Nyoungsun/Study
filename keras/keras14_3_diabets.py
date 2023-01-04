@@ -26,16 +26,19 @@ x_train, x_test, y_train, y_test = train_test_split(
 
 model = Sequential()
 model.add(Dense(16, input_dim = 10))
+model.add(Dense(64))
 model.add(Dense(128))
 model.add(Dense(258))
 model.add(Dense(512))
 model.add(Dense(258))
-model.add(Dense(16))
+model.add(Dense(128))
+model.add(Dense(64))
+model.add(Dense(32))
 model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss='mae', optimizer='adam', metrics  = ['mse'])
-model.fit(x_train, y_train, epochs = 200, batch_size = 1)
+model.fit(x_train, y_train, epochs = 300, batch_size = 1)
 
 
 #4. 평가 및 예측

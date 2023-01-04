@@ -27,9 +27,9 @@ x_train, x_test, y_train, y_test = train_test_split(
 model = Sequential()
 model.add(Dense(16, input_dim = 13))
 model.add(Dense(32))
-model.add(Dense(128))
-model.add(Dense(256))
-model.add(Dense(32))
+model.add(Dense(258))
+model.add(Dense(512))
+model.add(Dense(258))
 model.add(Dense(16))
 model.add(Dense(1))
 
@@ -50,3 +50,5 @@ print("RMSE: ", RMSE(y_test, y_predict))
 
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
+
+#R2 = 0.72 
