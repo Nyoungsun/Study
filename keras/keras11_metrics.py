@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import numpy as np
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
@@ -25,7 +24,7 @@ model.compile(loss='mse', optimizer = 'adam', metrics = ['mae','accuracy','acc']
 model.fit(x_train, y_train, epochs = 500, batch_size=1)                                                                                                        #accuracy = acc
 
 print('\n')
-loss = model.evaluate(x_test, y_test) # 랜덤으로 test와 train을 여러 회 분할하여 전체 데이터를 train과 test 데이터로 사용하게한다.
+loss = model.evaluate(x_test, y_test)
 print('loss:', loss)
 
 print('\n')
