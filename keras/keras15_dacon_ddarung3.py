@@ -19,9 +19,9 @@ submission = pd.read_csv(path + 'submission.csv', index_col = 0)
 # print(train_data.info())       # Missing Attribute Values: 결측치 - 데이터에 값이 없는 것
 # print(train_data.describe())   # 평균, 표준편차, 최대값 등
 
-# ---------------------- 결측치 처리 (제거) ------------------------ #
+# ---------------------- 결측치 처리 (대체) ------------------------ #
 # print(train_data.isnull().sum())  
-train_data =  train_data.dropna()
+train_data =  train_data.fillna(train_data.mean())
 # print(train_data.isnull().sum())
 
 x = train_data.drop(['count'], axis=1)                              # y 값(count 열) 분리, axis = 1 → 열에 대해 동작
@@ -35,18 +35,19 @@ x_train, x_test, y_train, y_test = train_test_split(
 
 #2. 모델 구성
 model = Sequential()
-model.add(Dense(32, input_dim = 9))
-model.add(Dense(64))
+model.add(Dense(512, input_dim = 9))
 model.add(Dense(256))
-model.add(Dense(512))
-model.add(Dense(1024))
+model.add(Dense(256))
 model.add(Dense(128))
+model.add(Dense(64))
+model.add(Dense(32))
+model.add(Dense(16))
 model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss='mse', optimizer='adam', metrics  = ['mse'])
 
-model.fit(x_train, y_train, epochs = 200)
+model.fit(x_train, y_train, epochs = 200, batch_size = 1)
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test) 
