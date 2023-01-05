@@ -19,7 +19,7 @@ submission = pd.read_csv(path + 'submission.csv', index_col = 0)
 # print(train_data.info())       # Missing Attribute Values: 결측치 - 데이터에 값이 없는 것
 # print(train_data.describe())   # 평균, 표준편차, 최대값 등
 
-# ---------------------- 결측치 처리 (제거) ------------------------#
+# ---------------------- 결측치 처리 (제거) ------------------------ #
 # print(train_data.isnull().sum())  
 train_data =  train_data.dropna()
 # print(train_data.isnull().sum())
@@ -64,3 +64,7 @@ print("R2: ", r2)
 
 # 제출
 y_submit = model.predict(test_data)
+submission['count'] = y_submit
+submission.to_csv(path + 'submission_0105.csv')
+print(submission)
+
