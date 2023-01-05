@@ -25,10 +25,8 @@ x_train, x_test, y_train, y_test = train_test_split(
 )
 
 model = Sequential()
-model.add(Dense(16, input_dim = 10))
+model.add(Dense(64, input_dim = 10))
 model.add(Dense(128))
-model.add(Dense(512))
-model.add(Dense(1024))
 model.add(Dense(256))
 model.add(Dense(64))
 model.add(Dense(32))
