@@ -4,6 +4,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import pandas as pd
 import numpy as np
+import time as t
 
 #1. 데이터
 path = './keras_data/ddarung/'
@@ -37,17 +38,16 @@ x_train, x_test, y_train, y_test = train_test_split(
 model = Sequential()
 model.add(Dense(32, input_dim = 9))
 model.add(Dense(128))
-model.add(Dense(256))
-model.add(Dense(1024))
-model.add(Dense(256))
+model.add(Dense(512))
 model.add(Dense(128))
 model.add(Dense(16))
 model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss='mse', optimizer='adam', metrics  = ['mse'])
-
-model.fit(x_train, y_train, epochs = 200, batch_size = 1)
+start = t.time()
+model.fit(x_train, y_train, epochs = 10, batch_size = 1)
+fin = t.time()
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test) 
@@ -64,7 +64,12 @@ print("RMSE: ", RMSE(y_test, y_predict))
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
+print("소요시간: ", fin - start)
+
 # 제출
 y_submit = model.predict(test_data)
 submission['count'] = y_submit
 submission.to_csv(path + 'submission_0105.csv')
+
+# GPU 소요시간: 31.490965843200684
+# CPU 소요시간: 14.588835716247559
