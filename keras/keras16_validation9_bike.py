@@ -26,21 +26,24 @@ x = train_data.drop(['count'], axis=1)                              # y 값(coun
 y = train_data['count']                                             # y 값(count 열)만 추출
 
 x_train, x_test, y_train, y_test = train_test_split(
-    x, y, train_size=0.7, random_state=44)
+    x,y,
+    train_size=0.7,
+    random_state=44
+)
 
 #2. 모델 구성
 model = Sequential()
 model.add(Dense(32, input_dim = 8))
-model.add(Dense(128, activation='relu'))
+model.add(Dense(128))
 model.add(Dense(256, activation='relu'))
-model.add(Dense(256, activation='relu'))
-model.add(Dense(32, activation='relu'))
+model.add(Dense(512, activation='relu'))
+model.add(Dense(16))
 model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss='mse', optimizer='adam')
 start = t.time()
-model.fit(x_train, y_train, epochs = 100, batch_size=15, validation_split=0.3)
+model.fit(x_train, y_train, epochs = 100, batch_size=1, validation_split=0.2)
 fin = t.time()
 
 #4. 평가 및 예측
@@ -53,10 +56,10 @@ y_predict = model.predict(x_test)
 
 RMSE = np.sqrt(mean_squared_error(y_test, y_predict))
 print("RMSE: ", RMSE)
-# RMSLE = np.sqrt(mean_squared_log_error(y_test, y_predict))
-# print("RMSLE: ", RMSLE)
-R2 = r2_score(y_test, y_predict)
-print("R2: ", R2)
+RMSLE = np.sqrt(mean_squared_log_error(y_test, y_predict))
+print("RMSLE: ", RMSLE)
+r2 = r2_score(y_test, y_predict)
+print("R2: ", r2)
 
 print("소요시간: ", fin - start)
 
