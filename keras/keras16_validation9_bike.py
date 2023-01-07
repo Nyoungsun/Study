@@ -37,7 +37,7 @@ model.add(Dense(32, input_dim = 8))
 model.add(Dense(256, activation='relu'))
 model.add(Dense(512, activation='relu'))
 model.add(Dense(128, activation='relu'))
-model.add(Dense(16))
+model.add(Dense(16, activation='relu'))
 model.add(Dense(1))
 
 #3. 컴파일 및 훈련
