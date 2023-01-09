@@ -4,7 +4,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import numpy as np
-from matplotlib import pyplot as plt, font_manager, rc
+from matplotlib import pyplot as plt, font_manager
 
 # 1. 데이터
 dataset = load_boston()         # 보스턴 집 값에 대한 데이터
@@ -56,7 +56,7 @@ print("R2: ", r2)
 # --------------------- 시각화 ----------------------- #
 font_path = "C:/Windows/Fonts/malgun.ttf"
 font = font_manager.FontProperties(fname=font_path).get_name()
-rc('font', family=font)
+plt.rc('font', family=font)
 plt.title("보스턴")
 plt.figure(figsize=(9, 6))
 plt.plot(hist.history['loss'], c='red', marker='.', label='loss')
