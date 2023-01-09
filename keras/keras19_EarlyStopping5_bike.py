@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
+from tensorflow.keras.callbacks import EarlyStopping
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -38,10 +39,10 @@ model.add(Dense(256, activation='relu'))
 model.add(Dense(128, activation='relu'))
 model.add(Dense(1))
 
-
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
-hist = model.fit(x_train, y_train, epochs=200, batch_size=5, validation_split=0.2) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
+earltStopping = EarlyStopping(monitor='val_loss', mode = min, patience=10, restore_best_weights=True, verbose=3)
+hist = model.fit(x_train, y_train, epochs=200, batch_size=5, callbacks=[EarlyStopping], validation_split=0.2, verbose=3) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test)
@@ -69,3 +70,7 @@ plt.ylabel('loss')
 plt.legend() # label 출력 # plt.legend(loc = 'upper left')
 plt.title("bike loss")
 plt.show()
+
+y_submit = model.predict(test_data)
+submission['count'] = y_submit
+submission.to_csv(path + 'submission_0109.csv')

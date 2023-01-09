@@ -1,15 +1,16 @@
-from sklearn.datasets import fetch_california_housing
+from sklearn.datasets import load_diabetes
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
+from tensorflow.keras.callbacks import EarlyStopping
 import numpy as np
 import matplotlib.pyplot as plt
 
 #1. 데이터
-dataset = fetch_california_housing()       
-x = dataset.data                          
-y = dataset.target                        
+dataset = load_diabetes()        
+x = dataset.data                
+y = dataset.target              
 
 x_train, x_test, y_train, y_test = train_test_split(
     x, y, train_size=0.7, random_state=3333
@@ -17,16 +18,18 @@ x_train, x_test, y_train, y_test = train_test_split(
 
 #2. 모델구성
 model = Sequential()
-model.add(Dense(32, input_shape = (8,)))
+model.add(Dense(32, input_shape = (10,)))
 model.add(Dense(64))
 model.add(Dense(256))
+model.add(Dense(512))
 model.add(Dense(128))
 model.add(Dense(1))
 
 
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
-hist = model.fit(x_train, y_train, epochs=100, batch_size=20, validation_split=0.2, verbose=3) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
+earlyStopping = EarlyStopping(monitor='val_loss', mode = 'min', patience=10, restore_best_weights=True, verbose=3)
+hist = model.fit(x_train, y_train, epochs=100, batch_size=1, validation_split=0.2, callbacks=[earlyStopping], verbose = 3) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test, verbose=3)
@@ -52,5 +55,5 @@ plt.grid()
 plt.xlabel('epochs')
 plt.ylabel('loss')
 plt.legend() # label 출력 # plt.legend(loc = 'upper left')
-plt.title("california loss")
+plt.title("diabets loss")
 plt.show()
