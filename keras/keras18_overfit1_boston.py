@@ -31,7 +31,6 @@ model.add(Dense(512))
 model.add(Dense(128))
 model.add(Dense(1))
 
-
 # 3. 컴파일 및 훈련
 model.compile(loss='mse', optimizer='adam')
 # verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
