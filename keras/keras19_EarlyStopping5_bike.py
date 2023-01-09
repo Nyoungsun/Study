@@ -9,7 +9,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 #1. 데이터
-path = './keras_data/bike/'
+path = 'C:/study/keras_data/bike/'
 train_data = pd.read_csv(path + 'train.csv', index_col = 0)         # index_col = 0 → date_t 열 데이터로 취급 X
 test_data = pd.read_csv(path + 'test.csv', index_col = 0)
 submission = pd.read_csv(path + 'sampleSubmission.csv', index_col = 0)
@@ -41,8 +41,8 @@ model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
-earltStopping = EarlyStopping(monitor='val_loss', mode = min, patience=10, restore_best_weights=True, verbose=3)
-hist = model.fit(x_train, y_train, epochs=200, batch_size=5, callbacks=[EarlyStopping], validation_split=0.2, verbose=3) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
+earlyStopping = EarlyStopping(monitor='val_loss', mode = min, patience=10, restore_best_weights=True, verbose=3)
+hist = model.fit(x_train, y_train, epochs=100, batch_size=5, callbacks=[earlyStopping], validation_split=0.2, verbose=3) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test)
@@ -60,6 +60,10 @@ print("RMSE: ", RMSE)
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
+y_submit = model.predict(test_data)
+submission['count'] = y_submit
+submission.to_csv(path + 'submission_0109_gpu.csv')
+
 # --------------------- 시각화 ----------------------- #
 plt.figure(figsize=(9,6))
 plt.plot(hist.history['loss'], c='red', marker='.', label = 'loss')
@@ -71,6 +75,3 @@ plt.legend() # label 출력 # plt.legend(loc = 'upper left')
 plt.title("bike loss")
 plt.show()
 
-y_submit = model.predict(test_data)
-submission['count'] = y_submit
-submission.to_csv(path + 'submission_0109.csv')
