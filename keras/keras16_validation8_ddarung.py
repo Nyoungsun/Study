@@ -35,19 +35,20 @@ x_train, x_test, y_train, y_test = train_test_split(
 #2. 모델 구성
 model = Sequential()
 model.add(Dense(32, input_dim = 9))
-model.add(Dense(128))
+model.add(Dense(128, activation='relu'))
 model.add(Dense(256, activation='relu'))
-model.add(Dense(128))
+model.add(Dense(128, activation='relu'))
 model.add(Dense(16))
 model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss='mse', optimizer='adam')
 start = t.time()
-model.fit(x_train, y_train, epochs = 100, batch_size = 1, validation_split=0.3)
+model.fit(x_train, y_train, epochs = 100, batch_size = 2, validation_split=0.3)
 fin = t.time()
 
-#R2:  0.5964241800498333
+# RMSE:  51.981442331790234
+# R2:  0.617655761684079
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test) 
@@ -68,4 +69,4 @@ print("소요시간: ", fin - start)
 # 제출
 y_submit = model.predict(test_data)
 submission['count'] = y_submit
-submission.to_csv(path + 'submission_0106.csv')
+submission.to_csv(path + 'submission_0108.csv')
