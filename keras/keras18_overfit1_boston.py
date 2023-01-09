@@ -4,12 +4,11 @@ from sklearn.metrics import mean_squared_error, r2_score
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import numpy as np
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt, font_manager as fm
 
-from matplotlib import font_manager, rc
 font_path = "C:/Windows/Fonts/malgun.ttf"
-font = font_manager.FontProperties(fname=font_path).get_name()
-rc('font', family=font)
+font = fm.FontProperties(fname=font_path).get_name()
+plt.rc('font', family=font)
 
 # 1. 데이터
 dataset = load_boston()         # 보스턴 집 값에 대한 데이터
