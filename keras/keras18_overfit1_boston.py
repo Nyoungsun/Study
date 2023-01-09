@@ -6,10 +6,6 @@ from tensorflow.keras.layers import Dense
 import numpy as np
 from matplotlib import pyplot as plt, font_manager as fm
 
-font_path = "C:/Windows/Fonts/malgun.ttf"
-font = fm.FontProperties(fname=font_path).get_name()
-plt.rc('font', family=font)
-
 # 1. 데이터
 dataset = load_boston()         # 보스턴 집 값에 대한 데이터
 x = dataset.data                # 방 넓이, 방 개수 등 → 독립변수
@@ -59,6 +55,9 @@ r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
 # --------------------- 시각화 ----------------------- #
+font_path = "C:/Windows/Fonts/malgun.ttf"
+font = fm.FontProperties(fname=font_path).get_name()
+plt.rc('font', family=font)
 plt.figure(figsize=(9, 6))
 plt.plot(hist.history['loss'], c='red', marker='.', label='loss')
 plt.plot(hist.history['val_loss'], c='blue', marker='.', label='val_loss')
