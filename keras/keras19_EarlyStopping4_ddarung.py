@@ -43,9 +43,6 @@ model.add(Dense(256, activation='relu'))
 model.add(Dense(128, activation='relu'))
 model.add(Dense(1))
 
-
-
-
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
 earlyStopping = EarlyStopping(monitor='val_loss', mode=min, patience = 10, restore_best_weights=True, verbose = 3)
