@@ -62,10 +62,6 @@ print("R2: ", r2)
 
 y_submit = model.predict(test_data)
 submission['count'] = y_submit
-submission.to_csv(path + 'submission_0109_gpu.csv')
-
-y_submit = model.predict(test_data)
-submission['count'] = y_submit
 submission.to_csv(path + 'submission_0109.csv')
 
 # --------------------- 시각화 ----------------------- #
