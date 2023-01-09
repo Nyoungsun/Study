@@ -5,7 +5,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import numpy as np
 import time as t
-import matplotlib as mp
+
 
 #1. 데이터
 dataset = load_boston()         # 보스턴 집 값에 대한 데이터
@@ -40,6 +40,7 @@ end = t.time()
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test, verbose=3)
+y_predict = model.predict(x_test)
 # print('x_test:\n', x_test)
 # print('y_predict:\n', y_predict)
 print('loss: ', loss)
@@ -50,9 +51,10 @@ print("걸린시간: ", end - start)
 # verbose=0일때, 10.7초
 
 
-# RMSE = np.sqrt(mean_squared_error(y_test, y_predict))
-# print("RMSE: ", RMSE(y_test, y_predict))
-# r2 = r2_score(y_test, y_predict)
-# print("R2: ", r2)
+def RMSE(y_test, y_predict):
+    return np.sqrt(mean_squared_error(y_test, y_predict))
+print("RMSE: ", RMSE(y_test, y_predict))
+r2 = r2_score(y_test, y_predict)
+print("R2: ", r2)
 
-# #R2 = 0.74
+#R2 = 0.74
