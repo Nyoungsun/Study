@@ -42,8 +42,8 @@ loss, accuracy = model.evaluate(x_test, y_test)
 print('loss: ', loss, 'accuracy: ', accuracy)
 
 y_predict = model.predict(x_test)
-y_predict = y_predict.flatten()
-y_predict = np.where(y_predict > 0.5, 1, 0) 
+y_predict = y_predict.flatten() # 보기 쉽게 1차원 배열로 평탄화
+y_predict = np.where(y_predict > 0.5, 1, 0) # y_predict = y_predict.round()
 print('y_predict: ', y_predict[:10], 'y_test: ', y_test[:10])
 
 acc = accuracy_score(y_test, y_predict) 
