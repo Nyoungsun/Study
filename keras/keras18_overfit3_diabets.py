@@ -4,7 +4,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import numpy as np
-from matplotlib import pyplot as plt, font_manager
+from matplotlib import pyplot as plt, font_manager as fm
 
 #1. 데이터
 dataset = load_diabetes()        

@@ -43,10 +43,10 @@ print('loss: ', loss, 'accuracy: ', accuracy)
 
 y_predict = model.predict(x_test)
 y_predict = y_predict.flatten()
-y_predict = np.where(y_predict > 0.5, 1, 0)
+y_predict = np.where(y_predict > 0.5, 1, 0) 
 print('y_predict: ', y_predict[:10], 'y_test: ', y_test[:10])
 
-acc = accuracy_score(y_test, y_predict)
+acc = accuracy_score(y_test, y_predict) 
 print('acc: ', acc)
 
 # print(hist.history['val_loss']) # metrics를 넣으면 history에 metrics에 대한 수치도 나온다.
