@@ -34,7 +34,7 @@ x_train, x_test, y_train, y_test = train_test_split(
 #2. 모델구성
 model = Sequential()
 model.add(Dense(32, input_shape = (8,)))
-model.add(Dense(64, activation='relu'))
+model.add(Dense(64))
 model.add(Dense(256, activation='relu'))
 model.add(Dense(128, activation='relu'))
 model.add(Dense(1))
@@ -63,6 +63,10 @@ print("R2: ", r2)
 y_submit = model.predict(test_data)
 submission['count'] = y_submit
 submission.to_csv(path + 'submission_0109_gpu.csv')
+
+y_submit = model.predict(test_data)
+submission['count'] = y_submit
+submission.to_csv(path + 'submission_0109.csv')
 
 # --------------------- 시각화 ----------------------- #
 plt.figure(figsize=(9,6))

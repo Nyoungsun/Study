@@ -39,10 +39,10 @@ x_train, x_test, y_train, y_test = train_test_split(
 model = Sequential()
 model.add(Dense(32, input_shape = (9,)))
 model.add(Dense(64))
-model.add(Dense(256))
-model.add(Dense(512))
-model.add(Dense(128))
+model.add(Dense(256, activation='relu'))
+model.add(Dense(128, activation='relu'))
 model.add(Dense(1))
+
 
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
@@ -65,6 +65,10 @@ print("RMSE: ", RMSE)
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
+y_submit = model.predict(test_data)
+submission['count'] = y_submit
+submission.to_csv(path + 'submission_0109.csv')
+
 # --------------------- 시각화 ----------------------- #
 plt.figure(figsize=(9,6))
 plt.plot(hist.history['loss'], c='red', marker='.', label = 'loss')
@@ -75,7 +79,3 @@ plt.ylabel('loss')
 plt.legend() # label 출력 # plt.legend(loc = 'upper left')
 plt.title("ddarung loss")
 plt.show()
-
-y_submit = model.predict(test_data)
-submission['count'] = y_submit
-submission.to_csv(path + 'submission_0109.csv')
