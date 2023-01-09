@@ -4,7 +4,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import numpy as np
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt, font_manager, rc
 
 #1. 데이터
 dataset = fetch_california_housing()       
@@ -26,7 +26,7 @@ model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
-hist = model.fit(x_train, y_train, epochs=100, batch_size=20, validation_split=0.2, verbose=3) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
+hist = model.fit(x_train, y_train, epochs=1, batch_size=20, validation_split=0.2, verbose=3) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test, verbose=3)
@@ -45,12 +45,15 @@ r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
 # --------------------- 시각화 ----------------------- #
+font_path = "C:/Windows/Fonts/malgun.ttf"
+font = font_manager.FontProperties(fname=font_path).get_name()
+plt.rc('font', family=font)
+plt.title("캘리포니아")
 plt.figure(figsize=(9,6))
 plt.plot(hist.history['loss'], c='red', marker='.', label = 'loss')
 plt.plot(hist.history['val_loss'], c='blue', marker='.', label = 'val_loss')
 plt.grid() 
 plt.xlabel('epochs')
 plt.ylabel('loss')
-plt.legend() # label 출력 # plt.legend(loc = 'upper left')
-plt.title("california loss")
+plt.legend() # label 출력 # plt.legend(loc = 'upper right')로 지정
 plt.show()
