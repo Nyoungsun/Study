@@ -17,10 +17,10 @@ y = dataset.target
 # print(dataset.feature_names)    
 # print(dataset.DESCR)            # Missing Attribute Values: 결측치 - 데이터에 값이 없는 것
 
-#2. 모델구성
 x_train, x_test, y_train, y_test = train_test_split(
     x, y, train_size=0.7, random_state = 44)
 
+#2. 모델구성
 model = Sequential()
 model.add(Dense(16, input_dim = 8))
 model.add(Dense(32))

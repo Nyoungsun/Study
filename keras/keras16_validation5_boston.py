@@ -17,10 +17,11 @@ y = dataset.target              # 집 값 → 종속변수
 # print(dataset.feature_names)    # ['CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT']
 # print(dataset.DESCR)            # Missing Attribute Values: 결측치 - 데이터에 값이 없는 것
 
-#2. 모델구성
+
 x_train, x_test, y_train, y_test = train_test_split(
     x, y, train_size = 0.6, random_state = 44)
 
+#2. 모델구성
 model = Sequential()
 model.add(Dense(32, input_dim = 13))
 model.add(Dense(64))
