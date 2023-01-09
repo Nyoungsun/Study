@@ -12,11 +12,11 @@ train_data = pd.read_csv(path + 'train.csv', index_col = 0)         # index_col 
 test_data = pd.read_csv(path + 'test.csv', index_col = 0)
 submission = pd.read_csv(path + 'sampleSubmission.csv', index_col = 0)
 
-# print(train_data.shape)          # (10886, 11) 
+# print(train_data.shape)          # (10886, 11)  
 # print(test_data.shape)           # (6493, 8)
 # print(train_data.columns)   
 # print(train_data.info())         # Missing Attribute Values: 결측치 - 데이터에 값이 없는 것
-# print(train_data.describe())   # 평균, 표준편차, 최대값 등
+# print(train_data.describe())     # 평균, 표준편차, 최대값 등
 
 # ---------------------- shape 맞추기 (열 제거) ------------------------ #
 train_data = train_data.drop(['casual', 'registered'], axis = 1)
@@ -70,4 +70,4 @@ print("소요시간: ", fin - start)
 # 제출
 y_submit = model.predict(test_data)
 submission['count'] = y_submit
-submission.to_csv(path + 'submission_0108.csv')
+submission.to_csv(path + 'submission_0109.csv')
