@@ -5,8 +5,11 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib import font_manager, rc
 
+from matplotlib import font_manager, rc
+font_path = "C:/Windows/Fonts/malgun.ttf"
+font = font_manager.FontProperties(fname=font_path).get_name()
+rc('font', family=font)
 
 # 1. 데이터
 dataset = load_boston()         # 보스턴 집 값에 대한 데이터
@@ -64,9 +67,5 @@ plt.grid()
 plt.xlabel('epochs')
 plt.ylabel('loss')
 plt.legend()  # label 출력 # plt.legend(loc = 'upper left')
-font_path = "C:/Windows/Fonts/malgun.ttf"
-plt.rc('font', family='malgun')
-font = font_manager.FontProperties(fname=font_path).get_name()
-rc('font', family=font)
 plt.title("보스턴")
 plt.show()
