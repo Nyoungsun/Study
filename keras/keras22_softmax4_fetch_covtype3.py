@@ -28,7 +28,7 @@ y = datasets.target
 y = y.reshape(-1, 1)
 y = ohe().fit_transform(y)
 y = y.toarray()
-print(y)
+# print(y)
 # y = to_categorical(y) 
 # y = np.delete(y, 0, axis=1)
 # print(np.unique(y, return_counts=True))
