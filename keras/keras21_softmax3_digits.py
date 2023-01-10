@@ -26,7 +26,6 @@ y = datasets['target']
 # plt.matshow(datasets.images[9])
 # plt.show()
 
-# y = pd.get_dummies(y) 또는 OHE.fit(y.reshape(-1, 1)) y = OHE.transform(y.reshape(-1, 1)).toarray()
 y = to_categorical(y)
 # print(y, y.shape)
 
