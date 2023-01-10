@@ -37,7 +37,8 @@ x_train, x_test, y_train, y_test = train_test_split(
 # 2. 모델구성
 model = Sequential()
 model.add(Dense(8, input_shape=(54,)))
-model.add(Dense(16))
+model.add(Dense(32))
+model.add(Dense(64))
 model.add(Dense(16, activation='sigmoid'))
 model.add(Dense(7, activation='softmax')) # 확률의 총합 = 1, 다중 분류에서 사용, 보통 출력 층에서 사용
 
@@ -45,7 +46,7 @@ model.add(Dense(7, activation='softmax')) # 확률의 총합 = 1, 다중 분류�
 model.compile(loss='categorical_crossentropy',optimizer='adam', metrics=['accuracy'])
 
 earlyStopping = EarlyStopping(monitor='val_loss', mode=min, patience=20, restore_best_weights=True, verbose=3)
-model.fit(x_train, y_train, epochs=1, validation_split=0.2,batch_size=3000, callbacks=earlyStopping)
+model.fit(x_train, y_train, epochs=100, validation_split=0.2,batch_size=3000, callbacks=earlyStopping)
 
 # 4. 평가, 예측
 loss, accuracy = model.evaluate(x_test, batch_size=3000)

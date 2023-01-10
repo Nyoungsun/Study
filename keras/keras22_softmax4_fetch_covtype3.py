@@ -20,13 +20,13 @@ y = datasets.target
 # print(x.shape, y.shape) # (581012, 54) (581012,)
 # print(np.unique(y, return_counts=True)) # array([1, 2, 3, 4, 5, 6, 7]), array([211840, 283301,  35754,   2747,   9493,  17367,  20510]
 
-# y = pd.get_dummies(y)
 print("원래 y: ", y)
 y = y.reshape(-1, 1)
-print("2차원으로 변환: ", y)
+print("2차원으로 변환:\n", y)
 y = ohe().fit_transform(y)
 y = y.toarray()
-print("toaray: ", y)
+print("toaray:\n", y)
+# y = pd.get_dummies(y)
 # y = to_categorical(y) 
 # y = np.delete(y, 0, axis=1)
 # print(np.unique(y, return_counts=True))
@@ -39,7 +39,8 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random
 # 2. 모델구성
 model = Sequential()
 model.add(Dense(8, input_shape=(54,)))
-model.add(Dense(16))
+model.add(Dense(32))
+model.add(Dense(64))
 model.add(Dense(16, activation='sigmoid'))
 model.add(Dense(7, activation='softmax')) # 확률의 총합 = 1, 다중 분류에서 사용, 보통 출력 층에서 사용
 

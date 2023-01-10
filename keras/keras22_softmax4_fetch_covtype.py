@@ -32,8 +32,9 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random
 
 #2. 모델구성
 model = Sequential()
-model.add(Dense(8, input_shape = (54,)))
-model.add(Dense(16))
+model.add(Dense(8, input_shape=(54,)))
+model.add(Dense(32))
+model.add(Dense(64))
 model.add(Dense(16, activation='sigmoid'))
 model.add(Dense(7, activation='softmax')) # 확률의 총합 = 1, 다중 분류에서 사용, 보통 출력 층에서 사용
 
