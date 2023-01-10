@@ -21,14 +21,8 @@ y = datasets.target
 # print(np.unique(y, return_counts=True)) # array([1, 2, 3, 4, 5, 6, 7]), array([211840, 283301,  35754,   2747,   9493,  17367,  20510]
 
 print("원래 y: ", y)
-y = y.reshape(-1, 1)
-print("2차원으로 변환:\n", y)
-y = ohe().fit_transform(y)
-y = y.toarray()
+y = ohe(sparse=False).fit_transform(y.reshape(-1,1)) # 2차원으로 변환하여 one-hot encoding 수행
 print("toaray:\n", y)
-# y = pd.get_dummies(y)
-# y = to_categorical(y) 
-# y = np.delete(y, 0, axis=1)
 # print(np.unique(y, return_counts=True))
 # print(y.shape)  
 

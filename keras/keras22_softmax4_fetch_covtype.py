@@ -19,12 +19,6 @@ y = datasets.target
 # print(np.unique(y, return_counts=True)) # array([1, 2, 3, 4, 5, 6, 7]), array([211840, 283301,  35754,   2747,   9493,  17367,  20510]
 
 y = pd.get_dummies(y)
-# ohe = OneHotEncoder()
-# y = ohe.fit(y) 
-# y = ohe.transform(y).toarray()
-# y = to_categorical(y) 
-# print(np.unique(y, return_counts=True))
-
 # print(y.shape) # get_dummies 쓰면 (581012, 7)
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state = 444, stratify=y) # shuffle = False 일 때: 값이 치중될 수 있음, stratify = y: 동일한 비율로 
@@ -32,7 +26,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random
 
 #2. 모델구성
 model = Sequential()
-model.add(Dense(8, input_shape=(54,)))
+model.add(Dense(7, input_shape=(54,)))
 model.add(Dense(32))
 model.add(Dense(64))
 model.add(Dense(16, activation='sigmoid'))
