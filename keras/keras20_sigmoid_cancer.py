@@ -29,7 +29,7 @@ model.add(Dense(64, activation='relu'))
 model.add(Dense(256, activation='relu'))
 model.add(Dense(128, activation='relu'))
 model.add(Dense(128, activation='relu'))
-model.add(Dense(1, activation='sigmoid'))
+model.add(Dense(1, activation='sigmoid')) # sigmoid: 0~1 사이의 값으로 
 
 #3. 컴파일 및 훈련
 model.compile(loss = 'binary_crossentropy', optimizer='adam', metrics=['accuracy']) # 이진분류 loss = binary_crossentropy
@@ -42,7 +42,7 @@ loss, accuracy = model.evaluate(x_test, y_test)
 print('loss: ', loss, 'accuracy: ', accuracy)
 
 y_predict = model.predict(x_test)
-y_predict = y_predict.flatten() # 보기 쉽게 1차원 배열로 평탄화
+y_predict = y_predict.flatten() # 보기 쉽게 평탄화
 y_predict = np.where(y_predict > 0.5, 1, 0) # y_predict = y_predict.round()
 print('y_predict: ', y_predict[:10], 'y_test: ', y_test[:10])
 
