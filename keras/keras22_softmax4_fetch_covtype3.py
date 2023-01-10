@@ -20,15 +20,13 @@ y = datasets.target
 # print(x.shape, y.shape) # (581012, 54) (581012,)
 # print(np.unique(y, return_counts=True)) # array([1, 2, 3, 4, 5, 6, 7]), array([211840, 283301,  35754,   2747,   9493,  17367,  20510]
 
-# plt.gray()
-# plt.matshow(datasets.images[9])
-# plt.show()
-
 # y = pd.get_dummies(y)
+print("원래 y: ", y)
 y = y.reshape(-1, 1)
+print("2차원으로 변환: ", y)
 y = ohe().fit_transform(y)
 y = y.toarray()
-# print(y)
+print("toaray: ", y)
 # y = to_categorical(y) 
 # y = np.delete(y, 0, axis=1)
 # print(np.unique(y, return_counts=True))
@@ -46,24 +44,21 @@ model.add(Dense(16, activation='sigmoid'))
 model.add(Dense(7, activation='softmax')) # 확률의 총합 = 1, 다중 분류에서 사용, 보통 출력 층에서 사용
 
 # 3. 컴파일, 훈련
-model.compile(loss='categorical_crossentropy',
-              optimizer='adam', metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-earlyStopping = EarlyStopping(
-    monitor='val_loss', mode=min, patience=20, restore_best_weights=True, verbose=3)
-model.fit(x_train, y_train, epochs=1, validation_split=0.2,
-          batch_size=3000, callbacks=earlyStopping)
+earlyStopping = EarlyStopping(monitor='val_loss', mode=min, patience=20, restore_best_weights=True, verbose=3)
+model.fit(x_train, y_train, epochs=100, validation_split=0.2,batch_size=3000, callbacks=earlyStopping)
 
 # 4. 평가, 예측
 loss, accuracy = model.evaluate(x_test, batch_size=3000)
 print("loss: ", loss, "accuaracy: ", accuracy)
 
 y_predict = np.argmax(model.predict(x_test, batch_size=3000), axis=1)
-print('y_predict: ', y_predict)
+print('y_predict: ', y_predict[:10])
 print(y_test)
 
 y_test = np.argmax(y_test, axis=1)
-print('y_test: ', y_test)
+print('y_test: ', y_test[:10])
 
 acc = accuracy_score(y_test, y_predict)
 print('accuracy: ', acc)

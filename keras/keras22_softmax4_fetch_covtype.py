@@ -18,10 +18,6 @@ y = datasets.target
 # print(x.shape, y.shape) # (581012, 54) (581012,)
 # print(np.unique(y, return_counts=True)) # array([1, 2, 3, 4, 5, 6, 7]), array([211840, 283301,  35754,   2747,   9493,  17367,  20510]
 
-# plt.gray()
-# plt.matshow(datasets.images[9])
-# plt.show()
-
 y = pd.get_dummies(y)
 # ohe = OneHotEncoder()
 # y = ohe.fit(y) 
