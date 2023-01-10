@@ -4,7 +4,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import fetch_covtype
 from sklearn.metrics import accuracy_score
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder as ohe
 import pandas as pd
 import numpy as np
 
@@ -25,9 +25,8 @@ y = datasets.target
 # plt.show()
 
 # y = pd.get_dummies(y)
-ohe = OneHotEncoder()
 y = y.reshape(-1, 1)
-y = ohe.fit_transform(y)
+y = ohe().fit_transform(y)
 y = y.toarray()
 print(y)
 # y = to_categorical(y) 
