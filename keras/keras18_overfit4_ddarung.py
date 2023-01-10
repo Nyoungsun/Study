@@ -1,4 +1,3 @@
-from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 from tensorflow.keras.models import Sequential
@@ -65,6 +64,8 @@ r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
 # --------------------- 시각화 ----------------------- #
+font_path = "C:/Windows/Fonts/malgun.ttf"
+plt.rc('font', family='Malgun Gothic')
 plt.figure(figsize=(9,6))
 plt.plot(hist.history['loss'], c='red', marker='.', label = 'loss')
 plt.plot(hist.history['val_loss'], c='blue', marker='.', label = 'val_loss')
@@ -72,5 +73,5 @@ plt.grid()
 plt.xlabel('epochs')
 plt.ylabel('loss')
 plt.legend() # label 출력 # plt.legend(loc = 'upper left')
-plt.title("ddarung loss")
+plt.title("따릉이")
 plt.show()

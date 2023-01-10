@@ -47,7 +47,7 @@ print("R2: ", r2)
 
 # --------------------- 시각화 ----------------------- #
 font_path = "C:/Windows/Fonts/malgun.ttf"
-font = fm.FontProperties(fname=font_path).get_name()
+font = fm.FontProperties(fname=font_path).get_name() 
 plt.rc('font', family=font)
 plt.title("당뇨병")
 plt.figure(figsize=(9,6))

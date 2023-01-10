@@ -1,4 +1,3 @@
-from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 from tensorflow.keras.models import Sequential
@@ -41,7 +40,7 @@ model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
-hist = model.fit(x_train, y_train, epochs=200, batch_size=5, validation_split=0.2) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
+hist = model.fit(x_train, y_train, epochs=100, batch_size=5, validation_split=0.2) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test)
@@ -60,6 +59,8 @@ r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
 # --------------------- 시각화 ----------------------- #
+font_path = "C:/Windows/Fonts/malgun.ttf"
+plt.rc('font', family='Malgun Gothic')
 plt.figure(figsize=(9,6))
 plt.plot(hist.history['loss'], c='red', marker='.', label = 'loss')
 plt.plot(hist.history['val_loss'], c='blue', marker='.', label = 'val_loss')
@@ -67,5 +68,5 @@ plt.grid()
 plt.xlabel('epochs')
 plt.ylabel('loss')
 plt.legend() # label 출력 # plt.legend(loc = 'upper left')
-plt.title("bike loss")
+plt.title("바이크")
 plt.show()

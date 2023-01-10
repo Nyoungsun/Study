@@ -55,7 +55,7 @@ print("R2: ", r2)
 
 # --------------------- 시각화 ----------------------- #
 font_path = "C:/Windows/Fonts/malgun.ttf"
-font = fm.FontProperties(fname=font_path).get_name()
+font = fm.FontProperties(fname=font_path).get_name() # font_manager의 FontProperties에 폰트 경로를 전달하여 폰트 이름을 얻어오기
 plt.rc('font', family=font)
 plt.title("보스턴")
 plt.figure(figsize=(9, 6))
