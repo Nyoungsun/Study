@@ -22,6 +22,7 @@ y = datasets.target
 
 # print("원래 y: ", y)
 y = ohe(sparse=False).fit_transform(y.reshape(-1,1)) # 2차원으로 변환하여 one-hot encoding 수행, sparse = False: array 반환 (one-hot encoding에 필요한 것은 array이므로)
+print(type(y), y.shape) # sparse = True일 때: <class 'scipy.sparse._csr.csr_matrix'>, sparse = False일 때: <class 'numpy.ndarray'>, (581012, 7)
 # print("변환 후 y:\n", y)
 # print(np.unique(y, return_counts=True))
 # print(y.shape)  
