@@ -21,11 +21,11 @@ y = datasets.target
 
 y = to_categorical(y) 
 # print(type(y), y.shape)  # <class 'numpy.ndarray'>, (581012, 8)
-y = np.delete(y, 0, axis=1) # 0열이 추가되기 때문에 제거  
+y = np.delete(y, 0, axis=1) # 0열이 추가되기 때문에 제거
+print(np.unique(y[:,0], return_counts=True)) # y[:,0]: y의 모든 열의 0번째 열, unique(): 데이터에 고유값들이 어떠한 종류들이 있는지
 
 # shuffle = False 일 때: 값이 치중될 수 있음, stratify = y: 동일한 비율로
-x_train, x_test, y_train, y_test = train_test_split(
-    x, y, train_size=0.8, random_state=444, stratify=y)
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state=444, stratify=y)
 # print(y_train, "\n", y_test)
 
 # 2. 모델구성
