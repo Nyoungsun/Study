@@ -5,6 +5,7 @@ from sklearn.datasets import load_iris
 from tensorflow.keras.utils import to_categorical
 from sklearn.metrics import accuracy_score
 import numpy as np
+from sklearn.preprocessing import MinMaxScaler as MMS, StandardScaler as SDS
 from sklearn.preprocessing import OneHotEncoder as OHE
 import pandas as pd
 
@@ -25,6 +26,11 @@ y = to_categorical(y)
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state = 44, stratify=y) # shuffle = False 일 때: 값이 치중될 수 있음, stratify = y: 동일한 비율로 
 # print(y_train, "\n", y_test)
+
+# scaler = MMS()
+scaler = SDS()
+x_train = scaler.fit_transform(x_train)
+x_test = scaler.transform(x_test)
 
 #2. 모델구성
 model = Sequential()
@@ -50,3 +56,7 @@ y_test = np.argmax(y_test, axis = 1)
 print('y_test: ', y_test)
 acc = accuracy_score(y_test, y_predict) 
 print('acc: ', acc)
+
+# no scailing acc:  1.0
+# MMS acc:  1.0
+# SDS acc:  1.0

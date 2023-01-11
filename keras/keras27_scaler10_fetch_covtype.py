@@ -2,9 +2,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler as MMS, StandardScaler as SDS
 from sklearn.datasets import fetch_covtype
 from sklearn.metrics import accuracy_score
-import tensorflow as tf
 import numpy as np
 import pandas as pd
 
@@ -29,6 +29,11 @@ y = y.to_numpy()            # y = y.values → numpy.ndarray 변환
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state = 444, stratify=y) # shuffle = False 일 때: 값이 치중될 수 있음, stratify = y: 동일한 비율로 
 # print(y_train, "\n", y_test)
+
+scaler = MMS()
+# scaler = SDS()
+x_train = scaler.fit_transform(x_train)
+x_test = scaler.transform(x_test)
 
 #2. 모델구성
 model = Sequential()
@@ -56,3 +61,5 @@ print('y_test: ', y_test[:10])
 
 acc = accuracy_score(y_test, y_predict)
 print('accuracy: ', acc)
+
+# no scailing accuracy:  0.7309880123576844

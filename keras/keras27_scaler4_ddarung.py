@@ -1,14 +1,14 @@
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 from tensorflow.keras.models import Sequential
+from sklearn.preprocessing import MinMaxScaler as MMS, StandardScaler as SDS
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.callbacks import EarlyStopping
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 
 #1. 데이터
-path = './keras_data/ddarung/'
+path = 'C:/study/keras_data/ddarung/'
 train_data = pd.read_csv(path + 'train.csv', index_col = 0) # index_col = 0 → id 열 데이터로 취급 X
 test_data = pd.read_csv(path + 'test.csv', index_col = 0)
 submission = pd.read_csv(path + 'submission.csv', index_col = 0)
@@ -30,6 +30,11 @@ y = train_data['count']                 # y 값(count 열)만 추출
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.7, random_state=44)
 
+# scaler = MMS()
+scaler = SDS()
+x_train = scaler.fit_transform(x_train)
+x_test = scaler.transform(x_test)
+
 #2. 모델구성
 model = Sequential()
 model.add(Dense(32, input_shape = (9,)))
@@ -40,7 +45,7 @@ model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
-earlyStopping = EarlyStopping(monitor='val_loss', mode=min, patience = 10, restore_best_weights=True, verbose = 3)
+earlyStopping = EarlyStopping(monitor='val_loss', mode=min, patience = 16, restore_best_weights=True, verbose = 3)
 hist = model.fit(x_train, y_train, epochs=1024, batch_size=32, validation_split=0.2, callbacks = [earlyStopping], verbose = 3) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
 
 #4. 평가 및 예측
@@ -59,17 +64,10 @@ print("RMSE: ", RMSE)
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
-y_submit = model.predict(test_data)
+y_submit = model.predict(scaler.transform(test_data))
 submission['count'] = y_submit
-submission.to_csv(path + 'submission_0109.csv')
+submission.to_csv(path + 'submission_0111.csv')
 
-# --------------------- 시각화 ----------------------- #
-plt.figure(figsize=(9,6))
-plt.plot(hist.history['loss'], c='red', marker='.', label = 'loss')
-plt.plot(hist.history['val_loss'], c='blue', marker='.', label = 'val_loss')
-plt.grid() 
-plt.xlabel('epochs')
-plt.ylabel('loss')
-plt.legend() # label 출력 # plt.legend(loc = 'upper left')
-plt.title("ddarung loss")
-plt.show()
+# no scailing = R2:  0.5788211477176596
+# MMS scailing = R2:  0.7013564697699314
+# SDS scailing = R2:  0.6845740130400393

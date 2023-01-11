@@ -4,8 +4,8 @@ from sklearn.metrics import mean_squared_error, r2_score
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.callbacks import EarlyStopping
+from sklearn.preprocessing import MinMaxScaler as MMS, StandardScaler as SDS
 import numpy as np
-import matplotlib.pyplot as plt
 
 #1. 데이터
 dataset = load_diabetes()        
@@ -15,6 +15,11 @@ y = dataset.target
 x_train, x_test, y_train, y_test = train_test_split(
     x, y, train_size=0.7, random_state=3333
 )
+
+scaler = MMS()
+# scaler = SDS()
+x_train = scaler.fit_transform(x_train)
+x_test = scaler.transform(x_test)
 
 #2. 모델구성
 model = Sequential()
@@ -46,13 +51,7 @@ print("RMSE: ", RMSE)
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
-# --------------------- 시각화 ----------------------- #
-plt.figure(figsize=(9,6))
-plt.plot(hist.history['loss'], c='red', marker='.', label = 'loss')
-plt.plot(hist.history['val_loss'], c='blue', marker='.', label = 'val_loss')
-plt.grid() 
-plt.xlabel('epochs')
-plt.ylabel('loss')
-plt.legend() # label 출력 # plt.legend(loc = 'upper left')
-plt.title("diabets loss")
-plt.show()
+
+# no scailing = R2:  0.4389540343969406
+# MMS scailing = R2:  0.45429072462697784
+# SDS scailing = R2:  0.41204090910629754

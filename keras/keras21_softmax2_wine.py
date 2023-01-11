@@ -23,20 +23,20 @@ y = datasets['target']
 y = to_categorical(y)
 # print(y, y.shape)
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state = 444, stratify=y) # shuffle = False 일 때: 값이 치중될 수 있음, stratify = y: 동일한 비율로 
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.7, random_state = 444, stratify=y) # shuffle = False 일 때: 값이 치중될 수 있음, stratify = y: 동일한 비율로 
 # print(y_train, "\n", y_test)
 
 #2. 모델구성
 model = Sequential()
-model.add(Dense(8, input_shape = (13,)))
+model.add(Dense(32, input_shape = (13,)))
 model.add(Dense(16))
 model.add(Dense(16))
-model.add(Dense(16))
+model.add(Dense(16)) 
 model.add(Dense(3, activation='softmax')) # 확률의 총합 = 1, 다중 분류에서 사용, 보통 출력 층에서 사용
 
 #3. 컴파일, 훈련
 model.compile(loss = 'categorical_crossentropy', optimizer = 'adam', metrics=['accuracy'])
-model.fit(x_train, y_train, epochs = 500, validation_split=0.2, verbose = 2) 
+model.fit(x_train, y_train, epochs = 512, validation_split=0.2, verbose = 3) 
 
 #4. 평가, 예측
 loss, accuracy = model.evaluate(x_test, y_test)

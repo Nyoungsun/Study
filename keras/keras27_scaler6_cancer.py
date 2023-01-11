@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
+from sklearn.preprocessing import MinMaxScaler as MMS, StandardScaler as SDS
 from tensorflow.keras.callbacks import EarlyStopping
 import numpy as np 
 
@@ -18,9 +19,12 @@ y = dataset['target']
 
 # print(x.shape, y.shape) # (569, 30), (569,)
 
-x_train, x_test, y_train, y_test = train_test_split(
-    x, y, train_size=0.7, random_state=3333
-)
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.7, random_state=3333)
+
+scaler = MMS()
+# scaler = SDS()
+x_train = scaler.fit_transform(x_train)
+x_test = scaler.transform(x_test)
 
 #2. 모델구성
 model = Sequential()
@@ -51,3 +55,7 @@ print('acc: ', acc)
 
 # print(hist.history['val_loss']) # metrics를 넣으면 history에 metrics에 대한 수치도 나온다.
 # print(hist.history['accuracy'])
+
+# no scailing acc:  0.935672514619883
+# MMS acc:  0.9766081871345029
+# SDS acc:  0.9707602339181286
