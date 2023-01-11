@@ -39,7 +39,7 @@ dense3 = Dense(256, activation= 'relu')(dense2)
 dense4 = Dense(128, activation= 'relu')(dense3)
 output = Dense(1)(dense4)
 model = Model(inputs=input, outputs=output)
-model.summary()
+# model.summary()
 
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
