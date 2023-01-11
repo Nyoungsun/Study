@@ -20,9 +20,9 @@ y = datasets.target
 # print(x.shape, y.shape) # (581012, 54) (581012,)
 # print(np.unique(y, return_counts=True)) # array([1, 2, 3, 4, 5, 6, 7]), array([211840, 283301,  35754,   2747,   9493,  17367,  20510]
 
-print("원래 y: ", y)
+# print("원래 y: ", y)
 y = ohe(sparse=False).fit_transform(y.reshape(-1,1)) # 2차원으로 변환하여 one-hot encoding 수행, sparse = False: array 반환 (one-hot encoding에 필요한 것은 array이므로)
-print("변환 후 y:\n", y)
+# print("변환 후 y:\n", y)
 # print(np.unique(y, return_counts=True))
 # print(y.shape)  
 
