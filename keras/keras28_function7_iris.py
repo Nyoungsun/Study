@@ -33,12 +33,12 @@ x_train = scaler.fit_transform(x_train)
 x_test = scaler.transform(x_test)
 
 #2. 모델구성
-model = Sequential()
-model.add(Dense(64, activation='relu', input_shape = (4,)))
-model.add(Dense(32, activation='relu'))
-model.add(Dense(16, activation='sigmoid'))
-model.add(Dense(8, activation='sigmoid'))
-model.add(Dense(3, activation='softmax')) # 확률의 총합 = 1, 다중 분류에서 사용, 보통 출력 층에서 사용
+# model = Sequential()
+# model.add(Dense(64, activation='relu', input_shape = (4,)))
+# model.add(Dense(32, activation='relu'))
+# model.add(Dense(16, activation='sigmoid'))
+# model.add(Dense(8, activation='sigmoid'))
+# model.add(Dense(3, activation='softmax')) # 확률의 총합 = 1, 다중 분류에서 사용, 보통 출력 층에서 사용
 
 # (functional)
 input = Input(shape=(4,))
@@ -52,7 +52,7 @@ model = Model(inputs=input, outputs=output)
 
 #3. 컴파일, 훈련
 model.compile(loss = 'categorical_crossentropy', optimizer = 'adam', metrics=['accuracy'])
-model.fit(x_train, y_train, epochs = 32, batch_size=1, validation_split=0.2, verbose = 3)
+model.fit(x_train, y_train, epochs = 32, batch_size=2, validation_split=0.2, verbose = 3)
 
 #4. 평가, 예측
 loss, accuracy = model.evaluate(x_test, y_test)
@@ -67,6 +67,5 @@ print('y_test: ', y_test)
 acc = accuracy_score(y_test, y_predict) 
 print('acc: ', acc)
 
-# no scailing acc:  1.0
 # MMS acc:  1.0
 # SDS acc:  1.0

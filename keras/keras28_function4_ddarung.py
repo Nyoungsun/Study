@@ -30,8 +30,8 @@ y = train_data['count']                 # y 값(count 열)만 추출
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.7, random_state=44)
 
-# scaler = MMS()
-scaler = SDS()
+scaler = MMS()
+# scaler = SDS()
 x_train = scaler.fit_transform(x_train)
 x_test = scaler.transform(x_test)
 
@@ -78,6 +78,5 @@ y_submit = model.predict(scaler.transform(test_data))
 submission['count'] = y_submit
 submission.to_csv(path + 'submission_0111.csv')
 
-# no scailing = R2:  0.5788211477176596
-# MMS scailing = R2:  0.7013564697699314
-# SDS scailing = R2:  0.6845740130400393
+# MMS RMSE:  44.58133810239361
+# SDS RMSE:  48.37061876311076

@@ -21,8 +21,8 @@ y = dataset['target']
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.7, random_state=3333)
 
-scaler = MMS()
-# scaler = SDS()
+# scaler = MMS()
+scaler = SDS()
 x_train = scaler.fit_transform(x_train)
 x_test = scaler.transform(x_test)
 
@@ -47,7 +47,7 @@ model = Model(inputs=input, outputs=output)
 #3. 컴파일 및 훈련
 model.compile(loss = 'binary_crossentropy', optimizer='adam', metrics=['accuracy']) # 이진분류 loss = binary_crossentropy
 
-earlyStopping = EarlyStopping(monitor='val_loss', mode='min', patience=20, restore_best_weights=True) # loss - min, accuracy - max 
+earlyStopping = EarlyStopping(monitor='val_loss', mode='min', patience=16, restore_best_weights=True) # loss - min, accuracy - max 
 # earlyStopping = EarlyStopping(monitor='accuracy', mode='max', patience=20, restore_best_weights=True) 
 hist = model.fit(x_train, y_train, epochs=1024, batch_size=16, validation_split=0.2, callbacks = [earlyStopping], verbose = 3) # verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
 
@@ -66,6 +66,5 @@ print('acc: ', acc)
 # print(hist.history['val_loss']) # metrics를 넣으면 history에 metrics에 대한 수치도 나온다.
 # print(hist.history['accuracy'])
 
-# no scailing acc:  0.935672514619883
-# MMS acc:  0.9766081871345029
-# SDS acc:  0.9707602339181286
+# MMS acc:  0.9649122807017544
+# SDS acc:  0.9883040935672515

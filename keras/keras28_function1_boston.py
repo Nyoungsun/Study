@@ -43,8 +43,8 @@ model = Model(inputs=input, outputs=output)
 
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
-earlyStopping = EarlyStopping(monitor='val_loss', mode='min', patience=10, restore_best_weights=True, verbose=3) # loss - min, accuracy - max 
-hist = model.fit(x_train, y_train, epochs=200, batch_size=10, validation_split=0.2, callbacks = [earlyStopping], verbose=3) # verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
+earlyStopping = EarlyStopping(monitor='val_loss', mode='min', patience=16, restore_best_weights=True, verbose=3) # loss - min, accuracy - max 
+hist = model.fit(x_train, y_train, epochs=256, batch_size=16, validation_split=0.2, callbacks = [earlyStopping], verbose=3) # verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test, verbose=3)
@@ -61,8 +61,3 @@ RMSE = np.sqrt(mean_squared_error(y_test, y_predict))
 print("RMSE: ", RMSE)
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
-
-
-# no scailing = R2:  0.6970241632402312
-# MMS scailing = R2:  0.8189825577931096
-# SDS scailing = R2:  0.8819064574259152

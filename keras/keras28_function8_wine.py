@@ -67,6 +67,5 @@ print('y_test: ', y_test)
 acc = accuracy_score(y_test, y_predict)
 print('accuracy: ', acc)
 
-# no scailig accuracy:  0.9722222222222222
 # MMS accuracy:  1.0
 # SDS accuracy:  1.0

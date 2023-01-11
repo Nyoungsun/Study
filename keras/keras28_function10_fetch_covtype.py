@@ -27,7 +27,7 @@ y = y.to_numpy()            # y = y.values → numpy.ndarray 변환
 # print(type(y), (y[:10]))  # <class 'numpy.ndarray'>
 
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state = 444, stratify=y) # shuffle = False 일 때: 값이 치중될 수 있음, stratify = y: 동일한 비율로 
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state = 128, stratify=y) # shuffle = False 일 때: 값이 치중될 수 있음, stratify = y: 동일한 비율로 
 # print(y_train, "\n", y_test)
 
 scaler = MMS()

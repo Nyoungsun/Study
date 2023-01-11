@@ -55,7 +55,7 @@ model = Model(inputs = input, outputs = output)
 #3. 컴파일, 훈련
 model.compile(loss = 'categorical_crossentropy', optimizer = 'adam', metrics=['accuracy'])
 
-earlyStopping = EarlyStopping(monitor='val_loss', mode = min, patience=20, restore_best_weights = True, verbose=3) 
+earlyStopping = EarlyStopping(monitor='val_loss', mode = min, patience=16, restore_best_weights = True, verbose=3) 
 model.fit(x_train, y_train, epochs = 1024, validation_split=0.2, verbose=3, callbacks = earlyStopping) 
 
 #4. 평가, 예측
@@ -71,6 +71,5 @@ y_test = np.argmax(y_test, axis = 1)
 acc = accuracy_score(y_test, y_predict)
 print('accuracy: ', acc)
 
-# no scailing accuracy: 0.9666666666666667
 # MMS accuracy:  0.95
 # SDS accuracy:  0.9416666666666667
