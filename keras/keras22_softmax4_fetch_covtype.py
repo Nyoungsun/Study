@@ -42,7 +42,7 @@ model.fit(x_train, y_train, epochs = 1000, validation_split = 0.2, batch_size = 
 loss, accuracy = model.evaluate(x_test)
 print("loss: ", loss, "accuaracy: ", accuracy)
 
-y_predict = tf.argmax(model.predict(x_test), axis = 1)
+y_predict = tf.argmax(model.predict(x_test), axis = 1) # get_dummies 쓰면 tensorflow의 argmax를 써야한다.
 print('y_predict: ', y_predict)
 print(y_test)
 

@@ -21,7 +21,7 @@ y = datasets.target
 
 y = to_categorical(y) 
 print(y.shape)  # categorical 쓰면 (581012, 8)
-y = np.delete(y, 0, axis=1)
+y = np.delete(y, 0, axis=1) # 0열이 추가되기 때문에 제거 
 
 # shuffle = False 일 때: 값이 치중될 수 있음, stratify = y: 동일한 비율로
 x_train, x_test, y_train, y_test = train_test_split(
