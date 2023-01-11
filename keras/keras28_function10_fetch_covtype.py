@@ -56,11 +56,11 @@ model = Model(inputs = input, outputs = output)
 #3. 컴파일, 훈련
 model.compile(loss = 'categorical_crossentropy', optimizer = 'adam', metrics=['accuracy'])
 
-earlyStopping = EarlyStopping(monitor = 'val_loss', mode = min, patience = 16, restore_best_weights = True, verbose=3) 
-model.fit(x_train, y_train, epochs = 1024, validation_split = 0.2, batch_size = 4096, callbacks=earlyStopping, verbose=3)
+earlyStopping = EarlyStopping(monitor = 'val_loss', mode = min, patience = 4, restore_best_weights = True, verbose=3) 
+model.fit(x_train, y_train, epochs = 512, validation_split = 0.2, batch_size = 131072, callbacks=earlyStopping, verbose=1)
 
 #4. 평가, 예측
-loss, accuracy = model.evaluate(x_test)
+loss, accuracy = model.evaluate(x_test, y_test)
 print("loss: ", loss, "accuaracy: ", accuracy)
 
 y_predict = np.argmax(model.predict(x_test), axis = 1) # numpy.ndarray로 변환하지않으면 tensorflow의 argmax를 사용하면됨 
@@ -72,6 +72,5 @@ print('y_test: ', y_test[:10])
 acc = accuracy_score(y_test, y_predict)
 print('accuracy: ', acc)
 
-# no scailing accuracy:  0.7309880123576844
-# MMS accuracy:  0.7666067141123724
-# SDS accuracy:  0.785504677159798
+# MMS accuracy:  0.7288107880175211
+# SDS accuracy:  0.7524074249373941

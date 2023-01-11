@@ -50,7 +50,7 @@ earlyStopping = EarlyStopping(monitor = 'val_loss', mode = min, patience = 16, r
 model.fit(x_train, y_train, epochs = 1024, validation_split = 0.2, batch_size = 4096, callbacks=earlyStopping, verbose=3)
 
 #4. 평가, 예측
-loss, accuracy = model.evaluate(x_test)
+loss, accuracy = model.evaluate(x_test, y_test)
 print("loss: ", loss, "accuaracy: ", accuracy)
 
 y_predict = np.argmax(model.predict(x_test), axis = 1) # numpy.ndarray로 변환하지않으면 tensorflow의 argmax를 사용하면됨 

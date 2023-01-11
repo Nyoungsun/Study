@@ -51,10 +51,10 @@ earlyStopping = EarlyStopping(monitor='val_loss', mode=min, patience=20, restore
 model.fit(x_train, y_train, epochs=1000, validation_split=0.2,batch_size=3000, callbacks=earlyStopping, verbose=3)
 
 # 4. 평가, 예측
-loss, accuracy = model.evaluate(x_test, batch_size=3000)
+loss, accuracy = model.evaluate(x_test, y_test)
 print("loss: ", loss, "accuaracy: ", accuracy)
 
-y_predict = np.argmax(model.predict(x_test, batch_size=3000), axis=1)
+y_predict = np.argmax(model.predict(x_test), axis=1)
 print('y_predict: ', y_predict[:10])
 
 y_test = np.argmax(y_test, axis=1)
