@@ -14,11 +14,9 @@ y = np.array(range(1,17))
 # x_val = x[14:16]
 # y_val = y[14:16]
 
-x_train, x_tmp, y_train, y_tmp = train_test_split(
-    x, y, train_size = 0.65, random_state = 1)
+x_train, x_tmp, y_train, y_tmp = train_test_split(x, y, train_size = 0.65, random_state = 1)
 
-x_val, x_test, y_val, y_test = train_test_split(
-    x_tmp, y_tmp, test_size = 0.5, random_state = 1)
+x_val, x_test, y_val, y_test = train_test_split(x_tmp, y_tmp, test_size = 0.5, random_state = 1)
 
 print("학습 데이터: ", x_train.shape)
 print("검증 데이터: ", x_val.shape)
@@ -37,5 +35,6 @@ model.fit(x_train, y_train, epochs = 100, batch_size = 1, validation_data = (x_v
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test)
 print('evalution loss: ', loss)
+
 result = model.predict([17])
 print('17의 예측값: ', result)

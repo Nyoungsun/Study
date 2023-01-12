@@ -20,7 +20,7 @@ submission = pd.read_csv(path + 'submission.csv', index_col = 0)
 # print(train_data.info())       # Missing Attribute Values: 결측치 - 데이터에 값이 없는 것
 # print(train_data.describe())   # 평균, 표준편차, 최대값 등
 
-# ---------------------- 결측치 처리 (대체) ------------------------ #
+# ---------------------- 결측치 처리 (평균겂으로 대체) ------------------------ #
 # print(train_data.isnull().sum())  
 train_data =  train_data.fillna(train_data.mean())
 # print(train_data.isnull().sum())
@@ -29,11 +29,7 @@ train_data =  train_data.fillna(train_data.mean())
 x = train_data.drop(['count'], axis=1)                              # y 값(count 열) 분리, axis = 1 → 열에 대해 동작
 y = train_data['count']                                             # y 값(count 열)만 추출
 
-x_train, x_test, y_train, y_test = train_test_split(
-    x,y,
-    train_size=0.7,
-    random_state=44
-)
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.7, random_state=44)
 
 #2. 모델 구성
 model = Sequential()
@@ -46,6 +42,7 @@ model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss='mse', optimizer='adam', metrics  = ['mse'])
+
 start = t.time()
 model.fit(x_train, y_train, epochs = 100, batch_size = 1)
 fin = t.time()
@@ -58,9 +55,9 @@ y_predict = model.predict(x_test)
 # print('x_test:\n', x_test)
 # print('y_predict:\n', y_predict)
 
-def RMSE(y_test, y_predict):
-    return np.sqrt(mean_squared_error(y_test, y_predict))
+RMSE = np.sqrt(mean_squared_error(y_test, y_predict))
 print("RMSE: ", RMSE(y_test, y_predict))
+
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 

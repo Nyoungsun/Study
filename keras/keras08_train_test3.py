@@ -31,5 +31,3 @@ print('loss: ', loss)
 print('\n')
 result = model.predict([11])
 print('[11]의 결과: ', result)
-
-#test

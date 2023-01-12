@@ -28,6 +28,5 @@ print('loss: ', loss)
 
 print('\n')
 result = model.predict([[9, 30, 210]]) 
-print('예측값: ', result)
+print('예측값: ', result) #10.835549, 1.4114194
 
-#10.835549, 1.4114194

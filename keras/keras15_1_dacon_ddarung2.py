@@ -28,11 +28,7 @@ train_data =  train_data.dropna()
 x = train_data.drop(['count'], axis=1)                              # y 값(count 열) 분리, axis = 1 → 열에 대해 동작
 y = train_data['count']                                             # y 값(count 열)만 추출
 
-x_train, x_test, y_train, y_test = train_test_split(
-    x,y,
-    train_size=0.7,
-    random_state=44
-)
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.7, random_state=44)
 
 #2. 모델 구성
 model = Sequential()
@@ -46,7 +42,6 @@ model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss='mse', optimizer='adam', metrics  = ['mse'])
-
 model.fit(x_train, y_train, epochs = 200)
 
 #4. 평가 및 예측
@@ -57,9 +52,9 @@ y_predict = model.predict(x_test)
 # print('x_test:\n', x_test)
 # print('y_predict:\n', y_predict)
 
-def RMSE(y_test, y_predict):
-    return np.sqrt(mean_squared_error(y_test, y_predict))
+RMSE = np.sqrt(mean_squared_error(y_test, y_predict))
 print("RMSE: ", RMSE(y_test, y_predict))
+
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 

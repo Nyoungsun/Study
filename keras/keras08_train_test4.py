@@ -10,12 +10,7 @@ y = np.array([[1,2,3,4,5,6,7,8,9,10], [1,1,1,1,2,1.3,1.4,1.5,1.6,1.4]]) #(2,10)
 x = x.T
 y = y.T
 
-x_train, x_test, y_train, y_test = train_test_split(
-    x, y, 
-    test_size=0.3,       #train, test 중 하나만 지정해도됨
-    random_state=140     #random_state 지정 = random seed 고정
-    )
-
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=140)
 print(x_train, "\n\n", x_test, "\n\n", y_train, "\n\n", y_test)
 
 #2. 모델구성

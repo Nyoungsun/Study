@@ -36,5 +36,6 @@ model.fit(x_train, y_train, epochs = 100, batch_size = 1, validation_data = (x_v
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test)
 print('evaluation loss: ', loss)
+
 result = model.predict([17])
 print('17의 예측값: ', result)
