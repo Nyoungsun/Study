@@ -25,6 +25,7 @@ model.add(Dense(1))
 
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
+
 earlyStopping = EarlyStopping(monitor='val_loss', mode='min', patience=10, restore_best_weights=True, verbose=3) # loss - min, accuracy - max 
 hist = model.fit(x_train, y_train, epochs=200, batch_size=10, validation_split=0.2, callbacks = [earlyStopping], verbose=3) # verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
 

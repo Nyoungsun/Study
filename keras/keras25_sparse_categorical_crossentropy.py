@@ -2,7 +2,6 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_iris
-from tensorflow.keras.utils import to_categorical
 from sklearn.metrics import accuracy_score
 import numpy as np
 import pandas as pd
@@ -30,7 +29,7 @@ model.add(Dense(8, activation='sigmoid'))
 model.add(Dense(3, activation='softmax')) # 확률의 총합 = 1, 다중 분류에서 사용, 보통 출력 층에서 사용, y 클래스의 개수만큼 지정
 
 #3. 컴파일, 훈련
-model.compile(loss = 'sparse_categorical_crossentropy', optimizer = 'adam', metrics=['accuracy']) # loss로 sparse_categorical_crossentropy를 사용하면 one-hot encoding X
+model.compile(loss = 'sparse_categorical_crossentropy', optimizer = 'adam', metrics=['accuracy']) # loss로 sparse_categorical_crossentropy를 사용하면 one-hot encoding 필요 X
 model.fit(x_train, y_train, epochs = 50, batch_size=1, validation_split=0.2, verbose = 2)
 
 #4. 평가, 예측

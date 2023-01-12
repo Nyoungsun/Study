@@ -20,7 +20,6 @@ y = datasets['target']
 # print(x.shape, y.shape) # (150, 4), (150,)
 # print(y) # 분류 데이터임을 알 수 있음
 
-# y = pd.get_dummies(y) 또는 OneHotEncoder().fit(y.reshape(-1, 1)) y = OneHotEncoder().transform(y.reshape(-1, 1)).toarray()
 y = to_categorical(y)
 # print(y, y.shape)
 
