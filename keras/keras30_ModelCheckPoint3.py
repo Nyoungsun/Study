@@ -35,7 +35,7 @@ model.compile(loss = 'mse', optimizer='adam', metrics = ['mae'])
 
 ES = EarlyStopping(monitor='val_loss', mode='min', patience=16, verbose = 1, restore_best_weights=True) 
 # restore_best_weights=False: default → EarlyStopping된 지점에서부터 patience만큼(가중치가 가장 좋은 지점 X)
-MCP = ModelCheckpoint(monitor='val_loss', mode = 'auto', save_best_only=True, verbose = 1, filepath = path + 'keras30_ModelCheckPoint1.hdf5') 
+MCP = ModelCheckpoint(monitor='val_loss', mode = 'auto', save_best_only=True, verbose = 1, filepath = path + 'keras30_ModelCheckPoint3.hdf5') 
 # ModelCheckpoint: 모델과 가중치 저장, save_best_only=True: 가장 좋은 가중치 저장
 model.fit(x_train, y_train, epochs=1024, batch_size=16, validation_split=0.2, callbacks=[ES, MCP], verbose = 1) 
 
@@ -65,7 +65,7 @@ r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
 print('===== 3. ModelCheckPoint 출력(ModelCheckPoint로 저장된 모델) ======')
-model3 = load_model(path + 'keras30_ModelCheckPoint1.hdf5')
+model3 = load_model(path + 'keras30_ModelCheckPoint3.hdf5')
 
 mse = model3.evaluate(x_test, y_test, verbose=3)
 print('mse: ', mse)
