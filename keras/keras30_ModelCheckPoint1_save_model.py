@@ -34,6 +34,7 @@ model = Model(inputs=input, outputs=output)
 model.compile(loss = 'mse', optimizer='adam')
 
 ES = EarlyStopping(monitor='val_loss', mode='min', patience=16, verbose = 1, restore_best_weights=True) 
+# restore_best_weights=False: default → EarlyStopping된 지점에서부터 patience만큼(가중치가 가장 좋은 지점 X)
 MCP = ModelCheckpoint(monitor='val_loss', mode = 'auto', save_best_only=True, verbose = 1, filepath = path + 'keras30_ModelCheckPoint1.hdf5')
 # ModelCheckpoint: 모델과 가중치 저장, save_best_only=True: 가장 좋은 가중치 저장
 model.fit(x_train, y_train, epochs=1024, batch_size=16, validation_split=0.2, callbacks=[ES, MCP]) 
