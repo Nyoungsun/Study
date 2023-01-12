@@ -41,6 +41,7 @@ model.fit(x_train, y_train, epochs=1024, batch_size=16, validation_split=0.2, ca
 
 # ----------------- 모델, 가중치 저장 ----------------- #
 model.save(path + 'keras30_ModelCheckPoint3_model.h5') 
+# hdf5 = h5
 
 #4. 평가 및 예측
 print('========================= 1. 기본 출력 ===========================')
@@ -52,7 +53,7 @@ y_predict = model.predict(x_test, verbose=3)
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
-print('====================== 2. load_model 출력 ========================')
+print('========= 2. load_model 출력(model.save로 저장된 모델) ============')
 model2 = load_model(path + 'keras30_ModelCheckPoint3_model.h5')
 
 loss = model2.evaluate(x_test, y_test, verbose=3)
@@ -63,7 +64,7 @@ y_predict = model2.predict(x_test, verbose=3)
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
 
-print('==================== 3. ModelCheckPoint 출력 =====================')
+print('===== 3. ModelCheckPoint 출력(ModelCheckPoint로 저장된 모델) ======')
 model3 = load_model(path + 'keras30_ModelCheckPoint1.hdf5')
 
 loss = model3.evaluate(x_test, y_test, verbose=3)

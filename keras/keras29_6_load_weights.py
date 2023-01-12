@@ -10,9 +10,9 @@ import numpy as np
 #1. 데이터
 path = 'C:/study/keras_save/'
 
-dataset = load_boston()         # 보스턴 집 값에 대한 데이터
-x = dataset.data                # 방 넓이, 방 개수 등 → 독립변수
-y = dataset.target              # 집 값 → 종속변수
+dataset = load_boston()         
+x = dataset.data                
+y = dataset.target             
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.7, random_state=3333)
 
@@ -22,7 +22,6 @@ x_train = scaler.fit_transform(x_train)
 x_test = scaler.transform(x_test)
 
 #2. 모델구성 
-# (functional) Total params: 52,225
 input = Input(shape=(13,))
 dense1 = Dense(32)(input)
 dense2 = Dense(64, activation= 'relu')(dense1)
@@ -35,6 +34,7 @@ model = Model(inputs=input, outputs=output)
 model.compile(loss = 'mse', optimizer='adam')
 
 # ------- 가중치 load ------- # 
+# load_weight는 tensorflow Model에 정의되어있음
 # model.load_weights(path + 'keras29_5_save_weight1.h5') # model1에는 훈련되지 않은 가중치만 저장 (모델과 컴파일, 훈련 과정이 있어야함)
 model.load_weights(path + 'keras29_5_save_weight2.h5') # model2에는 훈련된 가중치만 저장 (모델과 컴파일 과정이 있어야함, 훈련 과정 필요없음)
 
