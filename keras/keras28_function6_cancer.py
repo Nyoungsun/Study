@@ -55,9 +55,8 @@ hist = model.fit(x_train, y_train, epochs=1024, batch_size=16, validation_split=
 loss, accuracy = model.evaluate(x_test, y_test)
 print('loss: ', loss, 'accuracy: ', accuracy)
 
-y_predict = np.where(model.predict(x_test) > 0.5, 1, 0)
-# y_predict = y_predict.round() 또는 y_predict = np.asarray(y_predict, dtype=int) 
-# y_predict = y_predict.flatten()
+y_predict = np.where(model.predict(x_test) > 0.5, 1, 0) # y_predict = y_predict.round()
+y_predict = y_predict.flatten()
 print('y_predict: \n', y_predict[:10], '\n y_test: ', y_test[:10])
 
 acc = accuracy_score(y_test, y_predict) 
