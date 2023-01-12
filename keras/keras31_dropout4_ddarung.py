@@ -37,12 +37,12 @@ x_test = scaler.transform(x_test)
 
 #2. 모델구성
 model = Sequential()
-model.add(Dense(32, input_shape = (9,)))
-model.add(Dropout(0.5)) # 과적합 방지
-model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.3)) # 과적합 방지
-model.add(Dense(256, activation='relu'))
+model.add(Dense(64, input_shape = (9,)))
 model.add(Dropout(0.2)) # 과적합 방지
+model.add(Dense(128, activation='relu'))
+model.add(Dropout(0.3)) # 과적합 방지
+model.add(Dense(512, activation='relu'))
+model.add(Dropout(0.5)) # 과적합 방지
 model.add(Dense(128, activation='relu'))
 model.add(Dense(1))
 
@@ -83,5 +83,5 @@ y_submit = model.predict(scaler.transform(test_data))
 submission['count'] = y_submit
 submission.to_csv(path + 'submission_0112.csv')
 
-# MMS RMSE:  44.58133810239361
-# SDS RMSE:  48.37061876311076
+# MMS RMSE:  45.87809007971086
+# SDS RMSE:  48.853524787622504
