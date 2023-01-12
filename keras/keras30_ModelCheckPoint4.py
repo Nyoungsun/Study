@@ -40,7 +40,7 @@ date = dt.datetime.now()
 # print(date, type(date)) # 2023-01-12 14:59:11.374847, <class 'datetime.datetime'>
 date = date.strftime("%m%d_%H%M_")
 # print(date, type(date)) # 0112_1504, <class 'str'>
-name = date + '{epoch:04d}_{val_loss:.4f}.hdf5'
+name = date + 'k30_{epoch:04d}_{val_loss:.4f}.hdf5'
 
 MCP = ModelCheckpoint(monitor='val_loss', mode = 'auto', save_best_only=True, filepath = path + name, verbose = 3) 
 # ModelCheckpoint: 모델과 가중치 저장, save_best_only=True: 가장 좋은 가중치 저장

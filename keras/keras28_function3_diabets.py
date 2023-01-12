@@ -12,9 +12,7 @@ dataset = load_diabetes()
 x = dataset.data                
 y = dataset.target              
 
-x_train, x_test, y_train, y_test = train_test_split(
-    x, y, train_size=0.7, random_state=3333
-)
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.7, random_state=3333)
 
 scaler = MMS()
 # scaler = SDS()
