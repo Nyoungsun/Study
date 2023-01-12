@@ -31,12 +31,12 @@ dense4 = Dense(128, activation= 'relu')(dense3)
 output = Dense(1)(dense4)
 model = Model(inputs=input, outputs=output)
 
+#3. 컴파일 및 훈련
+model.compile(loss = 'mse', optimizer='adam')
+
 # ------- 가중치 load ------- # 
 # model.load_weights(path + 'keras29_5_save_weight1.h5') # model1에는 훈련되지 않은 가중치만 저장 (모델과 컴파일, 훈련 과정이 있어야함)
 model.load_weights(path + 'keras29_5_save_weight2.h5') # model2에는 훈련된 가중치만 저장 (모델과 컴파일 과정이 있어야함, 훈련 과정 필요없음)
-
-#3. 컴파일 및 훈련
-model.compile(loss = 'mse', optimizer='adam')
 
 # earlyStopping = EarlyStopping(monitor='val_loss', mode='min', patience=16, restore_best_weights=True, verbose=3) # loss - min, accuracy - max 
 # model.fit(x_train, y_train, epochs=256, batch_size=16, validation_split=0.2, callbacks = [earlyStopping], verbose=3) # verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지

@@ -37,7 +37,7 @@ model.save_weights(path + 'keras29_5_save_weight1.h5') #
 model.compile(loss = 'mse', optimizer='adam')
 
 earlyStopping = EarlyStopping(monitor='val_loss', mode='min', patience=16, restore_best_weights=True, verbose=3)  
-hist = model.fit(x_train, y_train, epochs=256, batch_size=16, validation_split=0.2, callbacks = [earlyStopping], verbose=3) 
+model.fit(x_train, y_train, epochs=256, batch_size=16, validation_split=0.2, callbacks = [earlyStopping], verbose=3) 
 
 # -------------- 컴파일과 훈련된 가중치 저장 (모델 저장 X) ------------- #
 model.save_weights(path + 'keras29_5_save_weight2.h5') # 

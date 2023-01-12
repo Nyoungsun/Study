@@ -37,7 +37,7 @@ model.save(path + 'keras29_1_save_model.h5')
 model.compile(loss = 'mse', optimizer='adam')
 
 earlyStopping = EarlyStopping(monitor='val_loss', mode='min', patience=16, restore_best_weights=True, verbose=3)  
-hist = model.fit(x_train, y_train, epochs=256, batch_size=16, validation_split=0.2, callbacks = [earlyStopping], verbose=3) 
+model.fit(x_train, y_train, epochs=256, batch_size=16, validation_split=0.2, callbacks = [earlyStopping], verbose=3) 
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test, verbose=3)

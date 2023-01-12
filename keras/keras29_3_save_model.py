@@ -34,7 +34,7 @@ model = Model(inputs=input, outputs=output)
 model.compile(loss = 'mse', optimizer='adam')
 
 earlyStopping = EarlyStopping(monitor='val_loss', mode='min', patience=16, restore_best_weights=True, verbose=3)  
-hist = model.fit(x_train, y_train, epochs=256, batch_size=16, validation_split=0.2, callbacks = [earlyStopping], verbose=3) 
+model.fit(x_train, y_train, epochs=256, batch_size=16, validation_split=0.2, callbacks = [earlyStopping], verbose=3) 
 
 # -------------- 모델 저장 ------------- #
 model.save(path + 'keras29_3_save_model.h5') # 컴파일 및 훈련 수행 후 저장했으므로 가중치까지 저장됨
@@ -44,8 +44,6 @@ loss = model.evaluate(x_test, y_test, verbose=3)
 print('loss: ', loss)
 
 y_predict = model.predict(x_test)
-
-print('val_loss: ', hist.history['val_loss']) 
 
 RMSE = np.sqrt(mean_squared_error(y_test, y_predict))
 print("RMSE: ", RMSE)

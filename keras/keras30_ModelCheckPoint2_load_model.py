@@ -21,10 +21,10 @@ scaler = SDS()
 x_train = scaler.fit_transform(x_train)
 x_test = scaler.transform(x_test)
 
-#2. 모델구성 
+#2. 모델구성 및 컴파일, 훈련
 model = load_model(path + 'keras30_ModelCheckPoint1.hdf5')
 
-#4. 평가 및 예측
+#3. 평가 및 예측
 loss = model.evaluate(x_test, y_test, verbose=3)
 print('loss: ', loss)
 
