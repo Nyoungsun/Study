@@ -46,7 +46,7 @@ y_predict = np.argmax(model.predict(x_test), axis = 1)
 print('y_predict: ', y_predict)
 
 y_test = np.argmax(y_test, axis = 1)
-
 print('y_test: ', y_test)
+
 acc = accuracy_score(y_test, y_predict) 
 print('acc: ', acc)

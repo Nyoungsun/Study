@@ -30,7 +30,7 @@ model.add(Dense(8, activation='sigmoid'))
 model.add(Dense(3, activation='softmax')) # 확률의 총합 = 1, 다중 분류에서 사용, 보통 출력 층에서 사용, y 클래스의 개수만큼 지정
 
 #3. 컴파일, 훈련
-model.compile(loss = 'sparse_categorical_crossentropy', optimizer = 'adam', metrics=['accuracy'])
+model.compile(loss = 'sparse_categorical_crossentropy', optimizer = 'adam', metrics=['accuracy']) # loss로 sparse_categorical_crossentropy를 사용하면 one-hot encoding X
 model.fit(x_train, y_train, epochs = 50, batch_size=1, validation_split=0.2, verbose = 2)
 
 #4. 평가, 예측
@@ -40,7 +40,7 @@ print("loss: ", loss, "accuaracy: ", accuracy)
 y_predict = np.argmax(model.predict(x_test), axis = 1)
 print('y_predict: ', y_predict)
 
-# y_test = np.argmax(y_test, axis = 1)  # one-hot encoding X
+# y_test = np.argmax(y_test, axis = 1)  
 print('y_test: ', y_test)
 
 acc = accuracy_score(y_test, y_predict) 
