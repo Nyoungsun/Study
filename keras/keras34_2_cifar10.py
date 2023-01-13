@@ -2,6 +2,7 @@ from tensorflow.keras.datasets import cifar10
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, Dense, Flatten
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
+from sklearn.preprocessing import MinMaxScaler as MMS, StandardScaler as SDS
 import matplotlib.pyplot as plt
 import numpy as np
 

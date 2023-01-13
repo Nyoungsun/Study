@@ -11,7 +11,7 @@ import pandas as pd
 
 #1. 데이터
 datasets = load_iris()
-# print(datasets)
+print(datasets)
 # print(datasets.DESCR) # pandas: .describe() / .info()
 # print(datasets.feature_names) # pandas: .columns
 
