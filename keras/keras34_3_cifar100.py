@@ -1,6 +1,6 @@
 from tensorflow.keras.datasets import cifar100
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, Dense, Flatten
+from tensorflow.keras.layers import Conv2D, Dense, Flatten, Dropout
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from sklearn.preprocessing import MinMaxScaler as MMS, StandardScaler as SDS
 import matplotlib.pyplot as plt
@@ -10,21 +10,25 @@ import numpy as np
 path = 'C:/study/keras_save/MCP/'
 
 (x_train, y_train), (x_test, y_test) = cifar100.load_data()
-print(x_train.shape, y_train.shape) # (50000, 32, 32, 3) (50000, 1) → color image
-print(x_test.shape, y_test.shape)   # (10000, 32, 32, 3) (10000, 1)
+# print(x_train.shape, y_train.shape) 
+# print(x_test.shape, y_test.shape)   
 
 # print(x_train[0], y_train[0])      # 데이터 확인
 # plt.imshow(x_train[0], 'gray')     # 이미지 확인
 # plt.show()
 
-# print(np.unique(y_train, return_counts = True)) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000]
-
 #2. 모델
 model = Sequential()
-model.add(Conv2D(filters=64, kernel_size = (2,2), input_shape=(32,32,3), activation='relu'))
-model.add(Conv2D(filters=64, kernel_size=(2,2))) # input_size = (27, 27, 128)
-model.add(Conv2D(filters=64, kernel_size=(2,2))) # input_size = (26, 26, 64)
+model.add(Conv2D(filters=128, kernel_size = (2,2), input_shape=(32,32,3), activation='relu'))
+model.add(Dropout(0.5)) 
+model.add(Conv2D(filters=64, kernel_size=(2,2)))
+model.add(Dropout(0.3)) 
+model.add(Conv2D(filters=64, kernel_size=(2,2))) 
 model.add(Flatten())
+model.add(Dense(units=64, activation='relu'))
+model.add(Dropout(0.3)) 
+model.add(Dense(units=32, activation='relu'))
+model.add(Dropout(0.2)) 
 model.add(Dense(units=16, activation='relu'))
 model.add(Dense(units=100, activation='softmax'))
 
