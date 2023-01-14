@@ -1,10 +1,9 @@
-const a = 5; 
-const b = 4;
+// const: 변경 X, let: 변경 O
 
-const Myname = "nico";
+const mon = "mon";
+const tue = "tue";
+const wed = "wed";
+const thu = "thu";
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-
-console.log(Myname);
+const dayOfWeek = mon + tue + wed + thu;
+console.log(dayOfWeek);
