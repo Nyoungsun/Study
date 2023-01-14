@@ -2,16 +2,14 @@
 // 단어 한번에 변경: ctrl + shift + L
 // 괄호 한번에 처리: 드래그 후 괄호
 
-const daysOfWeek = ["mon", "tue", "wed", "thu"]
+const player = {
+    Name: "no",
+    points: 10,
+    fat: false
+};
 
-
-//get item from array
-console.log(daysOfWeek)
-console.log(daysOfWeek[2])
-
-// Add one more day to array
-daysOfWeek.push("fri")
-
-console.log(daysOfWeek)
+console.log(player);
+console.log(player.Name);
+console.log(player["name"]);
 
 
