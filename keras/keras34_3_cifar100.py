@@ -37,5 +37,5 @@ ES = EarlyStopping(monitor = 'val_loss', mode = min, patience=4, restore_best_we
 model.fit(x_train, y_train, epochs=64, batch_size=1024, validation_split=0.2, callbacks=[ES, MCP])
 
 #4. 평가 및 예측
-metric = model.evaluate(x_test, y_test, batch_size=1024) # compile에서 metrics = acc를 지정했으므로 evaluate는 값을 배열 형태로 2개 반환함
+metric = model.evaluate(x_test, y_test) # compile에서 metrics = acc를 지정했으므로 evaluate는 값을 배열 형태로 2개 반환함
 print('loss: ', metric[0], 'acc: ', metric[1])
