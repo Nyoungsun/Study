@@ -44,11 +44,11 @@ model.add(Dense(1))
 model.compile(loss = 'mse', optimizer='adam')
 
 earlyStopping = EarlyStopping(monitor='val_loss', mode='min', patience=16, restore_best_weights=True, verbose=3)
-hist = model.fit(x_train, y_train, epochs=256, batch_size=64, validation_split=0.2, callbacks= [earlyStopping], verbose=3) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
+hist = model.fit(x_train, y_train, epochs=256, batch_size=64, validation_split=0.2, callbacks= [earlyStopping], verbose=2) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test, verbose=3)
-print('loss: ', loss)
+print('loss(mse): ', loss)
 
 y_predict = model.predict(x_test)
 # print('x_test:\n', x_test)
@@ -63,3 +63,6 @@ print("RMSE: ", RMSE)
 
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
+
+# RMSE:  0.616144077063237
+# R2:  0.717834811407713

@@ -29,19 +29,19 @@ x_test = scaler.transform(x_test)
 
 # (functional)
 input = Input(shape=(10,))
-dense1 = Dense(32, activation= 'relu')(input)
-dense2 = Dense(16)(dense1)
-dense3 = Dense(16)(dense2)
+dense1 = Dense(8, activation= 'relu')(input)
+dense2 = Dense(16, activation= 'relu')(dense1)
+dense3 = Dense(8, activation= 'relu')(dense2)
 dense4 = Dense(8, activation= 'relu')(dense3)
-output = Dense(1)(dense4)
+output = Dense(1, activation= 'relu')(dense4)
 model = Model(inputs=input, outputs=output)
 # model.summary()
 
 #3. 컴파일 및 훈련
 model.compile(loss = 'mse', optimizer='adam')
 
-earlyStopping = EarlyStopping(monitor='val_loss', mode = 'min', patience=16, restore_best_weights=True, verbose=3)
-hist = model.fit(x_train, y_train, epochs=256, batch_size=16, validation_split=0.2, callbacks=[earlyStopping], verbose = 3) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
+earlyStopping = EarlyStopping(monitor='val_loss', mode = 'min', patience=8, restore_best_weights=True, verbose=3)
+hist = model.fit(x_train, y_train, epochs=512, batch_size=2, validation_split=0.2, callbacks=[earlyStopping], verbose = 3) #verbose: 함수 수행시 발생하는 상세한 정보들을 표준 출력으로 자세히 내보낼 것인지
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test, verbose=3)
@@ -60,3 +60,6 @@ print("RMSE: ", RMSE)
 
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
+
+RMSE:  55.83781912698308
+R2:  0.4314180685476612
