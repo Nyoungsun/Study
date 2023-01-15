@@ -27,7 +27,7 @@ model.add(Conv2D(filters=8, kernel_size=(2,2))) # input_size = (27, 27, 128)
 model.add(Conv2D(filters=8, kernel_size=(2,2))) # input_size = (26, 26, 64)
 model.add(Flatten())
 model.add(Dense(units=16, activation='relu'))
-model.add(Dense(units=10, activation='softmax'))
+model.add(Dense(units=100, activation='softmax'))
 
 #3. 컴파일 및 훈련
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics='acc') # one-hot encoding 하지 않아도 되는 데이터이므로 loss= sparse_categorical_crossentropy
