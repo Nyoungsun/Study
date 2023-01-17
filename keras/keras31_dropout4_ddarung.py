@@ -8,7 +8,9 @@ import numpy as np
 import pandas as pd
 
 #1. 데이터
-path = 'C:/study/keras_data/ddarung/'
+path = 'C:/Users/nys/study/keras_data/ddarung/'
+# path = 'C:/study/keras_data/ddarung/'
+
 train_data = pd.read_csv(path + 'train.csv', index_col = 0) # index_col = 0 → id 열 데이터로 취급 X
 test_data = pd.read_csv(path + 'test.csv', index_col = 0)
 submission = pd.read_csv(path + 'submission.csv', index_col = 0)
@@ -81,7 +83,12 @@ print("R2: ", r2)
 
 y_submit = model.predict(scaler.transform(test_data))
 submission['count'] = y_submit
-submission.to_csv(path + 'submission_0112.csv')
+submission.to_csv(path + 'submission_0115.csv')
 
-# MMS RMSE:  45.87809007971086
-# SDS RMSE:  48.853524787622504
+# MMS
+# RMSE:  46.994101216643735
+# R2:  0.6749077541187736'
+
+# SDS
+# RMSE:  47.41885980219907
+# R2:  0.6690044698182109

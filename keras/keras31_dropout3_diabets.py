@@ -23,9 +23,9 @@ x_test = scaler.transform(x_test)
 model = Sequential()
 model.add(Dense(32, activation='relu', input_shape = (10,)))
 model.add(Dropout(0.5)) # 과적합 방지
-model.add(Dense(16))
+model.add(Dense(16, activation='relu'))
 model.add(Dropout(0.3)) # 과적합 방지
-model.add(Dense(16))
+model.add(Dense(16, activation='relu'))
 model.add(Dropout(0.2)) # 과적합 방지
 model.add(Dense(8, activation='relu'))
 model.add(Dense(1))
@@ -47,7 +47,7 @@ hist = model.fit(x_train, y_train, epochs=256, batch_size=16, validation_split=0
 
 #4. 평가 및 예측
 loss = model.evaluate(x_test, y_test, verbose=3)
-print('loss: ', loss)
+print('loss(mse): ', loss)
 
 y_predict = model.predict(x_test)
 # print('x_test:\n', x_test)
@@ -62,3 +62,6 @@ print("RMSE: ", RMSE)
 
 r2 = r2_score(y_test, y_predict)
 print("R2: ", r2)
+
+# RMSE:  57.756066724139004
+# R2:  0.3916810043110075

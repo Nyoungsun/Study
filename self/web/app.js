@@ -1,7 +1,8 @@
-function sayHello(name, age) {
-    console.log("Hello my name is " + name + " and I'm " +  age);
-}
+const a = 5; 
+const b = 4;
 
-sayHello("no", 10);
-sayHello("vo", 30);
-sayHello("do", 20);
+const Myname = "nico";
+
+console.log(a + b);
+console.log(a * b);
+console.log(a / b);
