@@ -1,8 +1,20 @@
-const a = 5; 
-const b = 4;
+function plus(a, b) {
+    console.log(a + b);
+}
 
-const Myname = "nico";
+function devide(aa, bb) {
+    console.log(aa / bb);
+}
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
+plus(8, 60);
+devide(8, 60);
+
+const player = {
+    name: "nao",
+    sayHello: function(other){
+        console.log("hello! " + other);
+    }
+};
+
+console.log(player.name);
+player.sayHello("didi");
