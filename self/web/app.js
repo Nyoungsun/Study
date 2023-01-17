@@ -1,10 +1,9 @@
-const a = 5; 
-const b = 4;
+function sayHello() {
+    console.log("Hello A");
+}
 
-const Myname = "nico";
+alert();
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-
-console.log(Myname);
+sayHello();
+sayHello();
+sayHello();
