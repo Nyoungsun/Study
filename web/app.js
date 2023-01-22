@@ -9,6 +9,9 @@
 // function mul() {
 //     console.log(2 * 2);
 // }
+
+// plus(8, 60);
+// devide(8, 60);
 // mul();
 // mul();
 // mul();
@@ -19,10 +22,6 @@
 
 // add(5, 10, 11, 12); //첫번째 인자만 받음
 
-
-// plus(8, 60);
-// devide(8, 60);
- 
 // const player = {
 //     name: "nao",
 //     sayHello: function(other){
@@ -35,7 +34,6 @@
 // console.log(player);
 // player.age = 88;
 // console.log(player);
-
 // console.log(player.name);
 // player.sayHello("didi");
 
@@ -74,7 +72,6 @@ const mul = calc.mul(div,2);
 const power = calc.power(mul,2);
 
 console.log(add, sub, div, mul, power);
-
 
 // const age = 96;
 // function cal(age){
