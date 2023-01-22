@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<HTML>
+
+<HEAD>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <TITLE>회원 명단</TITLE>
+</HEAD>
+
+<BODY>
+  <div class="w3-top">
+    <div class="w3-bar w3-dark-grey">
+      <a href="/" class="w3-bar-item w3-button">*</a>
+      <a href="/add" class="w3-bar-item w3-button">+</a>
+      <a href="/edit" class="w3-bar-item w3-button">수정</a>
+      <a href="/del" class="w3-bar-item w3-button">-</a>
+      <a href="/find" class="w3-bar-item w3-button">찾기</a>
+      <a href="/list" class="w3-bar-item w3-button">명단</a>
+    </div>
+  </div>
+  <br><br>
+  <div class="w3-header w3-center">
+    <h2>회원 명단</h2>
+  </div>
+
+  <table class="w3-table-all">
+    <thead>
+      <tr class="w3-pink">
+        <th>번호</th>
+        <th>성 명</th>
+        <th>거주지</th>
+
+        <% data.forEach(function(user,index){%>
+          <tr>
+            <td>
+              <%=user.id%>
+            </td>
+            <td>
+              <%=user.name%>
+            </td>
+            <td>
+              <%=user.region%>
+            </td>
+          </tr>
+          <%});%>
+
+            <th>
+    </thead>
+
+
+</BODY>
+
+</HTML>
