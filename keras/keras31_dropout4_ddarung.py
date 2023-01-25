@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 #1. 데이터
-path = 'C:/Users/nys/study/keras_data/ddarung/'
+path = 'C:/study/keras/keras_data/ddarung/'
 # path = 'C:/study/keras_data/ddarung/'
 
 train_data = pd.read_csv(path + 'train.csv', index_col = 0) # index_col = 0 → id 열 데이터로 취급 X
