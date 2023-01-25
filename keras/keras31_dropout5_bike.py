@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 #1. 데이터
-path = 'C:/study/keras_data/bike/'
+path = 'C:/study/keras/keras_data/bike/'
 train_data = pd.read_csv(path + 'train.csv', index_col = 0)         # index_col = 0 → date_t 열 데이터로 취급 X
 test_data = pd.read_csv(path + 'test.csv', index_col = 0)
 submission = pd.read_csv(path + 'sampleSubmission.csv', index_col = 0)
