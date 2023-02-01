@@ -45,7 +45,9 @@
 
 const calc = {
     add: function(a, b) {
-        return a+b;
+        console.log('hi');
+        return a+b;         // return하면 함수 종료
+        console.log('bye');
     },
 
     sub: function(a,b) {
@@ -65,7 +67,7 @@ const calc = {
     }
 };
 
-const add = calc.add(1,2);
+const add = calc.add(1,2);      // add에 console.log(a+b); 를 쓰게 되면 나머지들이 Nan이 된다
 const sub = calc.sub(add,2);
 const div =calc.div(sub,2);
 const mul = calc.mul(div,2);
