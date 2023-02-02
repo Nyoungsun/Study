@@ -5,8 +5,9 @@ import java.util.Scanner;
 
 public class Salary {
     public static void main(String[] args) {
+        while (true) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("이름 입력: ");
+        System.out.print("\n이름 입력: ");
         String name = scanner.next();
         System.out.print("직급 입력: ");
         String position = scanner.next();
@@ -16,23 +17,41 @@ public class Salary {
         int benefit = scanner.nextInt();
 
         int total = base + benefit;
-        double tax = total >= 5000000 ? tax = total * 0.03 : total >= 3000000 ? tax = total * 0.02 : 0.01;
+        double tax = total >= 5000000 ?
+                total * 0.03 :
+                total >= 3000000 ?
+                        total * 0.02 :
+                        total * 0.01;
+//        if (total >= 5000000) {
+//            tax = total * 0.03;
+//        } else if (total >= 3000000) {
+//            tax = total * 0.02;
+//        } else {
+//            tax = total * 0.01;
+//        }
         double salary = total - tax;
 
         DecimalFormat DF = new DecimalFormat();
-        System.out.println("*** " + name + " " + position + " 월급 ***");
+        System.out.println("\n*** " + name + " " + position + " 월급 ***");
         System.out.println("기본급: " + DF.format(base) + "원");
         System.out.println("수당: " + DF.format(benefit) + "원");
         System.out.println("합계: " + DF.format(total) + "원");
-
-        if (total >= 5000000) {
-            System.out.println("세율: 3%");
-        } if (total >= 3000000 && total <= 5000000) {
-            System.out.println("세율: 2%");
-        } else System.out.println("세율 1%");
-
-        System.out.println("세금: " + tax);
-        System.out.println("월급: " + salary);
+        String taxRate = total >= 5000000 ?
+                "세율: 3%" :
+                total >= 3000000 ?
+                        "세율 2%" :
+                        "세율 1%";
+        System.out.println(taxRate);
+//        if (total >= 5000000) {
+//            System.out.println("세율: 3%");
+//        } else if (total >= 3000000) {
+//            System.out.println("세율: 2%");
+//        } else {
+//            System.out.println("세율 1%");
+//        }
+        System.out.println("세금: " + DF.format(Math.floor(tax)) + "원");
+        System.out.println("월급: " + DF.format(Math.floor(salary)) + "원");
+        }
     }
 }
 
