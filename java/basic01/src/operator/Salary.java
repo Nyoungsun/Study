@@ -17,19 +17,20 @@ public class Salary {
         int benefit = scanner.nextInt();
 
         int total = base + benefit;
-        double tax = total >= 5000000 ?
-                total * 0.03 :
-                total >= 3000000 ?
-                        total * 0.02 :
-                        total * 0.01;
+        int tax = (int) (total >= 5000000 ?
+                        total * 0.03 :
+                        total >= 3000000 ?
+                                total * 0.02 :
+                                total * 0.01);
+//        int tax;
 //        if (total >= 5000000) {
-//            tax = total * 0.03;
+//            tax = (int) (total * 0.03);
 //        } else if (total >= 3000000) {
-//            tax = total * 0.02;
+//            tax = (int) (total * 0.02);
 //        } else {
-//            tax = total * 0.01;
+//            tax = (int) (total * 0.01);
 //        }
-        double salary = total - tax;
+        int salary = total - tax;
 
         DecimalFormat DF = new DecimalFormat();
         System.out.println("\n*** " + name + " " + position + " 월급 ***");
@@ -50,7 +51,7 @@ public class Salary {
 //            System.out.println("세율 1%");
 //        }
         System.out.println("세금: " + DF.format(Math.floor(tax)) + "원");
-        System.out.println("월급: " + DF.format(Math.floor(salary)) + "원");
+        System.out.println("월급: " + DF.format(salary) + "원");
         }
     }
 }

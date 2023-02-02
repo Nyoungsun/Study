@@ -4,8 +4,8 @@ public class Dice {
     public static void main(String[] args) {
 
         while (true) {
-            int dice1 = ((int) (Math.random() * (6) + 1));
-            int dice2 = ((int) (Math.random() * (6) + 1));
+            int dice1 = (int) (Math.random() * (6 - 1 + 1) + 1); // (int) (Math.random() * (최댓값 - 최소값 + 1) + 최소값)
+            int dice2 = (int) (Math.random() * 6 + 1);
 
             System.out.println("주사위1: " + dice1 + " 주사위2: " + dice2);
             if (dice1 > dice2)
@@ -18,7 +18,7 @@ public class Dice {
                 System.out.println("무승부"+ "\n--------------------");
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
