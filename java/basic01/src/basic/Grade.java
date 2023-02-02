@@ -4,9 +4,7 @@ public class Grade {
     public static void main(String[] args) {
 
         char name = 'L';
-
         int kor = 85, eng = 78, math = 100, total = kor + eng + math;
-
         float avg = (float) total/3;
 
         System.out.println("\t\t\t*** "+name+"성적표 ***");
