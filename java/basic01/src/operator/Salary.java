@@ -5,24 +5,27 @@ import java.util.Scanner;
 
 public class Salary {
     public static void main(String[] args) {
-        while (true) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("\n이름 입력: ");
-        String name = scanner.next();
-        System.out.print("직급 입력: ");
-        String position = scanner.next();
-        System.out.print("기본급 입력: ");
-        int base = scanner.nextInt();
-        System.out.print("수당 입력: ");
-        int benefit = scanner.nextInt();
 
-        int total = base + benefit;
-        int tax = (int) (total >= 5000000 ?
-                        total * 0.03 :
-                        total >= 3000000 ?
-                                total * 0.02 :
-                                total * 0.01);
-//        int tax;
+        while (true) {
+            String name, position;
+            int base, benefit, total, tax, salary;
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("\n이름 입력: ");
+            name = scanner.next();
+            System.out.print("직급 입력: ");
+            position = scanner.next();
+            System.out.print("기본급 입력: ");
+            base = scanner.nextInt();
+            System.out.print("수당 입력: ");
+            benefit = scanner.nextInt();
+
+            total = base + benefit;
+            tax = (int) (total >= 5000000 ?
+                    total * 0.03 :
+                    total >= 3000000 ?
+                            total * 0.02 :
+                            total * 0.01);
 //        if (total >= 5000000) {
 //            tax = (int) (total * 0.03);
 //        } else if (total >= 3000000) {
@@ -30,19 +33,19 @@ public class Salary {
 //        } else {
 //            tax = (int) (total * 0.01);
 //        }
-        int salary = total - tax;
+            salary = total - tax;
 
-        DecimalFormat DF = new DecimalFormat();
-        System.out.println("\n*** " + name + " " + position + " 월급 ***");
-        System.out.println("기본급: " + DF.format(base) + "원");
-        System.out.println("수당: " + DF.format(benefit) + "원");
-        System.out.println("합계: " + DF.format(total) + "원");
-        String taxRate = total >= 5000000 ?
-                "세율: 3%" :
-                total >= 3000000 ?
-                        "세율 2%" :
-                        "세율 1%";
-        System.out.println(taxRate);
+            DecimalFormat DF = new DecimalFormat();
+            System.out.println("\n*** " + name + " " + position + " 월급 ***");
+            System.out.println("기본급: " + DF.format(base) + "원");
+            System.out.println("수당: " + DF.format(benefit) + "원");
+            System.out.println("합계: " + DF.format(total) + "원");
+            String taxRate = total >= 5000000 ?
+                    "세율: 3%" :
+                    total >= 3000000 ?
+                            "세율 2%" :
+                            "세율 1%";
+            System.out.println(taxRate);
 //        if (total >= 5000000) {
 //            System.out.println("세율: 3%");
 //        } else if (total >= 3000000) {
@@ -50,8 +53,8 @@ public class Salary {
 //        } else {
 //            System.out.println("세율 1%");
 //        }
-        System.out.println("세금: " + DF.format(Math.floor(tax)) + "원");
-        System.out.println("월급: " + DF.format(salary) + "원");
+            System.out.println("세금: " + DF.format(Math.floor(tax)) + "원");
+            System.out.println("월급: " + DF.format(salary) + "원");
         }
     }
 }
@@ -59,9 +62,9 @@ public class Salary {
 /*
 [문제] 월급 계산 프로그램 - 조건 연산자
 이름, 직급, 기본급, 수당을 입력하여 합계, 세금, 월급을 출력하시오
-단 합계가 5,000,000원 이상이면 세금 3%
-       3,000,000원 이상이면 세금 2%
-       아니면 세금 1%
+단 합계가 5,000,000원 이상이면 세율 3%
+       3,000,000원 이상이면 세율 2%
+       아니면 세율 1%
 
 합계 = 기본급 + 수당
 세금 = 합계 * 세율

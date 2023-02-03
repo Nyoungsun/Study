@@ -13,15 +13,14 @@ public class Dice {
                     dice1 < dice2 ?
                             "주사위2 승" :
                             "무승부";
+//            if (dice1 > dice2) {
+//                System.out.println("주사위1 승");
+//            } else if (dice1 < dice2) {
+//                System.out.println("주사위2 승");
+//            } else {
+//                System.out.println("무승부");
+//            }
             System.out.println(result + "\n--------------------");
-//            if (dice1 > dice2)
-//                System.out.println("주사위1 승" + "\n --------------------");
-//
-//            if (dice1 < dice2)
-//                System.out.println("주사위2 승"+ "\n--------------------");
-//
-//            if (dice1 == dice2)
-//                System.out.println("무승부"+ "\n--------------------");
 
             try {
                 Thread.sleep(1500);
