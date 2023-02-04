@@ -12,7 +12,7 @@ public class Game {
         System.out.print("Insert coin(최소 300원):  ");
         coin = scanner.nextInt();
 
-        for (balance = coin; balance > 300; ) {
+        for (balance = coin; balance >= 300; ) {
             System.out.print("가위(1), 바위(2), 보자기(3) 중 번호 입력: ");
             int user = scanner.nextInt();
             if (user > 3 || user < 1) {
