@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class For06 {
     public static void main(String[] args) {
-        while (true){
+        while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.print("1 ~ 10 사이의 숫자 입력: ");
             int input = scanner.nextInt();
@@ -12,14 +12,14 @@ public class For06 {
             if (input < 1 || input > 10) {
                 System.out.println("1 ~ 10 사이의 값만 입력하세요");
                 continue;
+            } else {
+                int factorial = 1;
+                for (int i = 1; i <= input; i++) {      // for (int i=input; i>=1; i--)
+                    factorial *= i;
+                }
+                System.out.printf("%d! = %d \n", input, factorial);
+                System.out.println("--------------------");
             }
-
-            int factorial = 1;
-            for (int i=1; i<=input; i++) {      // for (int i=input; i>=1; i--)
-                factorial *= i;
-            }
-            System.out.printf("%d! = %d \n", input, factorial);
-            System.out.println("--------------------");
         }
     }
 }

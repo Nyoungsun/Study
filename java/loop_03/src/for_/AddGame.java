@@ -7,8 +7,8 @@ public class AddGame {
         int count = 0;
 
         for (int i = 1; i <= 5; i++) {
-            int a = (int) (Math.random() * (99 - 10 + 1) + 10); // (int) (Math.random() * (최댓값 - 최소값 + 1) + 최소값)
-            int b = (int) (Math.random() * (99 - 10 + 1) + 10);
+            int a = (int) (Math.random() * 100); // (int) (Math.random() * (최댓값 - 최소값 + 1) + 최소값)
+            int b = (int) (Math.random() * 100);
 
             Scanner scanner = new Scanner(System.in);
             System.out.printf("[%d] %d + %d = ? : ", i, a, b);

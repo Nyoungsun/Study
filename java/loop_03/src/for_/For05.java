@@ -3,6 +3,19 @@ package for_;
 public class For05 {
     public static void main(String[] args) {
 
+        int line = 0, count = 0;
+        for (int i = 1; i <= 100; i++) {
+            char random = (char) ((Math.random() * ('Z' - 'A' + 1)) + 'A');
+            System.out.printf("%s ", random);
+            line ++;
+            if (line % 10 == 0) {
+                System.out.println();
+            }
+            if (random == 'A') {
+                count ++;
+            }
+        }
+        System.out.printf("A의 개수: %d", count);
     }
 }
 
