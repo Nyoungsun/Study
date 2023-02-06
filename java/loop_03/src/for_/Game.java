@@ -7,6 +7,7 @@ public class Game {
         int coin, balance, com;
         char enter;
         String result;
+
         while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Insert coin(at least 300):  ");
@@ -53,7 +54,6 @@ public class Game {
                         }
                         System.out.println(result);
                     }
-
                 }
                 balance -= 300;
             }
