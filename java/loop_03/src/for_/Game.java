@@ -12,8 +12,8 @@ public class Game {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Insert coin(at least 300):  ");
             coin = scanner.nextInt();
-
             for (balance = coin; balance >= 300; ) {
+                System.out.println("==================================================");
                 System.out.print("Enter a number. [1: Rock, 2: Scissor, 3: Paper] ▶ ");
                 int user = scanner.nextInt();
                 if (user > 3 || user < 1) {
@@ -21,6 +21,7 @@ public class Game {
                     continue;
                 } else {
                     com = (int) ((Math.random() * 3) + 1);
+                    System.out.println("==================================================");
                     System.out.printf("computer: %s, user: %s\n",
                             (com == 1 ? "Scissor" : com == 2 ? "Rock" : "Paper"),
                             (user == 1 ? "Scissor" : user == 2 ? "Rock" : "Paper"));
@@ -57,12 +58,11 @@ public class Game {
                 }
                 balance -= 300;
             }
-            System.out.println("Game Over. [exit: 0, continue:1] ▶ ");
+            System.out.println("==================================================");
+            System.out.print("Game Over. [exit: 0, continue:1] ▶ ");
             int input = scanner.nextInt();
             if (input == 0) {
                 break;
-            } else if (input == 1) {
-                continue;
             }
         }
     }
