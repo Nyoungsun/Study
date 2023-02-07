@@ -5,48 +5,28 @@ public class Array05 {
 
         char[] word = new char[50];
         int[] count = new int[26]; // count array의 인덱스 0 ~ 25 = A ~ Z로 생각
-
+        int line = 0;
 
         for (int i = 0; i < 50; i++) {
-            word[i] = (char) ((Math.random() * ('Z' - 'A' + 1)) + 'A');
+            char random = (char) ((Math.random() * ('Z' - 'A' + 1)) + 'A');
+            word[i] = random;
 
             System.out.printf("%c ", word[i]);
 
-            if ((i + 1) % 10 == 0) {
+            line++;
+            if (line % 10 == 0) {
+                System.out.println();
+            }
+        }
 
-                int line = 0;
-
-                for (int j = 0; j < 50; j++) {
-                    char random = (char) ((Math.random() * ('Z' - 'A' + 1)) + 'A');
-                    word[j] = random;
-
-                    System.out.printf("%c ", word[j]);
-
-                    line++;
-                    if (line % 10 == 0) {
-
-                        System.out.println();
-                    }
-                }
-
-                for (int j = 0; j < word.length; j++) {        // A = 65, Z = 90, word.length = 50, i = 0 ~ 49
+        for (int j = 0; j < word.length; j++) {        // A = 65, Z = 90, word.length = 50, i = 0 ~ 49
 //            System.out.println(word[j]);
-
-                    count[word[j] - 'A']++;                    // word 배열의 각 위치의 문자의 아스키값에서 65(A)를
-
-                    // word array의 각 위치의 문자의 ascii에서 65(A)를
-
-                }                                              //뺀 값(0 ~ 25 = A ~ Z)을 인덱스로 설정하여 해당 인덱스의 값들을 ++
+            count[word[j] - 'A']++;                    // word array의 각 위치의 문자의 ascii에서 65(A)를
+        }                                              //뺀 값(0 ~ 25 = A ~ Z)을 인덱스로 설정하여 해당 인덱스의 값들을 ++
 //            System.out.println(count.length);
 
-                for (int k = 0; k < count.length; k++) {       // count.length = 26, k = 0 ~ 25
-
-                    System.out.printf("[%c: %d]\t", (char) k + 'A', count[k]); // (char)k + 65 = A ~ Z
-
-
-                }
-
-            }
+        for (int k =0; k < count.length; k++){       // count.length = 26, k = 0 ~ 25
+            System.out.printf("%c: %d\t", (char)k + 65, count[k]); // (char)k + 65 = A ~ Z
         }
     }
 }
