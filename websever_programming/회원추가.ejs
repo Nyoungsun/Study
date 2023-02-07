@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>회원 정보 추가</title>
+</head>
+
+<body>
+  <div class="w3-top">
+    <div class="w3-bar w3-dark-grey">
+      <a href="/" class="w3-bar-item w3-button">*</a>
+      <a href="/add" class="w3-bar-item w3-button">+</a>
+      <a href="/edit" class="w3-bar-item w3-button">수정</a>
+      <a href="/del" class="w3-bar-item w3-button">-</a>
+      <a href="/find" class="w3-bar-item w3-button">찾기</a>
+      <a href="/list" class="w3-bar-item w3-button">명단</a>
+    </div>
+  </div>
+  <br><br>
+  <div class="w3-header w3-center">
+    <h2>회원 정보 추가</h2>
+  </div>
+  <div class="w3-table w3-cyan w3-center">
+    <form method="post">
+      <div class="w3-center w3-text-white">
+        <h3>새로운 회원 정보를 입력하세요</h3></div>
+      <table align="center">
+        <tr>
+          <td>
+            <label>회원의 이름</label>
+          </td>
+          <td>
+            <input type="text" name="name" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>거주지(도시)</label>
+          </td>
+          <td>
+            <input type="text" name="region" />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" value="추 가" class="w3-button w3-round-xxlarge w3-teal w3-block" /></td>
+        </tr>
+        <tr></tr>
+      </table>
+    </form>
+  </div>
+  <div class="w3-margin w3-text-blue">
+    <p>회원번호는 자동생성되며 삭제된 회원의 번호는 재배정되지 않습니다.</p>
+  </div>
+</body>
+
+</html>
