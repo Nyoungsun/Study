@@ -36,7 +36,7 @@ public class MultiArray03 {
         }
 
         System.out.println("----------------------------------------------------");
-        System.out.printf("이름\t\t국어\t\t영어\t\t수학\t\t총점\t\t평균\t\t학점\n");
+        System.out.print("이름\t\t국어\t\t영어\t\t수학\t\t총점\t\t평균\t\t학점\n");
         System.out.println("----------------------------------------------------");
         for (int i = 0; i < name.length; i++) {
             System.out.printf("%s\t%d\t\t%d\t\t%d\t\t%d\t\t%s\t %c", name[i], score[i][0], score[i][1], score[i][2], score[i][3], String.format("%.1f", avg[i]), grade[i]);
