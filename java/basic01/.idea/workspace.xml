@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8db7ff86-45a1-4ce3-a7e8-9367944cace3" name="Changes" comment="0203">
+      <change beforePath="$PROJECT_DIR$/../array_04/out/production/array_04/array/Array04.class" beforeDir="false" afterPath="$PROJECT_DIR$/../array_04/out/production/array_04/array/Array04.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../array_04/out/production/array_04/array/Array05.class" beforeDir="false" afterPath="$PROJECT_DIR$/../array_04/out/production/array_04/array/Array05.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../array_04/src/array/Array05.java" beforeDir="false" afterPath="$PROJECT_DIR$/../array_04/src/array/Array05.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic01.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="89128ef4-082b-4331-af06-2edc60cb9372" />
+        <option name="url" value="https://github.com/Nyoungsun/study.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2L7wb3XMUL003YkR7644TwQgZk7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "D:/study/java/array_04"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="basic_01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="basic_01" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8db7ff86-45a1-4ce3-a7e8-9367944cace3" name="Changes" comment="" />
+      <created>1675235497969</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675235497969</updated>
+    </task>
+    <task id="LOCAL-00001" summary="0201">
+      <created>1675235611669</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675235611670</updated>
+    </task>
+    <task id="LOCAL-00002" summary="0201">
+      <created>1675244859080</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675244859080</updated>
+    </task>
+    <task id="LOCAL-00003" summary="0202">
+      <created>1675303564969</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675303564969</updated>
+    </task>
+    <task id="LOCAL-00004" summary="0202">
+      <created>1675329738158</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675329738158</updated>
+    </task>
+    <task id="LOCAL-00005" summary="0202">
+      <created>1675339225667</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675339225667</updated>
+    </task>
+    <task id="LOCAL-00006" summary="0203">
+      <created>1675388623795</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675388623795</updated>
+    </task>
+    <task id="LOCAL-00007" summary="0203">
+      <created>1675389407679</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675389407679</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0201" />
+    <MESSAGE value="0202" />
+    <MESSAGE value="0203" />
+    <option name="LAST_COMMIT_MESSAGE" value="0203" />
+  </component>
+</project>
