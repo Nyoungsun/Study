@@ -11,9 +11,6 @@ public class BaseBall {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            int strike = 0;
-            int ball = 0;
-
             System.out.print("게임을 실행하시겠습니까? (Y/N): ");
             char start = scanner.next().charAt(0);
 
@@ -39,12 +36,14 @@ public class BaseBall {
                 System.out.println();
 
                 while (true) {
+                    int strike = 0;
+                    int ball = 0;
+
                     System.out.print("중복되지 않게 숫자 입력: ");
                     user = scanner.next();
                     for (int i = 0; i < input.length; i++) {
                         input[i] = user.charAt(i) - 48;
                     }
-
                     // 입력값 확인
                     for (int y : input) {
                         System.out.print(y);
@@ -55,19 +54,17 @@ public class BaseBall {
                         for (int j = 0; j < input.length; j++) {
                             if (random[i] == input[j] && i == j) {
                                 strike++;
-                            } else if (random[i] == input[i] && i != j) {
+                            } else if (random[i] == input[j] && i != j) {
                                 ball++;
                             }
                         }
                     }
                     System.out.printf("%d 스트라이크, %d 볼\n", strike, ball);
                     if (strike == 3) {
+                        System.out.println("게임이 끝났습니다.");
                         break;
                     }
                 }
-                strike = 0;
-                ball = 0;
-
             } else if (start == 'n' || start == 'N') {
                 System.out.println("프로그램을 종료합니다.");
                 break;
@@ -75,9 +72,6 @@ public class BaseBall {
         }
     }
 }
-
-
-
 
 
 

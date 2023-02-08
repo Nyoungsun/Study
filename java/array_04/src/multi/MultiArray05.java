@@ -6,34 +6,49 @@ public class MultiArray05 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String[] subject;
-        String name;
-        int cnt, subjectCnt, total;
-        float avg;
-        int[] score;
+        System.out.print("학생 수 입력: ");
+        int cnt = scanner.nextInt();
 
-        System.out.print("인원수 입력: ");
-        cnt = scanner.nextInt();
+        String[] name = new String[cnt]; //학생 수 만큼
+        String[][] subject = new String[cnt][]; //학생 별 과목, 열은 가변적
+        int[][] score = new int[cnt][]; //학생 별 점수, 열은 가변적
+        double[] avg = new double[cnt];
 
         for (int i = 0; i < cnt; i++) {
             System.out.print("이름입력: ");
-            name = scanner.next();
+            name[i] = scanner.next();
 
             System.out.print("과목수 입력: ");
-            subjectCnt = scanner.nextInt();
-            subject = new String[subjectCnt];
+            int subjectCnt = scanner.nextInt();
+            subject[i] = new String[subjectCnt];
+            score[i] = new int[subjectCnt + 1];
 
-            for (int j = 0; j < subject.length; j++) {
+            for (int j = 0; j < subjectCnt; j++) {
                 System.out.print("과목명 입력: ");
-                subject[j] = scanner.next();
+                subject[i][j] = scanner.next();
             }
 
             for (int j = 0; j < subject.length; j++) {
-                System.out.printf("%s 점수 입력: ", subject[j]);
-                score = new int[subjectCnt];
-                score[j] = scanner.nextInt();
+                System.out.printf("%s 점수 입력: ", subject[i][j]);
+                score[i][j] = scanner.nextInt();
+                score[i][subjectCnt] += score[i][j]; // 마지막 열에 total 추가
             }
+            avg[i] = (double) score[i][subjectCnt] / subjectCnt; // 마지막 열의 값을 과목수로 나눈다
             System.out.println("-------------------------");
+        }
+
+        for (int i = 0; i < cnt; i++) {
+            System.out.print("이름\t\t");
+            for (int j = 0; j < subject[i].length; j++) {
+                System.out.print(subject[i][j] + "\t\t");
+            }
+            System.out.println("총점\t\t평균");
+            System.out.print(name[i] + "\t");
+
+            for (int j = 0; j < score[i].length; j++) {
+                System.out.print(score[i][j] + "\t\t");
+            }
+            System.out.println(String.format("%.2f", avg[i]));
         }
     }
 }
@@ -50,7 +65,7 @@ public class MultiArray05 {
 과목수 입력 : 2   (subjectCnt)
 과목명 입력 : 국어 (subject)
 과목명 입력 : 영어
-국어 점수 입력 : 95 (jumsu)
+국어 점수 입력 : 95 (score)
 영어 점수 입력 : 100
 ---------------------
 이름입력 : 이기자
