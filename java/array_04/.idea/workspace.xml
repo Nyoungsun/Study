@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="326536cd-98eb-418e-8408-1f5e6aa3bc55" name="Changes" comment="0208">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/array_04/array/BaseBall.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/array_04/array/BaseBall.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/array_04/multi/MultiArray05.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/array_04/multi/MultiArray05.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/array/BaseBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/array/BaseBall.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/multi/MultiArray05.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/multi/MultiArray05.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,13 +31,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/nys/study/java/array_04"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nys/study/java/array_04&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.MultiArray05">
     <configuration name="BaseBall" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="array.BaseBall" />
