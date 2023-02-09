@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9fbd6ea5-e9c7-4665-964d-7d74370e67c7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/class_/ThisMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constructor/ConstructorMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constructor/MemberDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constructor/MemberMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constructor/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constructor/VarArgs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../array_04/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../array_04/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../array_04/out/production/array_04/array/BaseBall.class" beforeDir="false" afterPath="$PROJECT_DIR$/../array_04/out/production/array_04/array/BaseBall.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../array_04/out/production/array_04/multi/MultiArray05.class" beforeDir="false" afterPath="$PROJECT_DIR$/../array_04/out/production/array_04/multi/MultiArray05.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../array_04/src/array/BaseBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/../array_04/src/array/BaseBall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_05.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2LSNrPVQGvSfT22evNpLhadU14V" />
   <component name="ProjectViewState">
@@ -25,9 +41,85 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/nys/study/java/array_04"
+    "last_opened_file_path": "D:/study/java/array_04"
   }
 }]]></component>
+  <component name="RunManager" selected="Application.MemberMain">
+    <configuration name="ConstructorMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="constructor.ConstructorMain" />
+      <module name="class_05" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="constructor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConstructorMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="constructor.ConstructorMain" />
+      <module name="class_05" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="constructor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="constructor.MemberMain" />
+      <module name="class_05" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="constructor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThisMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="class_.ThisMain" />
+      <module name="class_05" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="class_.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VarArgs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="constructor.VarArgs" />
+      <module name="class_05" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="constructor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MemberMain" />
+        <item itemvalue="Application.VarArgs" />
+        <item itemvalue="Application.ConstructorMain" />
+        <item itemvalue="Application.ConstructorMain (1)" />
+        <item itemvalue="Application.ThisMain" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
