@@ -34,7 +34,7 @@ public class MultiArray05 {
             System.out.println("-------------------------");
         }
 
-        System.out.printf("인원수: %d\n", cnt);
+        System.out.printf("인원수: %d\n\n", cnt);
         for (int i = 0; i < cnt; i++) {
             int total = 0;
             double avg;
