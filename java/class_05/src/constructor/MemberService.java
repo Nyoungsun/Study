@@ -8,8 +8,6 @@ public class MemberService {
 
     public void menu() {
         while (true) {
-            int input;
-
             System.out.println("*************");
             System.out.println("1. 가입");
             System.out.println("2. 출력");
@@ -18,7 +16,8 @@ public class MemberService {
             System.out.println("5. 끝내기");
             System.out.println("*************");
             System.out.print("번호: ");
-            input = scanner.nextInt();
+
+            int input = scanner.nextInt();
             if (input == 5) {
                 break;
             } else if (input == 1) {
@@ -88,7 +87,7 @@ public class MemberService {
 
         int i;
         for (i = 0; i < memberDTOs.length; i++) {
-            if (phone.equals(memberDTOs[i].getPhone()) & memberDTOs[i] != null) {
+            if (phone.equals(memberDTOs[i].getPhone()) && memberDTOs[i] != null) {
                 System.out.print("변경할 이름 입력: ");
                 String name_change = scanner.next();
                 memberDTOs[i].setName(name_change);
@@ -116,16 +115,19 @@ public class MemberService {
         System.out.print("Phone 입력: ");
         String phone = scanner.next();
 
-        int i = 0;
+        int i;
         for (i = 0; i < memberDTOs.length; i++) {
-            if (phone.equals(memberDTOs[i].getPhone()) & memberDTOs[i] != null) {
+            if (phone.equals(memberDTOs[i].getPhone()) && memberDTOs[i] != null) {
                 memberDTOs[i] = null;
 
-                System.out.println("1 row deleted");
+                System.out.println("1 row(s) deleted");
                 list();
 
                 break;
             }
+        }
+        if (i == memberDTOs.length) {
+            System.out.println("일치하는 회원이 없습니다.");
         }
     }
 }

@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fbd6ea5-e9c7-4665-964d-7d74370e67c7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/class_/ThisMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constructor/ConstructorMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constructor/MemberDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constructor/MemberMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constructor/MemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constructor/VarArgs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../array_04/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../array_04/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constructor/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constructor/MemberService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +36,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/study/java/array_04"
+    "last_opened_file_path": "D:/study/java/class_05"
   }
 }]]></component>
   <component name="RunManager" selected="Application.MemberMain">
@@ -115,7 +110,6 @@
         <item itemvalue="Application.MemberMain" />
         <item itemvalue="Application.VarArgs" />
         <item itemvalue="Application.ConstructorMain" />
-        <item itemvalue="Application.ConstructorMain (1)" />
         <item itemvalue="Application.ThisMain" />
       </list>
     </recent_temporary>

@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="326536cd-98eb-418e-8408-1f5e6aa3bc55" name="Changes" comment="0209">
-      <change afterPath="$PROJECT_DIR$/../class_05/src/class_/ThisMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../class_05/src/constructor/ConstructorMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../class_05/src/constructor/MemberDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../class_05/src/constructor/MemberMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../class_05/src/constructor/MemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../class_05/src/constructor/VarArgs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_05/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../class_05/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +34,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/study/java/array_04"
+    "last_opened_file_path": "D:/study/java/class_05"
   }
 }]]></component>
   <component name="RunManager" selected="Application.MultiArray05">
@@ -206,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675905586770</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="0209">
+      <created>1675932104532</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1675932104532</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
