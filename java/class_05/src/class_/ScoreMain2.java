@@ -8,9 +8,9 @@ public class ScoreMain2 {
 
         Score[] score = new Score[3];            // 배열 생성
 //        System.out.println(scores[0]);         // null
-        for (int i = 0; i < score.length; i++) {
+        for (int i = 0; i < score.length; i++) { // 객체 생성
             score[i] = new Score();
-//            System.out.println(scores[i]);     // 객체 생성, 주소값
+//            System.out.println(scores[i]);     // 주소값
         }
         score[0].setData("홍길동", 90, 100, 100);
         score[1].setData("프로도", 70, 10, 50);
