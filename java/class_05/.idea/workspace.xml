@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fbd6ea5-e9c7-4665-964d-7d74370e67c7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../array_04/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../array_04/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constructor/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constructor/MemberService.java" afterDir="false" />
-    </list>
+    <list default="true" id="9fbd6ea5-e9c7-4665-964d-7d74370e67c7" name="Changes" comment="0209" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,13 +28,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/study/java/class_05"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/study/java/class_05&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.MemberMain">
     <configuration name="ConstructorMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="constructor.ConstructorMain" />
@@ -123,6 +119,18 @@
       <option name="presentableId" value="Default" />
       <updated>1675860721415</updated>
     </task>
+    <task id="LOCAL-00001" summary="0209">
+      <created>1675935376319</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675935376319</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0209" />
+    <option name="LAST_COMMIT_MESSAGE" value="0209" />
   </component>
 </project>
