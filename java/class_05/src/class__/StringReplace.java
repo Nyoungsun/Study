@@ -5,9 +5,8 @@ import java.util.Scanner;
 public class StringReplace {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        int index;
-        int count = 0;
+        int index, count = 0;
+        char input;
 
         while (true) {
             System.out.print("문자열 입력: ");
@@ -16,13 +15,9 @@ public class StringReplace {
             while (true) {
                 System.out.print("찾을 문자열 입력: ");
                 String source = scanner.next().toLowerCase();
-                index = origin.indexOf(source);
+                index = origin.indexOf(source); // fromindex를 생략할 경우 0번 째 부터 찾음
                 if (index == -1) {
                     System.out.println("없는 문자열이므로 치환할 수 없습니다.");
-                    continue;
-                }
-                if (origin.length() < source.length()) {
-                    System.out.println("원본 문자열보다 커서 치환할 수 없습니다.");
                     continue;
                 }
 
@@ -35,6 +30,12 @@ public class StringReplace {
                 System.out.printf("%d번 치환\n", count);
                 break;
             } // while
+
+            System.out.print("계속하시겠습니까? (Y/N): ");
+            input = scanner.next().charAt(0);
+            if (input == 'n' || input == 'N') {
+                return; // System.exit(0);
+            }
         }
     }
 }

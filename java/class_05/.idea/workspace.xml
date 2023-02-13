@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fbd6ea5-e9c7-4665-964d-7d74370e67c7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/class__/Exam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class__/ExamMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class__/StringBufferMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class__/StringMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class__/StringReplace.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class__/Token.java" afterDir="false" />
+    <list default="true" id="9fbd6ea5-e9c7-4665-964d-7d74370e67c7" name="Changes" comment="0212">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/class_05/constructor/MemberService_T.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/class_/ScoreMain2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/class_/ScoreMain2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/class__/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/class__/Exam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/class__/ExamMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/class__/ExamMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/class__/StringReplace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/class__/StringReplace.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,14 +33,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/study/java/class_05"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/study/java/class_05&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.ExamMain">
+}</component>
+  <component name="RunManager" selected="Application.StringReplace">
     <configuration name="ConstructorMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="constructor.ConstructorMain" />
       <module name="class_05" />
@@ -126,8 +121,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ExamMain" />
         <item itemvalue="Application.StringReplace" />
+        <item itemvalue="Application.ExamMain" />
         <item itemvalue="Application.StringMain" />
         <item itemvalue="Application.StringBufferMain" />
         <item itemvalue="Application.Token" />

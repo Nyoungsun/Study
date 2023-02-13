@@ -7,7 +7,6 @@ public class ExamMain {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-
         int user;
         String name, dap;
 
@@ -17,13 +16,7 @@ public class ExamMain {
             Exam[] exams = new Exam[user];
 
             for (int i = 0; i < user; i++) {
-                System.out.print("이름 입력: ");
-                name = scanner.next();
-
-                System.out.print("답 입력: ");
-                dap = scanner.next();
-
-                exams[i] = new Exam(name, dap);
+                exams[i] = new Exam();
             }
 
             System.out.println("\t이름\t\t 1  2  3  4  5\t\t점수");
@@ -36,7 +29,6 @@ public class ExamMain {
         }
     }
 }
-
 
 /*
 [문제] 사지선다형
