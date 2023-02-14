@@ -46,8 +46,25 @@ public class ScoreDTO {
         return avg;
     }
 
-    @Override
-    public String toString() {
-        return name + "\t" + number + "\t" + kor + "\t" + eng + "\t" + math + "\t" + total + "\t" + String.format("%.2f",avg);
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public void setKor(int kor) {
+        this.kor = kor;
+    }
+
+    public void setEng(int eng) {
+        this.eng = eng;
+    }
+
+    public void setMath(int math) {
+        this.math = math;
+    }
+
+
+    //    @Override
+//    public String toString() {
+//        return name + "\t" + "\t" + kor + "\t" + eng + "\t" + math + "\t" + total + "\t" + String.format("%.2f",avg);
+//    }
 }

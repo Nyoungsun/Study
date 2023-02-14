@@ -27,6 +27,8 @@ public class Insert implements Score {
 
         scoreDTOs.add(scoreDTO); // 주소값을 저장
 
+        System.out.println();
         System.out.println("입력 완료");
+        System.out.println();
     }
 }
