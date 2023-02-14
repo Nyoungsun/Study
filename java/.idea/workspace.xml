@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5f6b5b52-4240-4dea-9a72-08f9e6ced574" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/class_05/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class_05/src/class__/FruitMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class_05/src/class__/ImportStatic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class_05/src/class__/StaticMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inheritance_06/src/com/apple/Apple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inheritance_06/src/com/zoo/Zoo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inheritance_06/src/com/zoo/Zoo2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inheritance_06/src/com/zoo/safari/Safari.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interface_08/interface_/InterMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class_05/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/class_05/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class_05/out/production/class_05/class__/StringReplace.class" beforeDir="false" afterPath="$PROJECT_DIR$/class_05/out/production/class_05/class__/StringReplace.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inheritance_06/out/production/inheritance_06/inheritance/ObjectMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/inheritance_06/out/production/inheritance_06/inheritance/ObjectMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inheritance_06/src/inheritance/FinalMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/inheritance_06/src/inheritance/FinalMain.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2LiCVoea7dJdh77uY7JwVXR6Ik2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/study/java/interface_08"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5f6b5b52-4240-4dea-9a72-08f9e6ced574" name="Changes" comment="" />
+      <created>1676344542306</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676344542306</updated>
+    </task>
+    <servers />
+  </component>
+</project>

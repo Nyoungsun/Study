@@ -4,10 +4,7 @@ import java.io.IOException;
 
 public class CalendarMain {
     public static void main(String[] args) throws IOException {
-        Calendar_ calendar_ = new Calendar_();
-        calendar_.CalendarEx();
-        calendar_.calc();
-        calendar_.display();
+        CalendarEx calendarEx = new CalendarEx();
     }
 }
 
@@ -35,5 +32,4 @@ public class CalendarMain {
 20   21   22   23   24   25   26
 27   28   29   30   31
 
-https://velog.io/@hyojin_j/JAVA19%EC%9D%BC%EC%B0%A8Calendar-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%8B%AC%EB%A0%A5%EB%A7%8C%EB%93%A4%EA%B8%B0
  */
