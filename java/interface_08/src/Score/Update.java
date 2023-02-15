@@ -14,8 +14,13 @@ public class Update implements Score {
         System.out.print("번호 입력: ");
         number = scanner.nextInt();
 
-        for (int i = 0; i < scoreDTOs.size(); i++) {
-            if (number != scoreDTOs.get(i).getNumber()) {
+//        for (int i=0; i < scoreDTOs.size(); i++){
+//            if (number != scoreDTOs.get(i).getNumber()){
+//
+//            }
+//        }
+        for (ScoreDTO data : scoreDTOs) {
+            if (number != data.getNumber()) {
                 System.out.println("없는 번호입니다.");
                 System.out.println();
             } else {
@@ -31,11 +36,16 @@ public class Update implements Score {
                 System.out.print("수정할 수학 입력: ");
                 changeMath = scanner.nextInt();
 
-                scoreDTOs.get(i).setName(changeName);
-                scoreDTOs.get(i).setKor(changeKor);
-                scoreDTOs.get(i).setEng(changeEng);
-                scoreDTOs.get(i).setMath(changeMath);
-                scoreDTOs.get(i).calc();
+//                scoreDTOs.get(i).setName(changeName);
+//                scoreDTOs.get(i).setKor(changeKor);
+//                scoreDTOs.get(i).setEng(changeEng);
+//                scoreDTOs.get(i).setMath(changeMath);
+//                scoreDTOs.get(i).calc();
+                data.setName(changeName);
+                data.setKor(changeKor);
+                data.setEng(changeEng);
+                data.setMath(changeMath);
+                data.calc();
 
                 System.out.println();
                 System.out.println("수정 완료");
