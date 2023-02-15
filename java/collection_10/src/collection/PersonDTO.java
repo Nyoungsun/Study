@@ -1,6 +1,6 @@
 package collection;
 
-public class PersonDTO {
+public class PersonDTO implements Comparable<PersonDTO> { // PersonDTO 객체 타입을 정렬하기 위해
     private String name;
     private int age;
 
@@ -25,8 +25,20 @@ public class PersonDTO {
         return age;
     }
 
-//    @Override
-//    public String toString() {
-//        return getName() + "," + getAge();
-//    }
+    @Override
+    public String toString() {
+        return getName() + "," + getAge();
+    }
+
+    @Override
+    public int compareTo(PersonDTO personDTO) {
+        // age를 기준으로 오름차순
+        if (this.age < personDTO.age) {
+            return -1;
+        } else if (this.age > personDTO.age) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }

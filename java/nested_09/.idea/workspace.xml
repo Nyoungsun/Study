@@ -1,19 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1248498c-e528-411d-978c-afe32490de28" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../abstract_07/out/production/abstract_07/abstract_/CalendarEx.class" beforeDir="false" afterPath="$PROJECT_DIR$/../abstract_07/out/production/abstract_07/abstract_/CalendarEx.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../abstract_07/out/production/abstract_07/abstract_/CalendarMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../abstract_07/out/production/abstract_07/abstract_/CalendarMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../abstract_07/src/abstract_/CalendarEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/../abstract_07/src/abstract_/CalendarEx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_05/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../class_05/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../collection_10/src/collection/PersonSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nested/AbstractExam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nested/AbstractMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nested/AbstractTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nested/InterA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../collection_10/out/production/collection_10/collection/PersonDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../collection_10/out/production/collection_10/collection/PersonDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../collection_10/out/production/collection_10/collection/PersonMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../collection_10/out/production/collection_10/collection/PersonMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../collection_10/src/collection/PersonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../collection_10/src/collection/PersonDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../collection_10/src/collection/PersonMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../collection_10/src/collection/PersonMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/out/production/interface_08/Score/List.class" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/out/production/interface_08/Score/List.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/out/production/interface_08/Score/ScoreDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/out/production/interface_08/Score/ScoreDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/out/production/interface_08/Score/Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/out/production/interface_08/Score/Update.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/src/Score/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/src/Score/List.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/src/Score/ScoreDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/src/Score/ScoreDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/src/Score/ScoreMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/src/Score/ScoreMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/src/Score/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/src/Score/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nested/Outer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2LkszvkrK9mVz2PrVksGBpWevfD" />
   <component name="ProjectViewState">
@@ -23,9 +53,22 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "last_opened_file_path": "D:/study/java/collection_10"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="nested" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

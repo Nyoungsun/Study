@@ -19,14 +19,15 @@ public class PersonMain {
 
     public static void main(String[] args) {
         PersonMain personMain = new PersonMain();
-        for (PersonDTO personDTOs : personMain.init()) {
-            System.out.println(personDTOs.getName() + ", " + personDTOs.getAge());
-        }
+
+//        for (PersonDTO personDTOs : personMain.init()) {
+//            System.out.println(personDTOs.getName() + ", " + personDTOs.getAge());
+//        }
 //        for (int i = 0; i < personMain.init().size(); i++) {
 //            System.out.println(personMain.init().get(i).getName() + ", " + personMain.init().get(i).getAge());
 //        }
-//        for (PersonDTO personDTOs : personMain.init()) {
-//            System.out.println(personDTOs);
-//        }
+        for (PersonDTO personDTOs : personMain.init()) { // toString 오버라이드
+            System.out.println(personDTOs);
+        }
     }
 }

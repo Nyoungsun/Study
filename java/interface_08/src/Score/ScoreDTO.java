@@ -63,8 +63,8 @@ public class ScoreDTO {
     }
 
 
-    //    @Override
-//    public String toString() {
-//        return name + "\t" + "\t" + kor + "\t" + eng + "\t" + math + "\t" + total + "\t" + String.format("%.2f",avg);
-//    }
+    @Override
+    public String toString() {
+        return name + "\t" + kor + "\t" + eng + "\t" + math + "\t" + total + "\t" + String.format("%.2f", avg);
+    }
 }

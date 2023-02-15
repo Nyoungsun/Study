@@ -24,8 +24,7 @@ public class Update implements Score {
             if (number == data.getNumber()) {
                 toggle = 1;
 
-                List list = new List();
-                list.execute(scoreDTOs);
+                System.out.println(data);
 
                 System.out.print("수정할 이름 입력: ");
                 changeName = scanner.next();
