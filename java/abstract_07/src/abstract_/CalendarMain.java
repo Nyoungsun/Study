@@ -3,8 +3,10 @@ package abstract_;
 import java.io.IOException;
 
 public class CalendarMain {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         CalendarEx calendarEx = new CalendarEx();
+        calendarEx.calc();
+        calendarEx.display();
     }
 }
 
