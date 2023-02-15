@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fbd6ea5-e9c7-4665-964d-7d74370e67c7" name="Changes" comment="0213">
-      <change beforePath="$PROJECT_DIR$/../abstract_07/out/production/abstract_07/abstract_/CalendarEx.class" beforeDir="false" afterPath="$PROJECT_DIR$/../abstract_07/out/production/abstract_07/abstract_/CalendarEx.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../abstract_07/out/production/abstract_07/abstract_/CalendarMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../abstract_07/out/production/abstract_07/abstract_/CalendarMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../abstract_07/src/abstract_/CalendarEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/../abstract_07/src/abstract_/CalendarEx.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/out/production/interface_08/Score/List.class" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/out/production/interface_08/Score/List.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/out/production/interface_08/Score/Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/out/production/interface_08/Score/Update.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/src/Score/Insert.java" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/src/Score/Insert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/src/Score/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/src/Score/List.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interface_08/src/Score/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/../interface_08/src/Score/Update.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/study/java/abstract_07"
+    "last_opened_file_path": "D:/study/java/interface_08"
   }
 }]]></component>
   <component name="RunManager" selected="Application.FruitMain">

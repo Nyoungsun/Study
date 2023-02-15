@@ -21,15 +21,15 @@ public class List implements Score {
 //                    scoreDTOS.get(i).getAvg());
 //        }
 
-        for (ScoreDTO dto : scoreDTOS) {
+        for (ScoreDTO data : scoreDTOS) {
             System.out.printf("%3d %6s %6d %6d %6d %7d %8.2f\n",
-                    dto.getNumber(),
-                    dto.getName(),
-                    dto.getKor(),
-                    dto.getEng(),
-                    dto.getMath(),
-                    dto.getTotal(),
-                    dto.getAvg());
+                    data.getNumber(),
+                    data.getName(),
+                    data.getKor(),
+                    data.getEng(),
+                    data.getMath(),
+                    data.getTotal(),
+                    data.getAvg());
         }
 
 //        for (ScoreDTO dto : scoreDTOS) {

@@ -25,7 +25,7 @@ public class Insert implements Score {
         ScoreDTO scoreDTO = new ScoreDTO(number, name, kor, eng, math); // 생성할 때 마다 다른 주소로 생성하여 참조
         scoreDTO.calc();
 
-        scoreDTOs.add(scoreDTO); // 주소값을 저장
+        scoreDTOs.add(scoreDTO); // 주소를 저장
 
         System.out.println();
         System.out.println("입력 완료");
