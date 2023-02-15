@@ -1,6 +1,6 @@
 package Score;
 
-public class ScoreDTO {
+public class ScoreDTO implements Comparable<ScoreDTO> {
     private int number, kor, eng, math, total;
     private String name;
     private double avg;
@@ -65,6 +65,20 @@ public class ScoreDTO {
 
     @Override
     public String toString() {
-        return name + "\t" + kor + "\t" + eng + "\t" + math + "\t" + total + "\t" + String.format("%.2f", avg);
+        return number + "\t\t" + name + "\t\t" +
+                kor + "\t\t" + eng + "\t\t" + math + "\t\t" +
+                total + "\t\t" + String.format("%.2f", avg);
+    }
+
+    @Override
+    public int compareTo(ScoreDTO scoreDTO) {
+        //내림차순
+        if (this.total > scoreDTO.total) {
+            return -1;
+        } else if (this.total < scoreDTO.total) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

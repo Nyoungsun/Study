@@ -8,15 +8,16 @@ public class PersonSort {
 
         System.out.print("정렬 전: ");
         for (String data : array) {
-            System.out.print(data + " ");
+            System.out.print(data);
         }
         System.out.println();
 
         Arrays.sort(array);
         System.out.print("정렬 후: ");
         for (String data : array) {
-            System.out.print(data + " ");
+            System.out.print(data);
         }
+        System.out.println();
         System.out.println();
 
         PersonDTO personDTO = new PersonDTO("홍길동", 25);
@@ -30,14 +31,14 @@ public class PersonSort {
 
         System.out.println("정렬 전: ");
         for (PersonDTO data : arrayList) {
-            System.out.println(data + " ");
+            System.out.println(data);
         }
         System.out.println();
 
         Collections.sort(arrayList);
         System.out.println("나이 오름차순: ");
         for (PersonDTO data : arrayList) {
-            System.out.println(data + " ");
+            System.out.println(data);
         }
         System.out.println();
 
@@ -53,12 +54,12 @@ public class PersonSort {
         Collections.sort(arrayList, comparator); // 위에서 구현한 comparator를 기준으로 정렬
         System.out.println("이름 내림차순: ");
         for (PersonDTO data : arrayList) {
-            System.out.println(data + " ");
+            System.out.println(data);
         }
         System.out.println();
 
         // Comparator, Comparable 인터페이스: 객체 정렬
-        // A < B: -1, A == B: 0, A > b: 1
+        // A < B: -1, A == B: 0, A > B: 1
 
 
     }

@@ -6,7 +6,7 @@ public class List implements Score {
     @Override
     public void execute(ArrayList<ScoreDTO> scoreDTOS) {
 
-        System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
+        System.out.printf("%s\t\t%s\t\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\n",
                 "번호", "이름", "국어", "영어", "수학", "총점", "평균");
 
 //        for (int i = 0; i < scoreDTOS.size(); i++) { // ArrayList의 크기: size()
@@ -33,7 +33,7 @@ public class List implements Score {
 //        }
 
         for (ScoreDTO dto : scoreDTOS) {
-            System.out.print(dto);// toString()이 생략되어있어 @클래스명16진수로 출력될 수 있게 함 -> toString()을 override하여 format 변경
+            System.out.println(dto);// toString()이 생략되어있어 @클래스명16진수로 출력될 수 있게 함 -> toString()을 override하여 format 변경
         }
         System.out.println();
     }
