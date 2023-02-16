@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class List implements Score {
     @Override
-    public void execute(ArrayList<ScoreDTO> scoreDTOS) {
+    public void execute(ArrayList<ScoreDTO> scoreDTOs) {
 
         System.out.printf("%s\t\t%s\t\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\n",
                 "번호", "이름", "국어", "영어", "수학", "총점", "평균");
@@ -32,7 +32,7 @@ public class List implements Score {
 //                    data.getAvg());
 //        }
 
-        for (ScoreDTO dto : scoreDTOS) {
+        for (ScoreDTO dto : scoreDTOs) {
             System.out.println(dto);// toString()이 생략되어있어 @클래스명16진수로 출력될 수 있게 함 -> toString()을 override하여 format 변경
         }
         System.out.println();
