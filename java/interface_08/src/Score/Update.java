@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Update implements Score {
-    int number, changeKor, changeEng, changeMath;
-    String changeName;
 
     @Override
     public void execute(ArrayList<ScoreDTO> scoreDTOs) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("번호 입력: ");
-        number = scanner.nextInt();
+        int number = scanner.nextInt();
 
 //        for (int i=0; i < scoreDTOs.size(); i++){
 //            if (number != scoreDTOs.get(i).getNumber()){
@@ -27,13 +25,13 @@ public class Update implements Score {
                 System.out.println(data);
 
                 System.out.print("수정할 이름 입력: ");
-                changeName = scanner.next();
+                String changeName = scanner.next();
                 System.out.print("수정할 국어 입력: ");
-                changeKor = scanner.nextInt();
+                int changeKor = scanner.nextInt();
                 System.out.print("수정할 영어 입력: ");
-                changeEng = scanner.nextInt();
+                int changeEng = scanner.nextInt();
                 System.out.print("수정할 수학 입력: ");
-                changeMath = scanner.nextInt();
+                int changeMath = scanner.nextInt();
 
                 data.setName(changeName);
                 data.setKor(changeKor);

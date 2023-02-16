@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ScoreService {
-    private ArrayList<ScoreDTO> scoreDTOs = new ArrayList<ScoreDTO>();  // priavate ScoreDTO scoreDTO = new ScoreDTO[user];
+    private ArrayList<ScoreDTO> scoreDTOs = new ArrayList<>();  // priavate ScoreDTO scoreDTO = new ScoreDTO[user];
 
     public void menu() {
         Scanner scanner = new Scanner(System.in);

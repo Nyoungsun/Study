@@ -6,33 +6,54 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class Sort implements Score {
-    int number;
 
     @Override
-    public void execute(ArrayList<ScoreDTO> scoreDTOS) {
+    public void execute(ArrayList<ScoreDTO> scoreDTOs) {
         Scanner scanner = new Scanner(System.in);
-        List list = new List();
 
-        System.out.println("****************");
-        System.out.println(" 1. 총점으로 내림차순");
-        System.out.println(" 2. 이름으로 오름차순");
-        System.out.println(" 3. 이전 메뉴");
-        System.out.println("****************");
-        System.out.print("SELECT NUMBER: ");
-        number = scanner.nextInt();
+        while (true) {
+            System.out.println("*******************");
+            System.out.println(" 1. 총점으로 내림차순");
+            System.out.println(" 2. 이름으로 오름차순");
+            System.out.println(" 3. 이전 메뉴");
+            System.out.println("*******************");
+            System.out.print("SELECT NUMBER: ");
+            int number = scanner.nextInt();
 
-        if (number == 1) {
-            Collections.sort(scoreDTOS);
-            list.execute(scoreDTOS);
-        } else if (number == 2) {
-            Comparator<ScoreDTO> comparator = new Comparator<>() {
-                @Override
-                public int compare(ScoreDTO dto1, ScoreDTO dto2) {
-                    return dto1.getName().compareTo(dto2.getName());
-                }
-            };
-            Collections.sort(scoreDTOS, comparator);
-            list.execute(scoreDTOS);
+            Comparator<ScoreDTO> comparator;
+
+            if (number == 3) {
+                System.out.println();
+                return;
+            } else if (number == 1) { // 총점으로 내림차순
+                comparator = new Comparator<>() {
+                    @Override
+                    public int compare(ScoreDTO dto1, ScoreDTO dto2) {
+                        if (dto1.getTotal() > dto2.getTotal()) {
+                            return -1;
+                        } else if (dto1.getTotal() < dto2.getTotal()) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                };
+            } else if (number == 2) { // 이름으로 오름차순
+                comparator = new Comparator<>() {
+                    @Override
+                    public int compare(ScoreDTO dto1, ScoreDTO dto2) {
+                        return dto1.getName().compareTo(dto2.getName());
+                    }
+                };
+            } else {
+                System.out.println("다시 입력하세요.");
+                System.out.println();
+                continue;
+            }
+            Collections.sort(scoreDTOs, comparator);
+
+            List list = new List();
+            list.execute(scoreDTOs);
         }
     }
 }
