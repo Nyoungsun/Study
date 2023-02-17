@@ -1,11 +1,15 @@
 package member;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Print implements Member {
     @Override
-    public void execute(ArrayList<MemberDTO> memberDTOs) {
-        System.out.printf("%s\t\t%s\t\t%s\t\t%s\n", "이름", "나이", "Phone", "Address");
+    public void execute(List<MemberDTO> memberDTOs) {
+        System.out.println("이름\t\t나이\t\tPhone\t\tAddress");
+        for (MemberDTO data : memberDTOs) {
+            System.out.println(data);
+        }
 //        for (MemberDTO data : memberDTOs) {
 //            System.out.printf("%s\t%d\t\t%s\t%s\n",
 //                    data.getName(),
@@ -14,8 +18,6 @@ public class Print implements Member {
 //                    data.getAddress());
 //            System.out.println();
 //        }
-        for (MemberDTO data : memberDTOs) {
-            System.out.println(data);
-        }
+
     }
 }

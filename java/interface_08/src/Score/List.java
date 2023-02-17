@@ -6,8 +6,7 @@ public class List implements Score {
     @Override
     public void execute(ArrayList<ScoreDTO> scoreDTOs) {
 
-        System.out.printf("%s\t\t%s\t\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\n",
-                "번호", "이름", "국어", "영어", "수학", "총점", "평균");
+        System.out.println("번호\t\t이름\t\t\t국어\t\t영어\t\t수학\t\t총점\t\t평균");
 
 //        for (int i = 0; i < scoreDTOS.size(); i++) { // ArrayList의 크기: size()
 ////            System.out.println(scoreDTOS.get(i)); // 주소값:

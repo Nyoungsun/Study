@@ -7,7 +7,7 @@ public class MemberDTO implements Serializable {
 
     private int age;
 
-    public MemberDTO(String name, int age, String phone, String address) {
+    public MemberDTO(String name, int age, String phone, String address) { // 1명의 데이터
         this.name = name;
         this.age = age;
         this.phone = phone;
