@@ -19,7 +19,7 @@ public class FileRead implements Member {
             System.out.println("파일을 찾을 수 없습니다.");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
-        } catch (EOFException e) {
+        } catch (EOFException e) { // End Of File
             System.out.println("읽기 완료");
         }
     }
