@@ -15,23 +15,12 @@ public class Student {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
 
-    public Student() { // driver
-        try {
-            Class.forName(driver); // pull query name -> package name까지
-            System.out.println("jdbc driver load");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        connection();
+    public Student() throws ClassNotFoundException { // driver
+        Class.forName(driver); // pull query name -> package name까지
     }
 
-    public void connection() {
-        try {
-            connection = DriverManager.getConnection(url, user, password);
-            System.out.println("connection");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void connection() throws SQLException {
+        connection = DriverManager.getConnection(url, user, password);
     }
 
     public void menu() throws IOException, SQLException {
@@ -50,15 +39,6 @@ public class Student {
             System.out.println();
 
             if (num == 4) {
-                if (preparedStatement != null) {
-                    preparedStatement.close();
-                }
-                if (connection != null) {
-                    connection.close();
-                }
-                if (resultSet != null) {
-                    resultSet.close();
-                }
                 break;
             } else if (num == 1) {
                 insert();
@@ -71,6 +51,8 @@ public class Student {
     }
 
     public void insert() throws IOException, SQLException {
+        connection();
+
         String value = null;
 
         System.out.println("****************");
@@ -106,41 +88,68 @@ public class Student {
 
         int count = preparedStatement.executeUpdate(); // 행 개수 반환
         System.out.println(count + "개의 행이 삽입되었습니다.\n");
+
+        if (preparedStatement != null) {
+            preparedStatement.close();
+        }
+        if (connection != null) {
+            connection.close();
+        }
     }
 
     public void select() throws IOException, SQLException {
+        connection();
+
         System.out.println("****************");
         System.out.println("1. 이름 검색(1개 글자가 포함된 이름 모두 검색)");
         System.out.println("2. 전체 검색");
-        System.out.println("4. 이전메뉴");
+        System.out.println("3. 이전메뉴");
         System.out.println("****************");
         System.out.print("번호 선택: ");
         int num = Integer.parseInt(bufferedReader.readLine());
         System.out.println();
 
-        String sql = null;
+        String sql;
 
-        if (num == 1) {
+        if (num == 3) {
+            return;
+        } else if (num == 1) {
             System.out.print("검색할 이름 입력: ");
             String name = bufferedReader.readLine();
-
             sql = "select * from info where name like ?";
+            preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, "%" + name + "%");
         } else if (num == 2) {
             sql = "select * from info";
+            preparedStatement = connection.prepareStatement(sql);
         }
-        preparedStatement = connection.prepareStatement(sql);
         resultSet = preparedStatement.executeQuery(); // 테이블처럼 결과 반환
-        System.out.println("Name\tVALUE\tCODE");
+
         while (resultSet.next()) {
-            System.out.print(resultSet.getString("NAME") + "\t"
-                    + resultSet.getString("VALUE") + "\t"
-                    + resultSet.getInt("CODE") + "\n");
+            System.out.print("이름: " + resultSet.getString("NAME") + "\t");
+            if (resultSet.getInt("CODE") == 1) {
+                System.out.println("학번: " + resultSet.getString("VALUE"));
+            } else if (resultSet.getInt("CODE") == 2) {
+                System.out.println("과목: " + resultSet.getString("VALUE"));
+            } else {
+                System.out.println("부서: " + resultSet.getString("VALUE"));
+            }
+        }
+        if (preparedStatement != null) {
+            preparedStatement.close();
+        }
+        if (connection != null) {
+            connection.close();
+        }
+        if (resultSet != null) {
+            resultSet.close();
         }
     }
 
     public void delete() throws IOException, SQLException {
-        System.out.println("삭제를 원하는 이름 정확히 입력:");
+        connection();
+
+        System.out.print("삭제를 원하는 이름 정확히 입력: ");
         String name = bufferedReader.readLine();
 
         String sql = "delete from info where name = ?";
@@ -149,10 +158,18 @@ public class Student {
 
         int count = preparedStatement.executeUpdate(); // 행 개수 반환
         System.out.println(count + "개의 행이 삭제되었습니다.\n");
+
+        if (preparedStatement != null) {
+            preparedStatement.close();
+        }
+        if (connection != null) {
+            connection.close();
+        }
     }
 
-    public static void main(String[] args) throws IOException, SQLException {
+    public static void main(String[] args) throws SQLException, IOException, ClassNotFoundException {
         Student student = new Student();
+        student.connection();
         student.menu();
     }
 }
