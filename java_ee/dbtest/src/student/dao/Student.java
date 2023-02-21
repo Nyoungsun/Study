@@ -62,7 +62,6 @@ public class Student {
 
     public void insert() throws IOException, SQLException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String name = null;
         String value = null;
         int code = 0;
 
@@ -77,7 +76,7 @@ public class Student {
         System.out.println();
 
         System.out.print("이름 입력: ");
-        name = bufferedReader.readLine();
+        String name = bufferedReader.readLine();
         if (num == 4) {
             return;
         } else if (num == 1) {
