@@ -46,7 +46,7 @@ public class Student {
             int num = Integer.parseInt(bufferedReader.readLine());
 
             if (num == 4) {
-                return;
+                break;
             } else if (num == 1) {
                 insert();
             }
