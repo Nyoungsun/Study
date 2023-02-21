@@ -34,7 +34,7 @@ public class SelectMain {
         }
     }
 
-    public void select() throws IOException, SQLException {
+    public void select() throws SQLException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         String sql = "select * from dbtest";
