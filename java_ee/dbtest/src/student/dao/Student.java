@@ -42,7 +42,7 @@ public class Student {
             System.out.println("3. 삭제");
             System.out.println("4. 종료");
             System.out.println("****************");
-            System.out.print("번호선택: ");
+            System.out.print("번호 선택: ");
             int num = Integer.parseInt(bufferedReader.readLine());
             System.out.println();
 
@@ -63,7 +63,6 @@ public class Student {
     public void insert() throws IOException, SQLException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         String value = null;
-        int code = 0;
 
         System.out.println("****************");
         System.out.println("1. 학생");
@@ -71,7 +70,7 @@ public class Student {
         System.out.println("3. 관리자");
         System.out.println("4. 이전메뉴");
         System.out.println("****************");
-        System.out.print("번호선택: ");
+        System.out.print("번호 선택: ");
         int num = Integer.parseInt(bufferedReader.readLine());
         System.out.println();
 
@@ -82,22 +81,19 @@ public class Student {
         } else if (num == 1) {
             System.out.print("학번 입력: ");
             value = bufferedReader.readLine();
-            code = 1;
         } else if (num == 2) {
             System.out.print("과목 입력: ");
             value = bufferedReader.readLine();
-            code = 2;
         } else if (num == 3) {
             System.out.print("부서 입력: ");
             value = bufferedReader.readLine();
-            code = 3;
         }
 
         String sql = "insert into info values (?, ?, ?)"; // 웹 보안
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, name);
         preparedStatement.setString(2, value);
-        preparedStatement.setInt(3, code);
+        preparedStatement.setInt(3, num);
 
         int count = preparedStatement.executeUpdate(); // 행 개수 반환
         System.out.println(count + "개의 행이 삽입되었습니다.\n");
