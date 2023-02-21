@@ -8,9 +8,12 @@ import java.sql.*;
 public class Student {
     private Connection connection;
     private PreparedStatement preparedStatement;
+    private ResultSet resultSet;
     private String driver = "oracle.jdbc.driver.OracleDriver";
     private String url = "jdbc:oracle:thin:@localhost:1521:xe";
     private String user = "c##java", password = "oracle";
+    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
 
     public Student() { // driver
         try {
@@ -53,15 +56,21 @@ public class Student {
                 if (connection != null) {
                     connection.close();
                 }
+                if (resultSet != null) {
+                    resultSet.close();
+                }
                 break;
             } else if (num == 1) {
                 insert();
+            } else if (num == 2) {
+                select();
+            } else if (num == 3) {
+                delete();
             }
         }
     }
 
     public void insert() throws IOException, SQLException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         String value = null;
 
         System.out.println("****************");
@@ -97,6 +106,49 @@ public class Student {
 
         int count = preparedStatement.executeUpdate(); // 행 개수 반환
         System.out.println(count + "개의 행이 삽입되었습니다.\n");
+    }
+
+    public void select() throws IOException, SQLException {
+        System.out.println("****************");
+        System.out.println("1. 이름 검색(1개 글자가 포함된 이름 모두 검색)");
+        System.out.println("2. 전체 검색");
+        System.out.println("4. 이전메뉴");
+        System.out.println("****************");
+        System.out.print("번호 선택: ");
+        int num = Integer.parseInt(bufferedReader.readLine());
+        System.out.println();
+
+        String sql = null;
+
+        if (num == 1) {
+            System.out.print("검색할 이름 입력: ");
+            String name = bufferedReader.readLine();
+
+            sql = "select * from info where name like ?";
+            preparedStatement.setString(1, "%" + name + "%");
+        } else if (num == 2) {
+            sql = "select * from info";
+        }
+        preparedStatement = connection.prepareStatement(sql);
+        resultSet = preparedStatement.executeQuery(); // 테이블처럼 결과 반환
+        System.out.println("Name\tVALUE\tCODE");
+        while (resultSet.next()) {
+            System.out.print(resultSet.getString("NAME") + "\t"
+                    + resultSet.getString("VALUE") + "\t"
+                    + resultSet.getInt("CODE") + "\n");
+        }
+    }
+
+    public void delete() throws IOException, SQLException {
+        System.out.println("삭제를 원하는 이름 정확히 입력:");
+        String name = bufferedReader.readLine();
+
+        String sql = "delete from info where name = ?";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, name);
+
+        int count = preparedStatement.executeUpdate(); // 행 개수 반환
+        System.out.println(count + "개의 행이 삭제되었습니다.\n");
     }
 
     public static void main(String[] args) throws IOException, SQLException {
