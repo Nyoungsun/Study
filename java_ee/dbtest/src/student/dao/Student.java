@@ -44,8 +44,15 @@ public class Student {
             System.out.println("****************");
             System.out.print("번호선택: ");
             int num = Integer.parseInt(bufferedReader.readLine());
+            System.out.println();
 
             if (num == 4) {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
                 break;
             } else if (num == 1) {
                 insert();
@@ -67,30 +74,21 @@ public class Student {
         System.out.println("****************");
         System.out.print("번호선택: ");
         int num = Integer.parseInt(bufferedReader.readLine());
+        System.out.println();
 
+        System.out.print("이름 입력: ");
+        name = bufferedReader.readLine();
         if (num == 4) {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
             return;
         } else if (num == 1) {
-            System.out.print("이름 입력: ");
-            name = bufferedReader.readLine();
             System.out.print("학번 입력: ");
             value = bufferedReader.readLine();
             code = 1;
         } else if (num == 2) {
-            System.out.print("이름 입력: ");
-            name = bufferedReader.readLine();
             System.out.print("과목 입력: ");
             value = bufferedReader.readLine();
             code = 2;
         } else if (num == 3) {
-            System.out.print("이름 입력: ");
-            name = bufferedReader.readLine();
             System.out.print("부서 입력: ");
             value = bufferedReader.readLine();
             code = 3;
@@ -103,7 +101,7 @@ public class Student {
         preparedStatement.setInt(3, code);
 
         int count = preparedStatement.executeUpdate(); // 행 개수 반환
-        System.out.println(count + "개의 행이 삽입되었습니다.");
+        System.out.println(count + "개의 행이 삽입되었습니다.\n");
     }
 
     public static void main(String[] args) throws IOException, SQLException {
