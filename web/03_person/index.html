@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>person</title>
+    <style type="text/css">
+        div {
+            font-size: 20px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="personForm" action="http://www.google.com">
+        <table border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <th>이름</th> <!--table header-->
+                <td><input type="text" name="name" placeholder="이름 입력"></td>
+            </tr>
+            <tr>
+                <th>성별</th>
+                <td>
+                    <fieldset>
+                        <legend>성별</legend>
+                        <input id="man" type="radio" name="gender" value="0">
+                        <label for="man">남자</label>
+                        &nbsp;
+                        <input id="woman" type="radio" name="gender" value="1">
+                        <label for="woman">여자</label>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <th>색깔</th>
+                <td>
+                    <select name="color" style="width: 70px;"> <!--콤보 박스-->
+                        <!--타이틀 지정: <optgroup label> -->
+                        <option value="none" selected>색깔</option>
+                        <option value="red">빨강</option>
+                        <option value="green">초록</option>
+                        <option value="blue">파랑</option>
+                        <option value="purple">보라</option>
+                        <option value="cyan">하늘</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>취미</th>
+                <td>
+                    <input type="checkbox" name="hobby" value="movie">영화
+                    <input type="checkbox" name="hobby" value="read">독서
+                    <input type="checkbox" name="hobby" value="music">음악
+                    <input type="checkbox" name="hobby" value="game">게임
+                    <input type="checkbox" name="hobby" value="shopping">쇼핑
+                </td>
+            </tr>
+            <tr>
+                <th>과목</th> <!--콤보 박스에 사이즈 옵션: 리스트 박스-->
+                <td>
+                    <select name="subject" size='5' style="width: 100px;" multiple="multiple">
+                        <option value="Java" selected>Java</option>
+                        <option value="Servlet">Servlet</option>
+                        <option value="JSP">JSP</option>
+                        <option value="Spring">Spring</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="SEND" onclick="javascript:check()">
+                    <input type="reset" value="CANCLE">
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div id="alert"></div>
+    </form>
+    <script type="text/javascript">
+
+        function check() {
+            document.getElementById("alert").innerText = ""
+            if (document.personForm.name.value == "") {
+                document.getElementById("alert").innerText = "이름을 입력하세요"
+            }
+            else if (document.personForm.gender.value == "") {
+                document.getElementById("alert").innerText = "성별을 선택하세요"
+            }
+            else if (document.personForm.color.value == "none") {
+                document.getElementById("alert").innerText = "색깔을 선택하세요"
+            }
+            else if (document.personForm.hobby[0].checked == false &&
+                document.personForm.hobby[1].checked == false &&
+                document.personForm.hobby[2].checked == false &&
+                document.personForm.hobby[3].checked == false &&
+                document.personForm.hobby[4].checked == false) {
+                document.getElementById("alert").innerText = "취미를 선택하세요";
+            }
+            else {
+                document.personForm.submit();
+            }
+        }
+    </script>
+</body>
+
+</html>

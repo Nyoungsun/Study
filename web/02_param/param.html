@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>안녕하세요</title>
+	<style type="text/css">
+		td {
+			color: salmon;
+		}
+
+		h2 {
+			color: navy;
+		}
+
+		div {
+			font-size: 20px;
+			color: purple;
+			font-weight: bold;
+		}
+
+		#ageDiv {
+			font-size: 20px;
+			color: fuchsia;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	<form name="paramForm" method="post" action="https://www.naver.com">
+		<h2>연령제한</h2>
+		<table border="1" cellpadding="5" cellspacing="0">
+			<tr>
+				<td width="50" align="center">이름</td>
+				<td><input type="text" size="7" name="name" placeholder="이름 입력"></td>
+
+			</tr>
+			<tr>
+				<td align="center">나이</td>
+				<td><input type="text" size="7" name="age" placeholder="나이 입력"></td>
+
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="button" value="보내기" onclick="javascript:check()">
+					<input type="reset" value="취소">
+				</td>
+				<!-- submit: 폼 안에 있는 내용을 가지고 페이지 이동
+					 reset: 초기화 -->
+			</tr>
+		</table>
+		<br>
+		<div id="nameDiv"></div>
+		<div id="ageDiv"></div>
+	</form>
+	<!-- 자바스크립트는 자료형 X, 세미콜론 X-->
+	<!-- document: 현재 문서-->
+	<script type="text/javascript">
+		/*
+			function check() {
+				if (document.paramForm.name.value == "")
+					alert("이름을 입력하세요.")
+				else if (document.paramForm.age.value == "")
+					alert("나이를 입력하세요.")
+				else
+					document.paramForm.submit();
+			}
+		 */
+		function check() {
+			document.getElementById("nameDiv").innerText = ""
+			document.getElementById("ageDiv").innerText = ""
+
+			if (document.paramForm.name.value == "")
+				document.getElementById("nameDiv").innerText = "이름을 입력하세요"
+			else if (document.paramForm.age.value == "")
+				document.getElementById("ageDiv").innerText = "나이를 입력하세요"
+			else
+				document.paramForm.submit();
+		}
+		<!--유효성검사-->
+	</script>
+</body>
+
+</html>
