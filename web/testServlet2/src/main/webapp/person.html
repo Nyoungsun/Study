@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <form name="personForm" action="http://www.google.com">
+    <form name="personForm" action="http://192.168.0.32:8080/testServlet2/PersonServlet">
         <table border="1" cellspacing="0" cellpadding="5">
             <tr>
                 <th>이름</th> <!--table header-->
@@ -27,10 +27,10 @@
                 <td>
                     <fieldset>
                         <legend>성별</legend>
-                        <input id="man" type="radio" name="gender" value="0">
+                        <input type="radio" name="gender" id = "man" value="0">
                         <label for="man">남자</label>
                         &nbsp;
-                        <input id="woman" type="radio" name="gender" value="1">
+                        <input type="radio" name="gender" id = "woman" value="1">
                         <label for="woman">여자</label>
                     </fieldset>
                 </td>
@@ -51,12 +51,17 @@
             </tr>
             <tr>
                 <th>취미</th>
-                <td>
-                    <input type="checkbox" name="hobby" value="movie">영화
-                    <input type="checkbox" name="hobby" value="read">독서
-                    <input type="checkbox" name="hobby" value="music">음악
-                    <input type="checkbox" name="hobby" value="game">게임
-                    <input type="checkbox" name="hobby" value="shopping">쇼핑
+                <td> <!-- name이 같으면 배열로 취급됨 -->
+                    <input type="checkbox" name="hobby" id="movie" value="영화">
+                    <label for="movie">영화</label>
+                    <input type="checkbox" name="hobby" id="read" value="독서">
+                    <label for="read">독서</label>
+                    <input type="checkbox" name="hobby" id="music" value="음악">
+                    <label for="music">음악</label>
+                    <input type="checkbox" name="hobby" id="game" value="게임">
+                    <label for="game">게임</label>
+                    <input type="checkbox" name="hobby" id="shopping" value="쇼핑">
+                    <label for="shopping">쇼핑</label>
                 </td>
             </tr>
             <tr>
@@ -72,7 +77,7 @@
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="button" value="SEND" onclick="javascript:check()">
+                    <input type="button" value="SEND" onclick="check()">
                     <input type="reset" value="CANCLE">
                 </td>
             </tr>
@@ -80,33 +85,46 @@
         <br>
         <div id="alert"></div>
     </form>
+   
     <script type="text/javascript">
-
+    const doc =  document.getElementById("alert");
+    const form = document.personForm;
         function check() {
-            const form = document.personForm;
-            const alert = document.getElementById("alert");
-
-            alert.innerText = ""
+        	doc.innerText = ""
             if (form.name.value == "") {
-                alert.innerText = "이름을 입력하세요"
+            	doc.innerText = "이름을 입력하세요"
             }
             else if (form.gender.value == "") {
-                alert.innerText = "성별을 선택하세요"
+            	doc.innerText = "성별을 선택하세요"
             }
             else if (form.color.value == "none") {
-                alert.innerText = "색깔을 선택하세요"
+            	doc.innerText = "색깔을 선택하세요"
             }
             else if (form.hobby[0].checked == false &&
-                form.hobby[1].checked == false &&
-                form.hobby[2].checked == false &&
-                form.hobby[3].checked == false &&
-                form.hobby[4].checked == false) {
-                alert.innerText = "취미를 선택하세요";
+            		form.hobby[1].checked == false &&
+            		form.hobby[2].checked == false &&
+            		form.hobby[3].checked == false &&
+            		form.hobby[4].checked == false) {
+            	doc.innerText = "취미를 선택하세요";
             }
             else {
                 form.submit();
             }
         }
+        
+        <!-- 
+        var check = document.getElementByName("hobby");
+        var count = 0;
+        for (i=0; i<check.length; i++) {
+        	if(check[i].checked) {
+        			count ++;
+        		}
+        }
+        if(count == 0) {
+        	doc.innerText = "취미를 선택하세요";
+        	}
+         -->
+         
     </script>
 </body>
 
