@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>PersonServlet</display-name>
   
-  
+<!-- 
    <servlet>
      <servlet-name>PersonServlet</servlet-name>
      <servlet-class>com.person.PersonServlet</servlet-class>
@@ -12,6 +12,7 @@
      <servlet-name>PersonServlet</servlet-name>
      <url-pattern>/PersonServlet</url-pattern>
   </servlet-mapping>
+ -->
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

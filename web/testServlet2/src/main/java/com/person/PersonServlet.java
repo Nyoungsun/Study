@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebServlet("/PersonServlet")
 public class PersonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -19,7 +21,7 @@ public class PersonServlet extends HttpServlet {
 
 		String name = request.getParameter("name");
 		String gender = request.getParameter("gender");
-		String color = request.getParameter("color");
+		String color = request.getParameter("color"); 
 		String[] hobby = request.getParameterValues("hobby");
 		String[] subject = request.getParameterValues("subject");
 
@@ -30,9 +32,7 @@ public class PersonServlet extends HttpServlet {
 		out.println("<body>");
 		out.println("<ul>");
 
-		out.println("<li>");
-		out.println("이름: " + name);
-		out.println("</li>");
+		out.println("<li> 이름: " + name +"</li>");
 
 		out.println("<li>");
 		out.println("성별: ");
