@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="da15003c-e238-4fc6-8f22-bcda5bce6c7c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../clone_coding/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clone_coding/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clone_coding/style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java_se/array_04/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java_se/array_04/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
