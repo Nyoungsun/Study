@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>guest book</title>
+<style>
+div {
+	font-size: 10px;
+	color: red;
+	font-weight: bold;
+}
+</style>
+</head>
+<body>
+	<h1>방명록</h1>
+	<br>
+	<form name="guestForm" method="post" action="http://192.168.0.32:8080/guestbookServlet/GuestbookWriteServlet">
+		<table border="1" cellspacing="0" cellpadding="5">
+			<tr>
+				<th>작성자</th>
+				<td><input type="text" name="name" size="30" placeholder="작성자 입력">
+				<div id="name_check"></div></td>
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td><input type="text" name="email" size="30" placeholder="이메일 입력">
+				<div id="email_check"></div></td>
+			</tr>
+			<tr>
+				<th>홈페이지</th>
+				<td><input type="text" name="homepage" size="40" value="http://">
+				</td>
+			</tr>
+			<tr>
+				<th>제목</th>
+				<td><input type="text" name="subject" size="60" placeholder="제목 입력">
+				<div id="subject_check"></div></td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td><textarea name="content" cols="60" rows="20"></textarea>
+				<div id="content_check"></div></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+				<input type="button" value="글작성" onClick="check()"> 
+				<input type="reset" value="다시작성">
+				<input type="button" value="글목록">
+				</td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		const form = document.guestForm;
+
+		function check() {
+			document.getElementById("subject_check").innerText = "";
+			document.getElementById("content_check").innerText = "";
+
+			if (form.subject.value == "") {
+				document.getElementById("subject_check").innerText = "제목을 입력하세요.";
+			} 
+			else if (form.content.value == "") {
+				document.getElementById("content_check").innerText = "내용을 입력하세요.";
+			}
+			else {
+				form.submit();
+			}
+		}
+	</script>
+</body>
+</html>
