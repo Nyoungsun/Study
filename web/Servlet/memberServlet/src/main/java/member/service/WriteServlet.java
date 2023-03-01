@@ -24,31 +24,31 @@ public class WriteServlet extends HttpServlet {
 		
 		MemberDTO memberDTO = new MemberDTO();
 
-		String name = request.getParameter("name");
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String name = request.getParameter("name").trim();
+		String id = request.getParameter("id").trim();
+		String pw = request.getParameter("pw").trim();
 		String gender = request.getParameter("gender");
-		String email_1 = request.getParameter("email_1");
-		String email_2 = request.getParameter("email_2");
-		String tell_1 = request.getParameter("tell_1");
-		String tell_2 = request.getParameter("tell_2");
-		String tell_3 = request.getParameter("tell_3");
-		String post = request.getParameter("post");
-		String addr_1 = request.getParameter("addr_1");
-		String addr_2 = request.getParameter("addr_2");
+		String email1 = request.getParameter("email1").trim();
+		String email2 = request.getParameter("email2").trim();
+		String tell1 = request.getParameter("tell1");
+		String tell2 = request.getParameter("tell2").trim();
+		String tell3 = request.getParameter("tell3").trim();
+		String zipcode = request.getParameter("zipcode");
+		String addr1 = request.getParameter("addr1");
+		String addr2 = request.getParameter("addr2");
 		
 		memberDTO.setName(name);
 		memberDTO.setId(id);
 		memberDTO.setPw(pw);
 		memberDTO.setGender(gender);
-		memberDTO.setEmail_1(email_1);
-		memberDTO.setEmail_2(email_2);
-		memberDTO.setTell_1(tell_1);
-		memberDTO.setTell_2(tell_2);
-		memberDTO.setTell_3(tell_3);
-		memberDTO.setPost(post);
-		memberDTO.setAddr_1(addr_1);
-		memberDTO.setAddr_2(addr_2);
+		memberDTO.setEmail1(email1);
+		memberDTO.setEmail2(email2);
+		memberDTO.setTell1(tell1);
+		memberDTO.setTell2(tell2);
+		memberDTO.setTell3(tell3);
+		memberDTO.setPost(zipcode);
+		memberDTO.setAddr1(addr1);
+		memberDTO.setAddr2(addr2);
 		
 		// DB
 		MemberDAO memberDAO = MemberDAO.getInstance();
@@ -60,8 +60,10 @@ public class WriteServlet extends HttpServlet {
 		out.println("<html>" + "<body>");
 		if (count == 0) {
 			out.println("<h3>회원가입 실패</h3>");
+			out.println("<input type='button' value='뒤로' onclick='history.go(-1)'>");
 		} else {
 			out.println("<h3>회원가입 성공</h3>");
+			out.println("<input type='button' value='로그인' onclick=location.href='http://192.168.0.32:8080/memberServlet/member/login.html'>");
 		}
 		out.println("</body>" + "</html>");
 	}

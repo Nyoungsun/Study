@@ -51,9 +51,9 @@
             <tr>
                 <th>이메일</th>
                 <td>
-                <input type="text" name="email_1" style="width: 100px;">
+                <input type="text" name="email1" style="width: 100px;">
                  @ 
-                <input type="text" name="email_2" style="width: 90px;"> 
+                <input type="text" name="email2" style="width: 90px;"> 
                     <select name="mail_select" style="width: 100px;" onChange="select()">
                         <option value="self" selected>직접입력</option>
                         <option value="naver.com">naver.com</option>
@@ -65,27 +65,27 @@
             <tr>
                 <th>휴대폰</th>
                 <td> 
-                    <select name="tell_1" style="width: 60px;">
+                    <select name="tell1" style="width: 60px;">
                         <option value="010" selected>010</option>
                         <option value="011">011</option>
                         <option value="019">019</option>
                         <option value="070">070</option>
                     </select>
                     -
-                    <input type="text" name="tell_2" style="width: 70px;">
+                    <input type="text" name="tell2" style="width: 70px;">
                     -
-                    <input type="text" name="tell_3" style="width: 70px;">
+                    <input type="text" name="tell3" style="width: 70px;">
                 </td>
             </tr>
             <tr>
                 <th>주소</th> 
                 <td>
-                <input type="text" name = "post "id="post" placeholder="우편번호" size="5" readonly >
+                <input type="text" name="zipcode" id="d_zipcode" placeholder="우편번호" size="5" readonly >
                 <input type="button" value="우편번호검색" onClick="search()">
                 <br>
-                <input type="text" name="addr1" id="addr1" style="width: 350px;" placeholder="주소" readonly>
+                <input type="text" name="addr1" id="d_addr1" style="width: 350px;" placeholder="주소" readonly>
                 <br>
-                <input type="text" name="addr2" id="addr2" style="width: 350px;" placeholder="상세주소">
+                <input type="text" name="addr2" id="d_addr2" style="width: 350px;" placeholder="상세주소">
                 </td>
             </tr>
             <tr>

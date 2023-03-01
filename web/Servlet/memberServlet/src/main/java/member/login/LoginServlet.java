@@ -22,8 +22,8 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		// 데이터
-		String login_id = request.getParameter("login_id");
-		String login_pw = request.getParameter("login_pw");
+		String login_id = request.getParameter("login_id").trim();
+		String login_pw = request.getParameter("login_pw").trim();
 
 		// DB
 		MemberDAO memberDAO = MemberDAO.getInstance();
@@ -36,7 +36,8 @@ public class LoginServlet extends HttpServlet {
 		if (dto == null || !(dto.getId().equals(login_id)) || !(dto.getPw().equals(login_pw))) {
 			out.println("<h3>로그인 실패</h3>");
 		} else {
-			out.println("<h3>로그인 성공</h3>");
+			out.println("<h3>로그인 성공</h3>"
+					+ "ID: " + login_id + ", Password: " + login_pw);
 		}
 		out.println("</body>" + "</html>");
 

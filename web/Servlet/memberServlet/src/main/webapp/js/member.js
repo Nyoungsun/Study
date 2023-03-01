@@ -21,10 +21,10 @@ function check() {
 	else if (form.gender.value == "") {
 		doc.innerText = "성별을 선택하세요."
 	}
-	else if (form.email_1.value == "") {
+	else if (form.email1.value == "") {
 		doc.innerText = "이메일 첫번째 칸을 입력하세요."
 	}
-	else if (form.email_2.value == "") {
+	else if (form.email2.value == "") {
 		doc.innerText = "이메일 두번째 칸을 입력하세요."
 	}
 	else {
@@ -34,13 +34,13 @@ function check() {
 
 function select() {
 	if (form.mail_select.value == 'self') {
-		form.email_2.readOnly = false;
-		form.email_2.value = '';
-		form.email_2.focus();
+		form.email2.readOnly = false;
+		form.email2.value = '';
+		form.email2.focus();
 	}
 	else {
-		form.email_2.readOnly = true;
-		form.email_2.value = form.mail_select.value;
+		form.email2.readOnly = true;
+		form.email2.value = form.mail_select.value;
 	}
 }
 
@@ -60,10 +60,10 @@ function search() {
                     addr = data.jibunAddress;
                 }
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById("post").value = data.zonecode;
-                document.getElementById("addr1").value = addr;
+                document.getElementById("d_zipcode").value = data.zonecode;
+                document.getElementById("d_addr1").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("addr2").focus();
+                document.getElementById("d_addr2").focus();
             }
         }).open();
     }

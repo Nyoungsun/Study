@@ -74,8 +74,6 @@ public class GuestBookDAO {
 	public void guestbookWrite(GuestBookDTO guestBookDTO) {
 		getConnection();
 
-		int count = 0;
-
 		String sql = "insert into guestbook values(seq_guestbook.nextval, ?, ?, ?, ?, ?, sysdate)";
 		try {
 			preparedStatement = connection.prepareStatement(sql);
@@ -91,6 +89,36 @@ public class GuestBookDAO {
 		} finally {
 			GuestBookDAO.close(connection, preparedStatement);
 		}
+	}
+	
+	public GuestBookDTO guestbookRead(String seq) {
+		getConnection();
+		
+		GuestBookDTO dto = null;
+
+		try {
+			String sql = "select * from guestbook where seq = ?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, seq);
+
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				dto = new GuestBookDTO();
+				dto.setSeq(resultSet.getString("seq"));
+				dto.setName(resultSet.getString("name"));
+				dto.setLogtime(resultSet.getString("logtime"));
+				dto.setEmail(resultSet.getString("email"));
+				dto.setHomepage(resultSet.getString("homepage"));
+				dto.setSubject(resultSet.getString("subject"));
+				dto.setContent(resultSet.getString("content"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			GuestBookDAO.close(connection, preparedStatement);
+		}
+		return dto;
 
 	}
 }

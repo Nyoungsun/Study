@@ -32,6 +32,20 @@ public class MemberDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	private static void close(Connection connection, PreparedStatement preparedStatement, ResultSet resultset) {
+		try {
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			} // !=null, 제대로 실행되었으면
+			if (connection != null) {
+				connection.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
 
 	private static void close(Connection connection, PreparedStatement preparedStatement) {
 		try {
@@ -69,14 +83,14 @@ public class MemberDAO {
 			preparedStatement.setString(2, memberDTO.getId());
 			preparedStatement.setString(3, memberDTO.getPw());
 			preparedStatement.setString(4, memberDTO.getGender());
-			preparedStatement.setString(5, memberDTO.getEmail_1());
-			preparedStatement.setString(6, memberDTO.getEmail_2());
-			preparedStatement.setString(7, memberDTO.getTell_1());
-			preparedStatement.setString(8, memberDTO.getTell_2());
-			preparedStatement.setString(9, memberDTO.getTell_3());
+			preparedStatement.setString(5, memberDTO.getEmail1());
+			preparedStatement.setString(6, memberDTO.getEmail2());
+			preparedStatement.setString(7, memberDTO.getTell1());
+			preparedStatement.setString(8, memberDTO.getTell2());
+			preparedStatement.setString(9, memberDTO.getTell3());
 			preparedStatement.setString(10, memberDTO.getPost());
-			preparedStatement.setString(11, memberDTO.getAddr_1());
-			preparedStatement.setString(12, memberDTO.getAddr_2());
+			preparedStatement.setString(11, memberDTO.getAddr1());
+			preparedStatement.setString(12, memberDTO.getAddr2());
 
 			count = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -95,9 +109,10 @@ public class MemberDAO {
 		ResultSet resultSet = null;
 
 		try {
-			String sql = "select id, pwd from member where id = ?";
+			String sql = "select id, pwd from member where id = ? and pwd = ?";
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, login_id);
+			preparedStatement.setString(2, login_pw);
 
 			resultSet = preparedStatement.executeQuery();
 
@@ -107,10 +122,9 @@ public class MemberDAO {
 				dto.setPw(resultSet.getString("pwd"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			MemberDAO.close(connection, preparedStatement);
+			MemberDAO.close(connection, preparedStatement, resultSet);
 		}
 		return dto;
 
