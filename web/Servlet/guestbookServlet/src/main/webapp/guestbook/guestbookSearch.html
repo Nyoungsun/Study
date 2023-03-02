@@ -2,15 +2,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>검색</title>
+<style>
+#seq_check {
+	font-size: 10px;
+	color: red;
+	font-weight: bold;
+}
+</style>
 </head>
 <body>
 	<form name="Search" method="post" action="http://192.168.0.32:8080/guestbookServlet/GuestbookSearchServlet">
-		<tr>
-			<td>글번호 입력: 
-			<input type="text" size="10" name="seq"> 
-			<input type="submit" value="검색"></td>
-		</tr>
+	<div style="text-align: center;">
+		글번호 입력: <input type="text" name="seq" size="10"> 
+		<input type="button" value="검색" onClick="check()">
+		<div id="seq_check"></div>
+		</div>
 	</form>
+	<script>
+		const form = document.Search;
+
+		function check() {
+			document.getElementById("seq_check").innerText = "";
+
+			if (form.seq.value == "") {
+				document.getElementById("seq_check").innerText = "번호를 입력하세요.";
+			} else {
+				form.submit();
+			}
+		}
+	</script>
 </body>
 </html>

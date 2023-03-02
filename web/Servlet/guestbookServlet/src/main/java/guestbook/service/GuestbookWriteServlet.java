@@ -46,6 +46,8 @@ public class GuestbookWriteServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println("<html>" + "<body>");
 		out.println("<h3>작성 완료</h3>");
+		out.println("<input type='button' value='글검색' onClick=location.href='http://192.168.0.32:8080/guestbookServlet/guestbook/guestbookSearch.html'>");
+		out.println("<input type='button' value='글목록' onCicnk=location.href='http://192.168.0.32:8080/guestbookServlet/GuestbookListServlet>");
 		out.println("</body>" + "</html>");
 		
 	}

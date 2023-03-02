@@ -1,7 +1,7 @@
 package guestbook.bean;
 
 public class GuestBookDTO {
-	private String seq;
+	private int seq;
 	private String name;
 	private String email;
 	private String homepage;
@@ -9,10 +9,10 @@ public class GuestBookDTO {
 	private String content;
 	private String logtime;
 	
-	public String getSeq() {
+	public int getSeq() {
 		return seq;
 	}
-	public void setSeq(String seq) {
+	public void setSeq(int seq) {
 		this.seq = seq;
 	}
 	public String getName() {
