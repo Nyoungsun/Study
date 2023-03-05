@@ -5,13 +5,23 @@
 <%
 request.setCharacterEncoding("UTF-8");
 
-
-String update_id = request.getParameter("update_id").trim();
-String update_pw = request.getParameter("update_pw").trim();
+String update_id = request.getParameter("login_id").trim();
+String update_pw = request.getParameter("login_pw").trim();
 
 //DB
 MemberDAO memberDAO = MemberDAO.getInstance();
 MemberDTO dto = memberDAO.memberRead(update_id, update_pw);
+
+String name = dto.getName();
+String gender = dto.getGender();
+String email1 = dto.getEmail1();
+String email2 = dto.getEmail2();
+String tel1 = dto.getTel1();
+String tel2 = dto.getTel2();
+String tel3 = dto.getTel3();
+String zipcode = dto.getPost();
+String addr1 = dto.getAddr1();
+String addr2 = dto.getAddr2();
 
 %>
 <!DOCTYPE html>
@@ -34,7 +44,7 @@ MemberDTO dto = memberDAO.memberRead(update_id, update_pw);
         <table border="1" cellspacing="0" cellpadding="5">
             <tr>
                 <th>이름</th> <!--table header-->
-                <td><input type="text" name="name" style="width: 70px;" value="<%=dto.getName() %>"></td>
+                <td><input type="text" name="name" style="width: 70px;" value="<%=name %>"></td>
             </tr>
             <tr>
             <tr>
@@ -53,19 +63,19 @@ MemberDTO dto = memberDAO.memberRead(update_id, update_pw);
             <tr>
                 <th>성별</th>
                 <td>
-                    <input type="radio" name="gender" value = "0" id = "man" <%="0".equals(dto.getGender())?"checked":"" %> >
+                    <input type="radio" name="gender" value = "0" id = "man" <%="0".equals(gender)?"checked":"" %> >
                     <label for="man">남자</label>
                     &nbsp;
-                    <input type="radio" name="gender" value = "1" id = "woman" <%="1".equals(dto.getGender())?"checked":"" %> >
+                    <input type="radio" name="gender" value = "1" id = "woman" <%="1".equals(gender)?"checked":"" %> >
                     <label for="woman">여자</label>
                 </td>
             </tr>
             <tr>
                 <th>이메일</th>
                 <td>
-                <input type="text" name="email1" style="width: 100px;" value="<%=dto.getEmail1()%>" >
+                <input type="text" name="email1" style="width: 100px;" value="<%=email1%>" >
                  @ 
-                <input type="text" name="email2" style="width: 90px;" value="<%=dto.getEmail2() %>" > 
+                <input type="text" name="email2" style="width: 90px;" value="<%=email2%>" > 
                     <select name="mail_select" style="width: 100px;" onChange="select()">
                         <option value="self" selected>직접입력</option>
                         <option value="naver.com">naver.com</option>
@@ -78,26 +88,26 @@ MemberDTO dto = memberDAO.memberRead(update_id, update_pw);
                 <th>휴대폰</th>
                 <td> 
                     <select name="tel1" style="width: 60px;">
-                        <option value="010" <%="010".equals(dto.getTel1())?"selected":"" %>>010</option>
-                        <option value="011" <%="011".equals(dto.getTel1())?"selected":"" %>>011</option>
-                        <option value="019" <%="019".equals(dto.getTel1())?"selected":"" %>>019</option>
-                        <option value="070" <%="070".equals(dto.getTel1())?"selected":"" %>>070</option>
+                        <option value="010" <%="010".equals(tel1)?"selected":"" %>>010</option>
+                        <option value="011" <%="011".equals(tel1)?"selected":"" %>>011</option>
+                        <option value="019" <%="019".equals(tel1)?"selected":"" %>>019</option>
+                        <option value="070" <%="070".equals(tel1)?"selected":"" %>>070</option>
                     </select>
                     -
-                    <input type="text" name="tel2" style="width: 70px;" value="<%=dto.getTel2() %>">
+                    <input type="text" name="tel2" style="width: 70px;" value="<%=tel2 %>">
                     -
-                    <input type="text" name="tel3" style="width: 70px;" value="<%=dto.getTel3() %>">
+                    <input type="text" name="tel3" style="width: 70px;" value="<%=tel3 %>">
                 </td>
             </tr>
             <tr>
                 <th>주소</th> 
                 <td>
-                <input type="text" name="zipcode" id="d_zipcode" value="<%=dto.getPost() %>"  size="5" readonly>
+                <input type="text" name="zipcode" id="d_zipcode" value="<%=zipcode %>"  size="5" readonly>
                 <input type="button" value="우편번호검색" onClick="search()">
                 <br>
-                <input type="text" name="addr1" id="d_addr1" style="width: 350px;" value="<%=dto.getAddr1() %>"  readonly>
+                <input type="text" name="addr1" id="d_addr1" style="width: 350px;" value="<%=addr1 %>"  readonly>
                 <br>
-                <input type="text" name="addr2" id="d_addr2" style="width: 350px;" value="<%=dto.getAddr2() %>">
+                <input type="text" name="addr2" id="d_addr2" style="width: 350px;" value="<%=addr2 %>">
                 </td>
             </tr>
             <tr>

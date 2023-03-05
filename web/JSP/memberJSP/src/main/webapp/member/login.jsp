@@ -34,8 +34,8 @@ MemberDTO dto = memberDAO.memberRead(login_id, login_pw);
 	<%
 	}
 	%>
-	<input type="hidden" name ="update_id" value="<%=login_id%>">
-	<input type="hidden" name ="update_pw" value="<%=login_pw%>">
+	<input type="hidden" name ="login_id" value="<%=login_id%>">
+	<input type="hidden" name ="login_pw" value="<%=login_pw%>">
 	<input type="submit" value="회원정보수정">
 	</form>
 </body>

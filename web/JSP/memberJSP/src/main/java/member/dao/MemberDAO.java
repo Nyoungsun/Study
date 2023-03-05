@@ -138,6 +138,39 @@ public class MemberDAO {
 			MemberDAO.close(connection, preparedStatement, resultSet);
 		}
 		return dto;
+	}
+	
+	public int memberUpdate(MemberDTO memberDTO) {
+		getConnection();
 
+		int count = 0;
+
+		String sql = "update member set "
+				+ "name=?, pwd=?, gender=?, email1=?, email2=?, tel1=?, tel2=?, tel3=?, zipcode=?, addr1=?, addr2=?, logtime=sysdate "
+				+ "where id = ?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, memberDTO.getName());
+			preparedStatement.setString(2, memberDTO.getPw());
+			preparedStatement.setString(3, memberDTO.getGender());
+			preparedStatement.setString(4, memberDTO.getEmail1());
+			preparedStatement.setString(5, memberDTO.getEmail2());
+			preparedStatement.setString(6, memberDTO.getTel1());
+			preparedStatement.setString(7, memberDTO.getTel2());
+			preparedStatement.setString(8, memberDTO.getTel3());
+			preparedStatement.setString(9, memberDTO.getPost());
+			preparedStatement.setString(10, memberDTO.getAddr1());
+			preparedStatement.setString(11, memberDTO.getAddr2());
+			
+			preparedStatement.setString(12, memberDTO.getId());
+
+			count = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			MemberDAO.close(connection, preparedStatement);
+		}
+		return count;
 	}
 }
