@@ -3,7 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    
 <%
 request.setCharacterEncoding("UTF-8");
 MemberDTO memberDTO = new MemberDTO();
@@ -28,7 +27,7 @@ memberDTO.setGender(gender);
 memberDTO.setEmail1(email1);
 memberDTO.setEmail2(email2);
 memberDTO.setTel1(tel1);
-memberDTO.setTel2(tel2);
+memberDTO.setTel2(tel2); 
 memberDTO.setTel3(tel3);
 memberDTO.setPost(zipcode);
 memberDTO.setAddr1(addr1);
@@ -47,7 +46,7 @@ int count = (int) memberDAO.memberUpdate(memberDTO);
 </head>
 <body>
 <%
-	if (count == 0) {
+	if (count==0) {  
 	%>
 	<h3>회원 정보 수정 실패</h3>
 	<br>
@@ -55,11 +54,14 @@ int count = (int) memberDAO.memberUpdate(memberDTO);
 	<%
 	} else {
 	%>
-	<h3>회원 정보 수정 성공</h3>
-	<input type='button' value='로그인'>
+	<script>
+	window.onload=function(){
+		alert("수정완료");
+		location.href='http://192.168.0.32:8080/memberJSP/member/loginForm.jsp';
+	}
+	</script>
 	<%
 	}
 	%>
-
 </body>
 </html>

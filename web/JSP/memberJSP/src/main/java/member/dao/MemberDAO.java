@@ -32,7 +32,7 @@ public class MemberDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	private static void close(Connection connection, PreparedStatement preparedStatement, ResultSet resultset) {
 		try {
 			if (preparedStatement != null) {
@@ -41,7 +41,7 @@ public class MemberDAO {
 			if (connection != null) {
 				connection.close();
 			}
-			if(resultset != null) {
+			if (resultset != null) {
 				resultset.close();
 			}
 		} catch (SQLException e) {
@@ -104,16 +104,15 @@ public class MemberDAO {
 		return count;
 	}
 
-	public MemberDTO memberRead(String id, String pw) {
+	public MemberDTO memberRead(String id) {
 		getConnection();
-		
+
 		MemberDTO dto = null;
 
 		try {
-			String sql = "select * from member where id = ? and pwd = ?";
+			String sql = "select * from member where id = ?";
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, id);
-			preparedStatement.setString(2, pw);
 
 			resultSet = preparedStatement.executeQuery();
 
@@ -139,7 +138,7 @@ public class MemberDAO {
 		}
 		return dto;
 	}
-	
+
 	public int memberUpdate(MemberDTO memberDTO) {
 		getConnection();
 
@@ -162,7 +161,7 @@ public class MemberDAO {
 			preparedStatement.setString(9, memberDTO.getPost());
 			preparedStatement.setString(10, memberDTO.getAddr1());
 			preparedStatement.setString(11, memberDTO.getAddr2());
-			
+
 			preparedStatement.setString(12, memberDTO.getId());
 
 			count = preparedStatement.executeUpdate();
@@ -172,5 +171,48 @@ public class MemberDAO {
 			MemberDAO.close(connection, preparedStatement);
 		}
 		return count;
+	}
+
+	public int memberDelete(String id, String pw) {
+		getConnection();
+
+		int count = 0;
+
+		String sql = "delete from member where = ?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, id);
+
+			count = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			MemberDAO.close(connection, preparedStatement);
+		}
+		return count;
+	}
+
+	public boolean isexistPw(String id, String pw) {
+		getConnection();
+
+		boolean exist = false;
+
+		String sql = "select from member where id = ? and pwd = ?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, id);
+			preparedStatement.setString(2, pw);
+
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				exist = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			MemberDAO.close(connection, preparedStatement, resultSet);
+		}
+		return exist;
 	}
 }

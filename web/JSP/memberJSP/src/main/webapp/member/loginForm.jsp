@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인</title>
 <style type="text/css">
         div {
             font-size: 10px;
@@ -17,7 +17,7 @@
 <body>
 <h1>로그인</h1>
 <br>
-<form name="loginform" method="post" action="http://192.168.0.32:8080/memberJSP/member/login.jsp">
+<form name="loginform" method="post" action="./member/loginOk.jsp">
 	<table border="1" cellpadding="7" cellspacing="0">
 		<tr>
 			<th>로그인</th>
@@ -36,13 +36,12 @@
 		<tr>
 			<td colspan ="2" align="center">
 			<input type="button" value="로그인" onClick = "check_login()"> 
-			<input type="button" value="회원가입" onClick = "location.href='http://192.168.0.32:8080/memberServlet/member/writeForm.html'">
+			<input type="button" value="회원가입" onClick = "location.href='http://192.168.0.32:8080/memberJSP/member/writeForm.jsp'">
 			</td>
 		</tr>
 	</table>
 	</form>
 	<script> 
-	<!-- type="text/javascript" 생략가능 -->
 	const form = document.loginform;
 
 	function check_login() {

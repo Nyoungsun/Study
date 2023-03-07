@@ -5,14 +5,15 @@
 <%
 request.setCharacterEncoding("UTF-8");
 
-String update_id = request.getParameter("login_id").trim();
-String update_pw = request.getParameter("login_pw").trim();
+//세션으로부터 ID값 얻어와라
+String id = (String)session.getAttribute("id");
 
 //DB
 MemberDAO memberDAO = MemberDAO.getInstance();
-MemberDTO dto = memberDAO.memberRead(update_id, update_pw);
+MemberDTO dto = memberDAO.memberRead(id);
 
 String name = dto.getName();
+String pw = dto.getPw();
 String gender = dto.getGender();
 String email1 = dto.getEmail1();
 String email2 = dto.getEmail2();
@@ -27,7 +28,7 @@ String addr2 = dto.getAddr2();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>signUp</title>
+    <title>회원정보수정</title>
     <style type="text/css">
         div {
             font-size: 20px;
@@ -37,6 +38,7 @@ String addr2 = dto.getAddr2();
     </style>
 </head>
 <meta charset="UTF-8">
+<!-- <body onload="load()" -->
 <body>
 <h1>회원정보수정</h1>
 <br>
@@ -49,16 +51,16 @@ String addr2 = dto.getAddr2();
             <tr>
             <tr>
                 <th>아이디</th> 
-                <td><input type="text" name="id" style="width: 150px;" readonly value="<%=update_id %>" ></td>
+                <td><input type="text" name="id" style="width: 150px;" readonly value="<%=id %>" ></td>
             </tr>
             <tr>
              <tr>
                 <th>비밀번호</th> 
-                <td><input type="password" name="pw" style="width: 200px;" value="<%=update_pw %>" ></td>
+                <td><input type="password" name="pw" style="width: 200px;" value="<%=pw %>" ></td>
             </tr>
             <tr>
                 <th>재확인</th> 
-                <td><input type="password" name="pw_check" style="width: 200px;" value="<%=update_pw %>" ></td>
+                <td><input type="password" name="pw_check" style="width: 200px;" value="<%=pw %>" ></td>
             </tr>
             <tr>
                 <th>성별</th>
@@ -105,7 +107,7 @@ String addr2 = dto.getAddr2();
                 <input type="text" name="zipcode" id="d_zipcode" value="<%=zipcode %>"  size="5" readonly>
                 <input type="button" value="우편번호검색" onClick="search()">
                 <br>
-                <input type="text" name="addr1" id="d_addr1" style="width: 350px;" value="<%=addr1 %>"  readonly>
+                <input type="text" name="addr1" id="d_addr1" style="width: 350px;" value="<%=addr1 %>" readonly>
                 <br>
                 <input type="text" name="addr2" id="d_addr2" style="width: 350px;" value="<%=addr2 %>">
                 </td>
@@ -122,6 +124,14 @@ String addr2 = dto.getAddr2();
     </form>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!-- 항상 먼저 선언되어야함 -->
     <script src="../js/member.js"></script> 
-
+    
+    <%--  
+    <script>
+    function load(){
+    	document.writeForm.gender[<%=gender%>].checked = true;
+    	document.writeForm.tel1.value = '<%=tel1%>';
+    }
+    </script>
+    --%>
 </body>
 </html>
