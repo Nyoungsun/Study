@@ -1,5 +1,7 @@
 package board.bean;
 
+import java.sql.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,5 +20,5 @@ public class BoardDTO  {
 	private String pseq;
 	private String reply;
 	private String hit;
-	private String logtime;
+	private Date logtime;
 }

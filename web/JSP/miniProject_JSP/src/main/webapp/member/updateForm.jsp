@@ -42,7 +42,7 @@ String addr2 = dto.getAddr2();
 <body>
 <h1>회원정보수정</h1>
 <br>
-    <form name="writeForm" method="post" action="http://192.168.0.32:8080/memberJSP/member/update.jsp">
+    <form name="writeForm" method="post" action="http://192.168.0.32:8080/miniProject_JSP/member/update.jsp">
         <table border="1" cellspacing="0" cellpadding="5">
             <tr>
                 <th>이름</th> <!--table header-->

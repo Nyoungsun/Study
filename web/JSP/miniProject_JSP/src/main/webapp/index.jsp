@@ -49,19 +49,19 @@ a:active {
 			<%
 			if (id == null) {
 			%>
-			<a href="./member/writeForm.jsp">회원가입</a> <a
-				href="./member/loginForm.jsp">로그인</a>
+			<a href="./member/writeForm.jsp">회원가입</a>
+			<a href="./member/loginForm.jsp">로그인</a>
 			<%
 			} else {
 			%>
-			<a href="./member/logout.jsp">로그아웃</a> <a
-				href="./member/updateForm.jsp">회원정보수정</a> <a
-				href="./member/deleteForm.jsp">회원탈퇴</a> <a
-				href="./board/boardWriteForm.jsp">글쓰기</a>
+			<a href="./member/logout.jsp">로그아웃</a>
+			<a href="./member/updateForm.jsp">회원정보수정</a>
+			<a href="./member/deleteForm.jsp">회원탈퇴</a>
+			<a href="./board/boardWriteForm.jsp">글쓰기</a>
 			<%
 			}
 			%>
-			<a href="./member/loginForm.jsp">목록</a>
+			<a href="./board/boardList.jsp?pg=1">목록</a>
 		</h3>
 	</div>
 </body>

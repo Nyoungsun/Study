@@ -32,15 +32,15 @@ div #check_pw {
 </style>
 </head>
 <body>
-	<form name="deleteForm" method="post" action="http://192.168.0.32:8080/MemberJSP/member/deleteForm.jsp">
+	<form name="deleteForm" method="post" action="http://192.168.0.32:8080/miniProject_JSP/member/delete.jsp">
 		<div style="text-align: center;">
-			비밀번호 입력: <input type="password" id="pw" name="pw"> <input
-				type="button" value="검색" onClick="check()">
-			<div id=check_pw>
+			비밀번호 입력: <input type="password" id="pw" name="pw"> 
+			<input type="button" value="검색" onClick="check()">
+			<div id="check_pw">
 				<%
 				if (pw != null && !exist) {
 				%>
-				비밀번호가 다릅니다.
+				비밀번호가 맞지 않습니다.
 				<%
 				}
 				%>
@@ -55,7 +55,8 @@ div #check_pw {
 		if (document.getElementById("pw").value == "") {
 			document.getElementById("check_pw").innerText = "비밀번호를 입력하세요.";
 		} else {
-			document.deleteForm.submit;
+			document.deleteForm.submit();
 		}
+	}
 </script>
 </html>

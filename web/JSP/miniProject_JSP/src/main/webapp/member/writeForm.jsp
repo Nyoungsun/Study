@@ -16,7 +16,7 @@
 <img src="../img/duck.png" width='50' height='50' onclick="location.href='../index.jsp'" style="cursor: pointer;">
 <h1>회원가입</h1>
 <br>
-    <form name="writeForm" method="post" action="http://192.168.0.32:8080/memberJSP/member/write.jsp">
+    <form name="writeForm" method="post" action="http://192.168.0.32:8080/miniProject_JSP/member/write.jsp">
         <table border="1" cellspacing="0" cellpadding="5">
             <tr>
                 <th>이름</th> <!--table header-->

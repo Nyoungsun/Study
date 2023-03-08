@@ -57,7 +57,7 @@ int count = (int) memberDAO.memberUpdate(memberDTO);
 	<script>
 	window.onload=function(){
 		alert("수정완료");
-		location.href='http://192.168.0.32:8080/memberJSP/member/loginForm.jsp';
+		location.href='http://192.168.0.32:8080/miniProject_JSP/member/loginForm.jsp';
 	}
 	</script>
 	<%
