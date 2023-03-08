@@ -15,7 +15,14 @@ BoardDAO boardDAO = BoardDAO.getInstance();
 ArrayList<BoardDTO> list = boardDAO.boardList(start, end);
 
 int total = boardDAO.total();
-int pag = (total + 1) / 5; 
+int pag = (total + 1) / 4; 
+
+/*
+         start  end
+pg = 1     1     5
+pg = 2     6     10
+pg = 3     11    15
+*/
 
 %>
 <!DOCTYPE html>
@@ -48,12 +55,7 @@ body {
 	color: salmon;
 }
 
-.box {
- margin: 0 auto;
- }
-
 #paging {
-display: inline-block;
 text-decoration: none;
 color: black;
 border: 1px solid;
@@ -66,7 +68,6 @@ padding: 2px;
 }
 
 #currentPaging {
-display: inline-block;
 text-decoration: none;
 color: salmon;
 border: 1px solid;
@@ -78,13 +79,20 @@ text-align: center;
 padding: 2px;
 }
 
+#center{
+display: table;
+margin-left: auto;
+margin-right: auto;
+}
+
 </style>
 <!-- id: #, class: . -->
 </head>
 <body>
 <img src="../img/duck.png" width='50' height='50' onclick="location.href='../index.jsp'" style="cursor: pointer;">
+	<div id= 'center'>
 	<%if (list != null) {%>
-	<table style="margin-left:auto; margin-right:auto;" border="1" cellpadding="5" cellspacing="0" frame="hsides" rules="rows">
+	<table border="1" cellpadding="5" cellspacing="0" frame="hsides" rules="rows">
 			<tr>
 			<th>글번호</th>
 			<th width="200">제목</th>
@@ -102,15 +110,13 @@ padding: 2px;
 			</tr>
 		<%}%>
 		</table>
+		<hr style='border:0px;'>
 	<%} %>
 	<%for (int i = 1; i <= pag; i++) { %>
 		<%if(i == pg) {%>
-		<br>
-		<div class='box'>
 		<div><a id='currentPaging' href='./boardList.jsp?pg=<%=i%>'><%=i %></a></div>
 		<%}else { %>
 		<div><a id='paging' href='./boardList.jsp?pg=<%=i%>'><%=i %></a></div>
-		</div>
 		<%} %>
 	<%}%>
 </body>
