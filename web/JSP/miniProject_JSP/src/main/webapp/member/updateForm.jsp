@@ -5,7 +5,6 @@
 <%
 request.setCharacterEncoding("UTF-8");
 
-//세션으로부터 ID값 얻어와라
 String id = (String)session.getAttribute("id");
 
 //DB

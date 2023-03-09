@@ -1,10 +1,14 @@
 package member.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 import member.bean.MemberDTO;
 
@@ -12,11 +16,7 @@ public class MemberDAO {
 	private Connection connection;
 	private PreparedStatement preparedStatement;
 	private ResultSet resultSet;
-
-	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String user = "c##java";
-	private String password = "oracle";
+	private DataSource dataSource;
 
 	private static MemberDAO memberDAO = new MemberDAO();
 
@@ -26,11 +26,11 @@ public class MemberDAO {
 
 	public MemberDAO() { // driver
 		try {
-			Class.forName(driver); // pull query name -> package name까지
-			System.out.println("jdbc driver load");
-		} catch (ClassNotFoundException e) {
-			throw new RuntimeException(e);
-		}
+			Context context = new InitialContext(); // 인터페이스이므로 직접 접근 불가
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/oracle"); //서버가 톰캣일 경우 'java:comp/env/' 필수
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} 
 	}
 
 	private static void close(Connection connection, PreparedStatement preparedStatement, ResultSet resultset) {
@@ -64,22 +64,13 @@ public class MemberDAO {
 
 	}
 
-	public void getConnection() {
-		try {
-			connection = DriverManager.getConnection(url, user, password);
-			System.out.println("connection");
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
 	public int memberWrite(MemberDTO memberDTO) {
-		getConnection();
-
 		int count = 0;
 
 		String sql = "insert into member values(?, ?, ?, ? ,? ,? ,? ,? ,? ,? ,? ,?, sysdate) ";
 		try {
+			connection = dataSource.getConnection();
+			
 			preparedStatement = connection.prepareStatement(sql);
 
 			preparedStatement.setString(1, memberDTO.getName());
@@ -105,11 +96,12 @@ public class MemberDAO {
 	}
 
 	public MemberDTO memberRead(String id) {
-		getConnection();
 
 		MemberDTO dto = null;
 
 		try {
+			connection = dataSource.getConnection();
+			
 			String sql = "select * from member where id = ?";
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, id);
@@ -140,7 +132,6 @@ public class MemberDAO {
 	}
 
 	public int memberUpdate(MemberDTO memberDTO) {
-		getConnection();
 
 		int count = 0;
 
@@ -148,6 +139,8 @@ public class MemberDAO {
 				+ "name=?, pwd=?, gender=?, email1=?, email2=?, tel1=?, tel2=?, tel3=?, zipcode=?, addr1=?, addr2=?, logtime=sysdate "
 				+ "where id = ?";
 		try {
+			connection = dataSource.getConnection();
+			
 			preparedStatement = connection.prepareStatement(sql);
 
 			preparedStatement.setString(1, memberDTO.getName());
@@ -174,12 +167,13 @@ public class MemberDAO {
 	}
 
 	public int memberDelete(String id) {
-		getConnection();
 
 		int count = 0;
 
 		String sql = "delete from member where id=?";
 		try {
+			connection = dataSource.getConnection();
+			
 			preparedStatement = connection.prepareStatement(sql);
 
 			preparedStatement.setString(1, id);
@@ -194,12 +188,13 @@ public class MemberDAO {
 	}
 
 	public boolean isexistPw(String id, String pw) {
-		getConnection();
 
 		boolean exist = false;
 
 		String sql = "select * from member where id = ? and pwd = ?";
 		try {
+			connection = dataSource.getConnection();
+			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, id);
 			preparedStatement.setString(2, pw);

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Connection Pool을 설치할 Context 지정 -->
+<Context docBase="miniProject_JSP" 
+		 path="/miniProject_JSP" 
+	     reloadabcle="true" 
+		 source="org.eclipse.jst.jee.server:miniProject_JSP">
+		 
+		 <Resource name="jdbc/oracle"
+		 		   type="javax.sql.DataSource"
+		 		   driverClassName="oracle.jdbc.driver.OracleDriver"
+		 		   url="jdbc:oracle:thin:@localhost:1521:xe"
+		 		   username="c##java"
+		 		   password="oracle"
+		 		   maxActive="20"
+		 		   maxIdle="3"
+		 		   removeAbandoned="true"/>
+</Context>

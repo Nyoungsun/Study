@@ -1,25 +1,27 @@
 package board.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import board.bean.BoardDTO;
 
 public class BoardDAO {
 	private Connection connection;
 	private PreparedStatement preparedStatement;
 	private ResultSet resultSet;
-
-	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String user = "c##java";
-	private String password = "oracle";
-
+	private DataSource dataSource;
+	
+	// Context.xml에서 Connection Pool 설정했으므로 
+    // 직접 JDBC 연동 X
+	
 	private static BoardDAO boardDAO = new BoardDAO();
 
 	public static BoardDAO getInstance() {
@@ -28,11 +30,11 @@ public class BoardDAO {
 
 	public BoardDAO() { 
 		try {
-			Class.forName(driver); 
-			System.out.println("jdbc driver load");
-		} catch (ClassNotFoundException e) {
-			throw new RuntimeException(e);
-		}
+			Context context = new InitialContext(); // 인터페이스이므로 직접 접근 불가
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/oracle"); //서버가 톰캣일 경우 'java:comp/env/' 필수
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} 
 	}
 
 	private static void close(Connection connection, PreparedStatement preparedStatement, ResultSet resultset) {
@@ -66,23 +68,15 @@ public class BoardDAO {
 
 	}
 
-	public void getConnection() {
-		try {
-			connection = DriverManager.getConnection(url, user, password);
-			System.out.println("connection");
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
 	public int boardWrite(Map<String, String> map) {
-		getConnection();
 
 		int count = 0;
 
 		String sql = "insert into board(seq, id, name, email, subject, content, ref)"
 				+ "values(seq_board.nextval, ?, ?, ?, ? ,? ,seq_board.currval)";
 		try {
+			connection = dataSource.getConnection();
+			
 			preparedStatement = connection.prepareStatement(sql);
 
 			preparedStatement.setString(1, map.get("name"));
@@ -101,7 +95,6 @@ public class BoardDAO {
 	}
 	
 	public ArrayList<BoardDTO> boardList(int start, int end) {
-		getConnection();
 
 		ArrayList<BoardDTO> list = new ArrayList<>();
 		String sql = "select * from"
@@ -109,6 +102,8 @@ public class BoardDAO {
 					+ "from (select * from board order by ref desc, step asc) A)"
 					+ "where rn between ? and ?";
 		try {
+			connection = dataSource.getConnection();
+			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, start);
 			preparedStatement.setInt(2, end);
@@ -142,23 +137,63 @@ public class BoardDAO {
 		return list;
 	}
 	
-	public int total() {
-		getConnection();
-
-		int total = 0;
-		String sql = "select count(*)total from board";
+	public BoardDTO boardList(int seq) {
+		
+		BoardDTO dto = null;
 
 		try {
-			preparedStatement = connection.prepareStatement(sql);
-			resultSet = preparedStatement.executeQuery();
+			connection = dataSource.getConnection();
 			
-			resultSet.next();
-			total = resultSet.getInt(1);
+			String sql = "select * from board where seq = ?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, seq);
+			
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				dto = new BoardDTO();
+				dto.setSeq(resultSet.getInt("seq"));
+				dto.setId(resultSet.getString("id"));
+				dto.setName(resultSet.getString("name"));
+				dto.setEmail(resultSet.getString("email"));
+				dto.setSubject(resultSet.getString("subject"));
+				dto.setContent(resultSet.getString("content"));
+				
+				dto.setRef(resultSet.getString("ref"));
+				dto.setLev(resultSet.getString("lev"));
+				dto.setStep(resultSet.getString("step"));
+				dto.setPseq(resultSet.getString("pseq"));
+				dto.setReply(resultSet.getString("reply"));
+				
+				dto.setHit(resultSet.getString("hit"));
+				dto.setLogtime(resultSet.getDate("logtime"));
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			BoardDAO.close(connection, preparedStatement, resultSet);
 		}
-		return total;
+		return dto;
+	}
+	
+	public int totalArticle() {
+
+		int totalArticle = 0;
+		String sql = "select count(*)total from board";
+
+		try {
+			connection = dataSource.getConnection();
+			
+			preparedStatement = connection.prepareStatement(sql);
+			resultSet = preparedStatement.executeQuery();
+			
+			resultSet.next();
+			totalArticle = resultSet.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			BoardDAO.close(connection, preparedStatement, resultSet);
+		}
+		return totalArticle;
 	}
 }

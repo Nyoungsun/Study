@@ -10,6 +10,7 @@ session.setAttribute("name", name);
 session.setAttribute("id", id);
 session.setAttribute("email", email);
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
