@@ -8,10 +8,15 @@ String id = request.getParameter("login_id").trim();
 String pw = request.getParameter("login_pw").trim();
 
 MemberDAO memberDAO = MemberDAO.getInstance();
-
 MemberDTO dto = memberDAO.memberRead(id);
-String name = dto.getName();
-String email = dto.getEmail1() + "@" + dto.getEmail2();
+
+String name = null;
+String email = null;
+
+if(null != dto) {
+name = dto.getName();
+email = dto.getEmail1() + "@" + dto.getEmail2();
+} 
 %>
 
 <!DOCTYPE html>
@@ -22,7 +27,7 @@ String email = dto.getEmail1() + "@" + dto.getEmail2();
 </head>
 <body>
 	<%
-	if (dto == null || !(dto.getId().equals(id)) || !(dto.getPw().equals(pw))) {
+	if (name == null || !(dto.getId().equals(id)) || !(dto.getPw().equals(pw))) {
 		response.sendRedirect("loginFail.jsp");
 	} else {
 		//세션

@@ -21,6 +21,7 @@ body {
 	background-image: url("./img/cry.jpg");
 	background-repeat: no-repeat;
 	background-position: right top;
+	background-color: #F9F8F3;
 }
 
 a:link {

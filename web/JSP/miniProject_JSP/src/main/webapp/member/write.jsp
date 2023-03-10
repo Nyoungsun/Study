@@ -56,7 +56,7 @@ int count = (int) memberDAO.memberWrite(memberDTO);
 	} else {
 	%>
 	<h3>회원가입 성공</h3>
-	<input type='button' value='로그인' onClick="location.href='http://192.168.0.32:8080/memberJSP/member/loginForm.jsp'">
+	<input type='button' value='로그인' onClick="location.href='./loginForm.jsp'">
 	<%
 	}
 	%>

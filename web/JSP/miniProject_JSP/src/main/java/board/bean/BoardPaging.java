@@ -15,7 +15,7 @@ public class BoardPaging {
 
 		int totalPage = (totalArticle + pageSize - 1) / pageSize;// 총 페이지수
 
-		int startPage = (currentPage - 1) / pageBlock * pageBlock + 1;
+		int startPage = ((currentPage - 1) / pageBlock) * pageBlock + 1;
 		int endPage = startPage + pageBlock - 1;
 		if (endPage > totalPage) {
 			endPage = totalPage;

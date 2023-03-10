@@ -1,3 +1,6 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="org.apache.coyote.http2.Http2AsyncUpgradeHandler"%>
 <%@page import="board.bean.BoardPaging"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="board.bean.BoardDTO"%>
@@ -14,8 +17,12 @@ int pg = Integer.parseInt(request.getParameter("pg"));
 int end = pg * 5;
 int start = end - 4;
 
+Map<String, Integer> map = new HashMap<String, Integer>(); //제너릭에는 클래스타입으로
+map.put("start", start);
+map.put("end", end);
+
 BoardDAO boardDAO = BoardDAO.getInstance();
-ArrayList<BoardDTO> list = boardDAO.boardList(start, end);
+ArrayList<BoardDTO> list = boardDAO.boardList(map);
 
 int totalArticle = boardDAO.totalArticle();
 
@@ -33,6 +40,7 @@ pg = 1     1     5
 pg = 2     6     10
 pg = 3     11    15
 */
+
 %>
 <!DOCTYPE html>
 <html>
@@ -86,32 +94,34 @@ table {
 	text-align: center;
 	margin-top: 20px;
 }
+
 </style>
 <!-- id: #, class: . -->
 </head>
 <body>
 	<img src="../img/duck.png" width='50' height='50'
 		onclick="location.href='../index.jsp'" style="cursor: pointer;">
-	<%
-	if (list != null) {
-	%>
-	<table border="1" cellpadding="5" cellspacing="0" frame="hsides"
-		rules="rows">
+	
+	<table border="1" cellpadding="5" cellspacing="0" frame="hsides" rules="rows">
 		<tr>
 			<th>글번호</th>
-			<th width="200">제목</th>
+			<th width="250">제목</th>
 			<th>작성자</th>
 			<th>조회수</th>
 			<th width="100">작성일</th>
 		</tr>
 		<%
+		if (list != null) {
+		%>
+		<%
 		for (BoardDTO boardDTO : list) {
 		%>
 		<tr>
 			<td align="center"><%=boardDTO.getSeq()%></td>
-			<td><a class="subject"
-				href="./boardView.jsp?seq=<%=boardDTO.getSeq()%>"
-				onclick="return sessionCheck()"><%=boardDTO.getSubject()%></a></td>
+			<td style="word-break:break-all">
+			<a class="subject"
+				style="cursor: pointer;"
+				onclick="sessionCheck(<%=id%>, <%=boardDTO.getSeq()%>)"><%=boardDTO.getSubject()%></a></td>
 			<td align="center"><%=boardDTO.getName()%></td>
 			<td align="center"><%=boardDTO.getHit()%></td>
 			<td align="center"><%=new SimpleDateFormat("yyyy.MM.dd.").format(boardDTO.getLogtime())%></td>
@@ -131,14 +141,13 @@ table {
 			location.href = "boardList.jsp?pg=" + pg;
 		}
 
-		function sessionCheck() {
-			if (<%=id%> == null) {
+		function sessionCheck(id, seq) {
+			if (id == null) {
 				alert("먼저 로그인하세요.");
-				var session = false;
 			} else {
-				var session = true;
+				location.href="./boardView.jsp?seq=" + seq;
 			}
-			return session
+			
 		}
 	</script>
 </body>

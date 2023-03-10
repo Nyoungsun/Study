@@ -8,24 +8,31 @@
             font-size: 20px;
             color: red;
             font-weight: bold;
+            text-align: center;"
         }
+        
+        table {
+        margin-left: auto;
+        margin-right: auto;
+}
     </style>
 </head>
 <meta charset="UTF-8">
 <body>
 <img src="../img/duck.png" width='50' height='50' onclick="location.href='../index.jsp'" style="cursor: pointer;">
-<h1>회원가입</h1>
+<h1 align="center">회원가입</h1>
 <br>
     <form name="writeForm" method="post" action="http://192.168.0.32:8080/miniProject_JSP/member/write.jsp">
         <table border="1" cellspacing="0" cellpadding="5">
             <tr>
                 <th>이름</th> <!--table header-->
-                <td><input type="text" name="name" style="width: 70px;"placeholder="이름 입력"></td>
+                <td><input type="text" name="name" style="width: 70px;" placeholder="이름 입력"></td>
             </tr>
             <tr>
             <tr>
                 <th>아이디</th> 
-                <td><input type="text" name="id" style="width: 150px;"placeholder="아이디 입력"></td>
+                <td><input type="text" name="id" style="width: 150px;" placeholder="아이디 입력">
+                	<input type="button" value="중복체크" onClick="checkId()"> </td>
             </tr>
             <tr>
              <tr>
@@ -98,6 +105,20 @@
     </form>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!-- 항상 먼저 선언되어야함 -->
     <script src="../js/member.js"></script> 
+    <script>
+    
+    function checkId(){
+    	if(document.writeForm.id.value == "") {
+    		document.getElementById("alert").innerHTML = "<font color='salmon'>먼저 아이디를 입력하세요.</font>";
+    	} else {
+    		var url = "checkId.jsp?id=" + document.writeForm.id.value;
+    		var popup = window.open(url, "checkId", "width=300 height=150 left=900 top=200"); //같은 이름은 하나만 열린다
+    		popup.addEventListener("beforeunload", function() {
+    			document.writeForm.id.value == "";
+    		});
+    	}
+    }
+    </script>
 
 </body>
 </html>

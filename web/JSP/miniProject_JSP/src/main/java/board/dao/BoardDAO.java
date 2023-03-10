@@ -32,6 +32,7 @@ public class BoardDAO {
 		try {
 			Context context = new InitialContext(); // 인터페이스이므로 직접 접근 불가
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/oracle"); //서버가 톰캣일 경우 'java:comp/env/' 필수
+			// Object를 반환하므로 캐스팅 필요
 		} catch (NamingException e) {
 			e.printStackTrace();
 		} 
@@ -94,19 +95,20 @@ public class BoardDAO {
 		return count;
 	}
 	
-	public ArrayList<BoardDTO> boardList(int start, int end) {
+	public ArrayList<BoardDTO> boardList(Map<String, Integer> map) {
+		
 
 		ArrayList<BoardDTO> list = new ArrayList<>();
-		String sql = "select * from"
-					+"(select rownum rn, A.*"
-					+ "from (select * from board order by ref desc, step asc) A)"
+		String sql = "select * from "
+					+ "(select rownum rn, A.* "
+					+ "from (select * from board order by ref desc, step asc) A) "
 					+ "where rn between ? and ?";
 		try {
 			connection = dataSource.getConnection();
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, start);
-			preparedStatement.setInt(2, end);
+			preparedStatement.setInt(1, map.get("start"));
+			preparedStatement.setInt(2, map.get("end"));
 			resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
@@ -152,21 +154,8 @@ public class BoardDAO {
 
 			while (resultSet.next()) {
 				dto = new BoardDTO();
-				dto.setSeq(resultSet.getInt("seq"));
-				dto.setId(resultSet.getString("id"));
-				dto.setName(resultSet.getString("name"));
-				dto.setEmail(resultSet.getString("email"));
 				dto.setSubject(resultSet.getString("subject"));
 				dto.setContent(resultSet.getString("content"));
-				
-				dto.setRef(resultSet.getString("ref"));
-				dto.setLev(resultSet.getString("lev"));
-				dto.setStep(resultSet.getString("step"));
-				dto.setPseq(resultSet.getString("pseq"));
-				dto.setReply(resultSet.getString("reply"));
-				
-				dto.setHit(resultSet.getString("hit"));
-				dto.setLogtime(resultSet.getDate("logtime"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -210,4 +210,27 @@ public class MemberDAO {
 		}
 		return exist;
 	}
+	
+	public boolean isexistId(String id) {
+
+		boolean exist = false;
+
+		String sql = "select * from member where id = ?";
+		try {
+			connection = dataSource.getConnection();
+			
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, id);
+
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				exist = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			MemberDAO.close(connection, preparedStatement, resultSet);
+		}
+		return exist;
+	}
 }
