@@ -34,6 +34,7 @@ boolean existId = memberDAO.isexistId(id);
 	
 	<script type="text/javascript">
 	function checkIdClose(id) {
+		opener.writeForm.idCheck.value= "1";
 		opener.writeForm.id.value = id;
 		window.close();
 		opener.writeForm.pw.focus();

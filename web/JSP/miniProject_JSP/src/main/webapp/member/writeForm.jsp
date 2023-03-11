@@ -31,8 +31,10 @@
             <tr>
             <tr>
                 <th>아이디</th> 
-                <td><input type="text" name="id" style="width: 150px;" placeholder="아이디 입력">
-                	<input type="button" value="중복체크" onClick="checkId()"> </td>
+                <td><input type="text" name="id" style="width: 150px;" placeholder="아이디 입력" onkeydown="inputId()">
+                	<input type="button" value="중복확인" onClick="checkId()"> 
+                	<input type="hidden" name="idCheck" value="0"></td>
+                	
             </tr>
             <tr>
              <tr>
@@ -109,14 +111,15 @@
     
     function checkId(){
     	if(document.writeForm.id.value == "") {
-    		document.getElementById("alert").innerHTML = "<font color='salmon'>먼저 아이디를 입력하세요.</font>";
+    		document.getElementById("alert").innerHTML = "<font color='red'>먼저 아이디를 입력하세요.</font>";
     	} else {
     		var url = "checkId.jsp?id=" + document.writeForm.id.value;
-    		var popup = window.open(url, "checkId", "width=300 height=150 left=900 top=200"); //같은 이름은 하나만 열린다
-    		popup.addEventListener("beforeunload", function() {
-    			document.writeForm.id.value == "";
-    		});
+    		window.open(url, "checkId", "width=300 height=150 left=900 top=200"); //같은 이름은 하나만 열린다
     	}
+    }
+    
+    function inputId(){
+    	document.writeForm.idCheck.value="0";
     }
     </script>
 

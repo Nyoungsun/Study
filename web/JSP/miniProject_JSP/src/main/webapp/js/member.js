@@ -9,6 +9,9 @@ function check() {
 	else if (form.id.value == "") {
 		doc.innerText = "아이디를 입력하세요."
 	}
+	else if (form.idCheck.value != "1") {
+		doc.innerText = "아이디 중복 확인을 해주세요."
+	}
 	else if (form.pw.value == "") {
 		doc.innerText = "비밀번호를 입력하세요."
 	}
