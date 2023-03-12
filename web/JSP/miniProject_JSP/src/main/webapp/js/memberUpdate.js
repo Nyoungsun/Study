@@ -13,9 +13,6 @@ function check() {
 	else if (document.writeForm.id.value == "") {
 		document.getElementById("checkIdDiv").innerText = "아이디를 입력하세요."
 	}
-	else if (document.writeForm.idCheck.value != "1") {
-		document.getElementById("checkIdDiv").innerText = "아이디 중복 확인을 해주세요."
-	}
 	else if (document.writeForm.pw.value == "") {
 		document.getElementById("checkPwDiv").innerText = "비밀번호를 입력하세요."
 	}

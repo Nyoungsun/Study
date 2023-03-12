@@ -11,9 +11,7 @@
 
 <%
 String id = (String) session.getAttribute("id");
-
 int pg = Integer.parseInt(request.getParameter("pg"));
-
 int end = pg * 5;
 int start = end - 4;
 
@@ -40,75 +38,37 @@ pg = 1     1     5
 pg = 2     6     10
 pg = 3     11    15
 */
-
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>목록</title>
+<title>Board</title>
+<link rel="stylesheet" href="../css/boardListStyle.css">
+<link rel="stylesheet" href="../css/logoStyle.css">
 <style>
-.subject:link {
-	color: black;
-	text-decoration: none;
-}
 
-.subject:visited {
-	color: black;
-	text-decoration: none;
-}
-
-.subject:hover {
-	color: green;
-	text-decoration: underline;
-}
-
-.subject:active {
-	color: salmon;
-}
-
-#paging {
-	text-decoration: none;
-	color: black;
-	border: 1px solid;
-	margin: 5px;
-	padding: 5px;
-	cursor: pointer;
-}
-
-#currentPaging {
-	text-decoration: none;
-	color: salmon;
-	border: 1px solid; margin : 5px;
-	padding: 5px;
-	cursor: pointer;
-	margin: 5px;
-}
-
-table {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#pageButton {
-	text-align: center;
-	margin-top: 20px;
-}
 
 </style>
 <!-- id: #, class: . -->
 </head>
 <body>
-	<img src="../img/duck.png" width='50' height='50'
-		onclick="location.href='../index.jsp'" style="cursor: pointer;">
+
+<div class="wrap" onclick="location.href='../index.jsp'">
+		<div class="menu">LET'S HAVE SOME FUN THIS MOMENT</div>
+		<div class="container">
+			<div class="menu-mask">LET'S HAVE SOME FUN THIS MOMENT</div>
+		</div>
+	</div>
 	
 	<table border="1" cellpadding="5" cellspacing="0" frame="hsides" rules="rows">
 		<tr>
 			<th>글번호</th>
-			<th width="250">제목</th>
+			<th width="1000">제목</th>
 			<th>작성자</th>
 			<th>조회수</th>
-			<th width="100">작성일</th>
+			<th>작성일</th>
 		</tr>
 		<%
 		if (list != null) {
@@ -117,14 +77,13 @@ table {
 		for (BoardDTO boardDTO : list) {
 		%>
 		<tr>
-			<td align="center"><%=boardDTO.getSeq()%></td>
-			<td style="word-break:break-all">
-			<a class="subject"
-				style="cursor: pointer;"
-				onclick="sessionCheck(<%=id%>, <%=boardDTO.getSeq()%>)"><%=boardDTO.getSubject()%></a></td>
-			<td align="center"><%=boardDTO.getName()%></td>
-			<td align="center"><%=boardDTO.getHit()%></td>
-			<td align="center"><%=new SimpleDateFormat("yyyy.MM.dd.").format(boardDTO.getLogtime())%></td>
+			<td class = "center"><%=boardDTO.getSeq()%></td>
+			<td>
+			<a onclick="sessionCheck(<%=id%>, <%=boardDTO.getSeq()%>)">
+			   <%=boardDTO.getSubject()%></a></td>
+			<td class = "center"><%=boardDTO.getName()%></td>
+			<td class = "center"><%=boardDTO.getHit()%></td>
+			<td class = "center"><%=new SimpleDateFormat("yyyy.MM.dd.").format(boardDTO.getLogtime())%></td>
 		</tr>
 		<%
 		}
@@ -136,6 +95,7 @@ table {
 	<div id="pageButton">
 		<%=boardPaging.getPagingHTML()%>
 	</div>
+	
 	<script>
 		function boardPaging(pg) {
 			location.href = "boardList.jsp?pg=" + pg;
@@ -144,14 +104,31 @@ table {
 		function sessionCheck(id, seq) {
 			if (id == null) {
 				alert("먼저 로그인하세요.");
+				location.href="../index.jsp"
 			} else {
 				location.href="./boardView.jsp?seq=" + seq;
 			}
 			
 		}
 	</script>
-</body>
+	
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+	<script>
+	const container = document.querySelector(".container");
 
+	document.body.addEventListener("mousemove", e => {
+	  const x = e.clientX;
+	  const y = e.clientY - 35;
+	  gsap.to(container, {
+	    y: y
+	  });
+	  gsap.to(".menu-mask", {
+	    y: -y
+	  });
+	});
+	</script>
+</body>
 </html>
 
 

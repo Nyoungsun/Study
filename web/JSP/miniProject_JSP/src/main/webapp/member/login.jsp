@@ -4,6 +4,7 @@
 
 <%
 request.setCharacterEncoding("UTF-8");
+
 String id = request.getParameter("login_id").trim();
 String pw = request.getParameter("login_pw").trim();
 

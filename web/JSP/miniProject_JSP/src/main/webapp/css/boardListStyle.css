@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Monument';
+	src:
+		url("https://res.cloudinary.com/holatresveces/raw/upload/v1573001944/MonumentExtended-Ultrabold_clzvv7.otf");
+}
+
+body {
+	font-family: Monument;
+	font-size: 17px;
+	line-height: 1.5;
+}
+
+a {
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#paging {
+	text-decoration: none;
+	color: black;
+	border: 1px solid;
+	margin: 5px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+#currentPaging {
+	text-decoration: none;
+	background-color: black;
+	border: 1px solid;
+	margin: 5px;
+	padding: 10px;
+	cursor: pointer;
+	margin: 5px;
+	border: 1px solid
+}
+
+#pageButton {
+	text-align: center;
+	margin-top: 50px;
+}
+
+table {
+	width: 100%;
+	margin-top: 50px;
+}
+
+td {
+	word-break: break-all;
+	padding: 12px;
+}
+
+th {
+	padding: 12px;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+.center {
+	text-align: center;
+}

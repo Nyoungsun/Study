@@ -5,14 +5,12 @@
 
 <%
 // Data
-String name = null;
-String id = null;
-
-id = (String) session.getAttribute("id");
+String id = (String) session.getAttribute("id");
+String pw = request.getParameter("pw");
 
 // DB
 MemberDAO memberDAO = MemberDAO.getInstance();
-int count = memberDAO.memberDelete(id);
+int count = memberDAO.memberDelete(id, pw);
 %>
 
 <!DOCTYPE html>

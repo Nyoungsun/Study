@@ -1,0 +1,128 @@
+/* Global styles */
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Monument";
+	src:
+		url("https://res.cloudinary.com/holatresveces/raw/upload/v1573001944/MonumentExtended-Ultrabold_clzvv7.otf");
+}
+
+body {
+	color: #1B2021;
+	font-family: Pretendard-Regular;
+	font-size: 20px;
+}
+
+table {
+	border: solid 1px;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#btnDiv {
+	width: 100%;
+	text-align: center;
+}
+
+.check {
+	color: red;
+	font-size: 14px;
+}
+
+td {
+	text-align: left;
+	color: #1B2021;
+	padding: 10px;
+}
+
+input[type="text"], input[type="password"] {
+	font-family: Pretendard-Regular;
+	font-size: 14px;
+	color: #1B2021;
+	padding: 10px;
+	border: 1px solid #e0e0e0;
+	background-color: #fff;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+input[type="radio"] {
+	margin-right: 8px;
+}
+
+button[type="submit"] {
+	margin-left: 5px;
+}
+
+button[type="submit"], input[type="button"], input[type="reset"] {
+	font-family: Pretendard-Regular;
+	font-size: 14px;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	background: #1B2021;
+	cursor: pointer;
+}
+
+button[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover
+	{
+	color: #1B2021;
+	background-color: #fff;
+	transition: all 0.3s ease;
+}
+
+select {
+	font-family: Pretendard-Regular;
+	font-size: 14px;
+	color: #1B2021;
+	padding: 10px;
+	border: 1px solid #e0e0e0;
+	width: 100%;
+}
+
+select option {
+	color: #1B2021;
+}
+
+*, *:before, *:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.wrap {
+	height: 100%;
+	font-family: "Monument";
+	font-size: 75px;
+	line-height: 70px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.container {
+	position: relative;
+	height: 70px;
+	overflow: hidden;
+	outline: 1px transparent;
+}
+
+.menu, .menu-mask {
+	position: absolute;
+	top: 0;
+	left: 0;
+	list-style: none;
+	white-space: nowrap;
+}
+
+.menu {
+	color: transparent;
+	-webkit-text-stroke: 1px black;
+}

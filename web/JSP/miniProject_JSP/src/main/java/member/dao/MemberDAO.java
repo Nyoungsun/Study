@@ -166,17 +166,18 @@ public class MemberDAO {
 		return count;
 	}
 
-	public int memberDelete(String id) {
+	public int memberDelete(String id, String pw) {
 
 		int count = 0;
 
-		String sql = "delete from member where id=?";
+		String sql = "delete from member where id=? pw=?";
 		try {
 			connection = dataSource.getConnection();
 			
 			preparedStatement = connection.prepareStatement(sql);
 
 			preparedStatement.setString(1, id);
+			preparedStatement.setString(2, pw);
 
 			count = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -191,13 +192,12 @@ public class MemberDAO {
 
 		boolean exist = false;
 
-		String sql = "select * from member where id = ? and pwd = ?";
+		String sql = "select * from member where id = ?";
 		try {
 			connection = dataSource.getConnection();
 			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, id);
-			preparedStatement.setString(2, pw);
 
 			resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {

@@ -43,23 +43,90 @@ int count = (int) memberDAO.memberWrite(memberDTO);
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SignUp</title>
+<title>Sign up</title>
+<link rel="stylesheet" href="../css/logoStyle.css">
+<style type="text/css">
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+body {
+	color: #1B2021;
+	font-family: Pretendard-Regular;
+}
+
+h1 {
+	margin-top: 300px;
+	text-align: center;
+}
+
+input[type="button"] {
+	margin: auto;
+	display: block; 
+	cursor : pointer;
+	background: #1B2021;
+	font-size: 20px;
+	color: #fff;
+	border: solid 1px;
+	font-family: Pretendard-Regular;
+	padding: 10px;
+	width: 12.5%;
+	cursor: pointer;
+}
+
+input[type="button"]:hover {
+	background: #fff;
+	color: #1B2021;
+	transition: all 0.3s ease;
+}
+</style>
 </head>
 <body>
+	<div class="wrap" onclick="location.href='../index.jsp'">
+		<div class="menu">LET'S HAVE SOME FUN THIS MOMENT</div>
+		<div class="container">
+			<div class="menu-mask">LET'S HAVE SOME FUN THIS MOMENT</div>
+		</div>
+	</div>
 	<%
 	if (count == 0) {
 	%>
-	<h3>회원가입 실패</h3>
+	<h1>회원가입 실패</h1>
 	<br>
-	<input type='button' value='뒤로' onclick='history.go(-1)'>
+	<input type='button' value='다시 회원가입하기' onclick='history.go(-1)'>
 	<%
 	} else {
 	%>
-	<h3>회원가입 성공</h3>
-	<input type='button' value='로그인' onClick="location.href='./loginForm.jsp'">
+	<h1>회원가입 성공</h1>
+	<input type='button' value='로그인'
+		onClick="location.href='./loginForm.jsp'">
 	<%
 	}
 	%>
+
+	<script
+		src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js'></script>
+	<script
+		src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+	<script>
+	const container = document.querySelector(".container");
+
+	document.body.addEventListener("mousemove", e => {
+	  const x = e.clientX;
+	  const y = e.clientY - 35;
+	  gsap.to(container, {
+	    y: y
+	  });
+	  gsap.to(".menu-mask", {
+	    y: -y
+	  });
+	});
+	</script>
 
 </body>
 </html>
