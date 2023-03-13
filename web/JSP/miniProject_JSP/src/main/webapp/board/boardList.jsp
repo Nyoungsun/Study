@@ -47,11 +47,6 @@ pg = 3     11    15
 <title>Board</title>
 <link rel="stylesheet" href="../css/boardListStyle.css">
 <link rel="stylesheet" href="../css/logoStyle.css">
-<style>
-
-
-</style>
-<!-- id: #, class: . -->
 </head>
 <body>
 
@@ -77,13 +72,13 @@ pg = 3     11    15
 		for (BoardDTO boardDTO : list) {
 		%>
 		<tr>
-			<td class = "center"><%=boardDTO.getSeq()%></td>
+			<td class="center"><%=boardDTO.getSeq()%></td>
 			<td>
-			<a onclick="sessionCheck(<%=id%>, <%=boardDTO.getSeq()%>)">
+			<a onclick="sessionCheck('<%=id%>', <%=boardDTO.getSeq()%>)">
 			   <%=boardDTO.getSubject()%></a></td>
-			<td class = "center"><%=boardDTO.getName()%></td>
-			<td class = "center"><%=boardDTO.getHit()%></td>
-			<td class = "center"><%=new SimpleDateFormat("yyyy.MM.dd.").format(boardDTO.getLogtime())%></td>
+			<td class="center"><%=boardDTO.getName()%></td>
+			<td class="center"><%=boardDTO.getHit()%></td>
+			<td class="center"><%=new SimpleDateFormat("yyyy.MM.dd.").format(boardDTO.getLogtime())%></td>
 		</tr>
 		<%
 		}

@@ -41,9 +41,9 @@ session.setAttribute("email", email);
 					<div id="contentCheck"></div></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="button"
-					name="write" value="글쓰기" onClick="check()"> <input
-					type="reset" name="write" value="다시작성"></td>
+				<td colspan="2" align="center">
+				<input type="button" name="write" value="글쓰기" onClick="check()">
+				<input type="reset" name="write" value="다시작성"></td>
 			</tr>
 		</table>
 	</form>

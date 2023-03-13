@@ -17,7 +17,7 @@ int count = memberDAO.memberDelete(id, pw);
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원탈퇴</title>
+<title>Withdrawal</title>
 </head>
 <body>
 	<%
@@ -30,16 +30,13 @@ int count = memberDAO.memberDelete(id, pw);
 	%>
 	<script>
 		window.onload = function() {
-			alert("회원 탈퇴 완료!!");
+			alert("회원 탈퇴 완료");
 			location.href = 'loginForm.jsp';
 		}
-
 		// <body onload="pick()"> -> js on load function 이용
 	</script>
 	<%
 	}
 	%>
-
-
 </body>
 </html>
